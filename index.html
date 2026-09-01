@@ -158,11 +158,13 @@
 
             position: relative;
 
-            padding: 100px 25px 100px;
+            padding: 100px 25px 0;
 
             text-align: center;
 
             background: #ffffff;
+
+            overflow: hidden;
         }
 
 
@@ -584,7 +586,7 @@
 
             margin: 0 auto;
 
-            padding: 20px 25px 80px;
+            padding: 20px 25px 40px;
 
             position: relative;
 
@@ -607,6 +609,29 @@
             font-size: 28px;
 
             color: #8d6262;
+        }
+
+
+        /* =====================================================
+           BUNGA BAGIAN BAWAH
+        ===================================================== */
+
+        .poppy-bottom {
+            display: block;
+
+            width: 100%;
+
+            max-width: 700px;
+
+            height: auto;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            z-index: 1;
+
+            pointer-events: none;
         }
 
 
@@ -649,7 +674,6 @@
 
         @media (max-width: 600px) {
 
-
             .cover h1 {
                 font-size: 54px;
             }
@@ -661,7 +685,7 @@
 
 
             .main-content {
-                padding: 90px 18px 90px;
+                padding: 90px 18px 0;
             }
 
 
@@ -707,6 +731,17 @@
 
             .closing-names {
                 font-size: 24px;
+            }
+
+
+            /* BUNGA POPPY DI HP */
+
+            .poppy-bottom {
+                width: 125%;
+
+                max-width: none;
+
+                margin-left: -12.5%;
             }
 
         }
@@ -1141,6 +1176,17 @@
         </div>
 
 
+        <!-- =================================================
+             BUNGA POPPY PALING BAWAH
+        ================================================= -->
+
+        <img
+            src="poppy.png"
+            class="poppy-bottom"
+            alt=""
+        >
+
+
     </section>
 
 
@@ -1202,12 +1248,7 @@
                 document.getElementById("backgroundMusic");
 
 
-            music.play().then(function() {
-
-                document.getElementById("musicButton").innerHTML =
-                    "🔊";
-
-            }).catch(function(error) {
+            music.play().catch(function(error) {
 
                 console.log(
                     "Musik belum dapat diputar:",
@@ -1235,18 +1276,9 @@
 
             if (music.paused) {
 
-                music.play().then(function() {
+                music.play();
 
-                    button.innerHTML = "🔊";
-
-                }).catch(function(error) {
-
-                    console.log(
-                        "Musik gagal diputar:",
-                        error
-                    );
-
-                });
+                button.innerHTML = "🔊";
 
             } else {
 
