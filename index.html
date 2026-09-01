@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -163,6 +164,7 @@
 
             background: #ffffff;
         }
+
 
         /* =====================================================
            OPENING
@@ -663,27 +665,6 @@
             }
 
 
-            /* BUNGA HP */
-
-            .bunga-layar {
-                width: 250px;
-            }
-
-
-            .bunga-layar-kiri {
-                left: -5px;
-
-                bottom: -5px;
-            }
-
-
-            .bunga-layar-kanan {
-                right: -5px;
-
-                top: -5px;
-            }
-
-
             .pengantin {
                 width: 270px;
             }
@@ -795,25 +776,6 @@
         class="main-content"
         id="mainContent"
     >
-
-
-        <!-- BUNGA KIRI -->
-
-        <img
-            src="bunga-kiri.png"
-            class="bunga-layar bunga-layar-kiri"
-            alt=""
-        >
-
-
-        <!-- BUNGA KANAN -->
-
-        <img
-            src="bunga-kanan.png"
-            class="bunga-layar bunga-layar-kanan"
-            alt=""
-        >
-
 
 
         <!-- =================================================
@@ -1240,7 +1202,12 @@
                 document.getElementById("backgroundMusic");
 
 
-            music.play().catch(function(error) {
+            music.play().then(function() {
+
+                document.getElementById("musicButton").innerHTML =
+                    "🔊";
+
+            }).catch(function(error) {
 
                 console.log(
                     "Musik belum dapat diputar:",
@@ -1268,9 +1235,18 @@
 
             if (music.paused) {
 
-                music.play();
+                music.play().then(function() {
 
-                button.innerHTML = "🔊";
+                    button.innerHTML = "🔊";
+
+                }).catch(function(error) {
+
+                    console.log(
+                        "Musik gagal diputar:",
+                        error
+                    );
+
+                });
 
             } else {
 
