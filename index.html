@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -28,11 +27,12 @@
 
 
         /* =====================================================
-           COVER
+           COVER / HALAMAN DEPAN
         ===================================================== */
 
         .cover {
             min-height: 100vh;
+
             position: relative;
 
             display: flex;
@@ -44,6 +44,8 @@
             padding: 30px;
 
             background: #ffffff;
+
+            overflow: hidden;
         }
 
 
@@ -53,6 +55,10 @@
 
             position: relative;
             z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
 
@@ -128,6 +134,7 @@
             padding: 13px 32px;
 
             border: none;
+
             border-radius: 30px;
 
             background: #c99a9a;
@@ -148,6 +155,29 @@
 
 
         /* =====================================================
+           BUNGA POPPY - HALAMAN DEPAN
+        ===================================================== */
+
+        .poppy-cover {
+            width: 420px;
+
+            max-width: 90vw;
+
+            height: auto;
+
+            margin-top: 25px;
+
+            margin-bottom: -30px;
+
+            position: relative;
+
+            z-index: 1;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
            HALAMAN UTAMA
         ===================================================== */
 
@@ -158,13 +188,11 @@
 
             position: relative;
 
-            padding: 100px 25px 0;
+            padding: 100px 25px 100px;
 
             text-align: center;
 
             background: #ffffff;
-
-            overflow: hidden;
         }
 
 
@@ -586,7 +614,7 @@
 
             margin: 0 auto;
 
-            padding: 20px 25px 40px;
+            padding: 20px 25px 80px;
 
             position: relative;
 
@@ -609,29 +637,6 @@
             font-size: 28px;
 
             color: #8d6262;
-        }
-
-
-        /* =====================================================
-           BUNGA BAGIAN BAWAH
-        ===================================================== */
-
-        .poppy-bottom {
-            display: block;
-
-            width: 100%;
-
-            max-width: 700px;
-
-            height: auto;
-
-            margin: 0 auto;
-
-            position: relative;
-
-            z-index: 1;
-
-            pointer-events: none;
         }
 
 
@@ -674,6 +679,11 @@
 
         @media (max-width: 600px) {
 
+            .cover {
+                padding: 25px 20px;
+            }
+
+
             .cover h1 {
                 font-size: 54px;
             }
@@ -684,8 +694,19 @@
             }
 
 
+            .poppy-cover {
+                width: 430px;
+
+                max-width: 125vw;
+
+                margin-top: 20px;
+
+                margin-bottom: -45px;
+            }
+
+
             .main-content {
-                padding: 90px 18px 0;
+                padding: 90px 18px 90px;
             }
 
 
@@ -733,17 +754,6 @@
                 font-size: 24px;
             }
 
-
-            /* BUNGA POPPY DI HP */
-
-            .poppy-bottom {
-                width: 125%;
-
-                max-width: none;
-
-                margin-left: -12.5%;
-            }
-
         }
 
     </style>
@@ -755,11 +765,10 @@
 
 
     <!-- =====================================================
-         COVER
+         COVER / HALAMAN DEPAN
     ===================================================== -->
 
     <section class="cover">
-
 
         <div class="content">
 
@@ -795,6 +804,15 @@
             <button onclick="bukaUndangan()">
                 Buka Undangan
             </button>
+
+
+            <!-- BUNGA DI BAWAH HALAMAN DEPAN -->
+
+            <img
+                src="poppy.png"
+                class="poppy-cover"
+                alt=""
+            >
 
 
         </div>
@@ -1174,17 +1192,6 @@
 
 
         </div>
-
-
-        <!-- =================================================
-             BUNGA POPPY PALING BAWAH
-        ================================================= -->
-
-        <img
-            src="poppy.png"
-            class="poppy-bottom"
-            alt=""
-        >
 
 
     </section>
