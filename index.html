@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -27,13 +28,15 @@
 
 
         /* =====================================================
-           COVER / HALAMAN DEPAN
+           COVER
         ===================================================== */
 
         .cover {
             min-height: 100vh;
+            height: 100vh;
 
             position: relative;
+            overflow: hidden;
 
             display: flex;
             justify-content: center;
@@ -44,8 +47,6 @@
             padding: 30px;
 
             background: #ffffff;
-
-            overflow: hidden;
         }
 
 
@@ -55,10 +56,6 @@
 
             position: relative;
             z-index: 10;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
 
@@ -134,7 +131,6 @@
             padding: 13px 32px;
 
             border: none;
-
             border-radius: 30px;
 
             background: #c99a9a;
@@ -155,21 +151,21 @@
 
 
         /* =====================================================
-           BUNGA POPPY - HALAMAN DEPAN
+           BUNGA POPPY - BAWAH HALAMAN DEPAN
         ===================================================== */
 
-        .poppy-cover {
-            width: 420px;
+        .cover-poppy {
+            position: absolute;
 
-            max-width: 90vw;
+            left: 50%;
+            bottom: -5px;
+
+            transform: translateX(-50%);
+
+            width: 420px;
+            max-width: 85%;
 
             height: auto;
-
-            margin-top: 25px;
-
-            margin-bottom: -30px;
-
-            position: relative;
 
             z-index: 1;
 
@@ -679,11 +675,6 @@
 
         @media (max-width: 600px) {
 
-            .cover {
-                padding: 25px 20px;
-            }
-
-
             .cover h1 {
                 font-size: 54px;
             }
@@ -694,14 +685,14 @@
             }
 
 
-            .poppy-cover {
-                width: 430px;
+            /* BUNGA POPPY DI HP */
 
-                max-width: 125vw;
+            .cover-poppy {
+                width: 300px;
 
-                margin-top: 20px;
+                max-width: 80%;
 
-                margin-bottom: -45px;
+                bottom: -5px;
             }
 
 
@@ -765,10 +756,11 @@
 
 
     <!-- =====================================================
-         COVER / HALAMAN DEPAN
+         COVER
     ===================================================== -->
 
     <section class="cover">
+
 
         <div class="content">
 
@@ -806,16 +798,20 @@
             </button>
 
 
-            <!-- BUNGA DI BAWAH HALAMAN DEPAN -->
-
-            <img
-                src="poppy.png"
-                class="poppy-cover"
-                alt=""
-            >
-
-
         </div>
+
+
+        <!-- =================================================
+             BUNGA POPPY
+             Pastikan file bernama: poppy.png
+        ================================================== -->
+
+        <img
+            src="poppy.png"
+            class="cover-poppy"
+            alt=""
+        >
+
 
     </section>
 
