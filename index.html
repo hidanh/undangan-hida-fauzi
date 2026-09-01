@@ -26,13 +26,12 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            COVER
-        ========================= */
+        ===================================================== */
 
         .cover {
             min-height: 100vh;
-
             position: relative;
 
             display: flex;
@@ -52,20 +51,18 @@
             max-width: 500px;
 
             position: relative;
-
             z-index: 10;
         }
 
 
-        /* =========================
-           TEXT COVER
-        ========================= */
+        /* =====================================================
+           TEKS COVER
+        ===================================================== */
 
         .small-text {
             font-family: Arial, sans-serif;
 
             font-size: 13px;
-
             letter-spacing: 4px;
 
             color: #9b7777;
@@ -88,7 +85,6 @@
             font-size: 58px;
 
             font-weight: normal;
-
             line-height: 1.15;
 
             margin: 0;
@@ -121,9 +117,9 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            BUTTON
-        ========================= */
+        ===================================================== */
 
         button {
             margin-top: 35px;
@@ -131,7 +127,6 @@
             padding: 13px 32px;
 
             border: none;
-
             border-radius: 30px;
 
             background: #c99a9a;
@@ -156,12 +151,13 @@
         ===================================================== */
 
         .main-content {
-
             display: none;
 
             min-height: 100vh;
 
-            padding: 80px 25px;
+            position: relative;
+
+            padding: 100px 25px 100px;
 
             text-align: center;
 
@@ -169,22 +165,55 @@
         }
 
 
-        /* =========================
+        /* =====================================================
+           BUNGA KIRI & KANAN
+           
+           MENEMPEL DI LAYAR SAAT SCROLL
+        ===================================================== */
+
+        .bunga-layar {
+            position: fixed;
+
+            top: 70px;
+
+            width: 145px;
+
+            height: auto;
+
+            z-index: 5;
+
+            pointer-events: none;
+        }
+
+
+        .bunga-layar-kiri {
+            left: 0;
+        }
+
+
+        .bunga-layar-kanan {
+            right: 0;
+        }
+
+
+        /* =====================================================
            OPENING
-        ========================= */
+        ===================================================== */
 
         .opening {
-
             max-width: 600px;
 
             margin: 0 auto;
 
             text-align: center;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
         .opening-small {
-
             font-family: Arial, sans-serif;
 
             font-size: 12px;
@@ -198,7 +227,6 @@
 
 
         .pengantin {
-
             display: block;
 
             width: 300px;
@@ -212,7 +240,6 @@
 
 
         .opening h2 {
-
             margin: 5px 0;
 
             font-size: 32px;
@@ -224,7 +251,6 @@
 
 
         .and {
-
             font-size: 28px;
 
             font-style: italic;
@@ -236,7 +262,6 @@
 
 
         .opening-date {
-
             font-family: Arial, sans-serif;
 
             font-size: 13px;
@@ -250,7 +275,6 @@
 
 
         .opening-text {
-
             font-size: 15px;
 
             line-height: 1.8;
@@ -261,12 +285,11 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            ORNAMEN
-        ========================= */
+        ===================================================== */
 
         .ornamen {
-
             margin: 55px auto;
 
             color: #c99a9a;
@@ -282,7 +305,6 @@
         ===================================================== */
 
         .countdown-section {
-
             max-width: 600px;
 
             margin: 70px auto 80px;
@@ -290,7 +312,6 @@
 
 
         .section-title {
-
             font-size: 28px;
 
             font-weight: normal;
@@ -302,7 +323,6 @@
 
 
         .countdown {
-
             display: flex;
 
             justify-content: center;
@@ -314,7 +334,6 @@
 
 
         .count-box {
-
             width: 75px;
 
             padding: 15px 5px;
@@ -328,7 +347,6 @@
 
 
         .count-number {
-
             display: block;
 
             font-size: 25px;
@@ -338,7 +356,6 @@
 
 
         .count-label {
-
             display: block;
 
             font-family: Arial, sans-serif;
@@ -358,7 +375,6 @@
         ===================================================== */
 
         .event-section {
-
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -366,7 +382,6 @@
 
 
         .event-card {
-
             padding: 30px 20px;
 
             margin-top: 25px;
@@ -380,7 +395,6 @@
 
 
         .event-title {
-
             font-size: 21px;
 
             color: #8d6262;
@@ -390,7 +404,6 @@
 
 
         .event-time {
-
             font-family: Arial, sans-serif;
 
             font-size: 15px;
@@ -402,7 +415,6 @@
 
 
         .event-place {
-
             margin-top: 18px;
 
             font-size: 15px;
@@ -414,7 +426,6 @@
 
 
         .maps-button {
-
             display: inline-block;
 
             margin-top: 20px;
@@ -440,7 +451,6 @@
         ===================================================== */
 
         .gift-section {
-
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -456,7 +466,6 @@
 
 
         .gift-icon {
-
             font-size: 42px;
 
             margin-bottom: 15px;
@@ -464,7 +473,6 @@
 
 
         .gift-section h2 {
-
             font-size: 27px;
 
             font-weight: normal;
@@ -476,7 +484,6 @@
 
 
         .gift-section p {
-
             font-size: 15px;
 
             line-height: 1.8;
@@ -492,7 +499,6 @@
         ===================================================== */
 
         .rsvp-section {
-
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -508,7 +514,6 @@
 
 
         .rsvp-section h2 {
-
             font-size: 27px;
 
             font-weight: normal;
@@ -520,7 +525,6 @@
 
 
         .rsvp-section p {
-
             font-size: 14px;
 
             line-height: 1.7;
@@ -530,7 +534,6 @@
 
 
         .rsvp-form {
-
             margin-top: 25px;
         }
 
@@ -562,7 +565,6 @@
 
 
         .rsvp-form textarea {
-
             min-height: 100px;
 
             resize: vertical;
@@ -570,7 +572,6 @@
 
 
         .rsvp-form button {
-
             margin-top: 5px;
 
             width: 100%;
@@ -578,7 +579,6 @@
 
 
         #rsvpMessage {
-
             margin-top: 15px;
 
             font-family: Arial, sans-serif;
@@ -594,7 +594,6 @@
         ===================================================== */
 
         .closing {
-
             max-width: 600px;
 
             margin: 0 auto;
@@ -604,7 +603,6 @@
 
 
         .closing p {
-
             font-size: 14px;
 
             line-height: 1.8;
@@ -614,7 +612,6 @@
 
 
         .closing-names {
-
             margin-top: 25px;
 
             font-size: 28px;
@@ -628,7 +625,6 @@
         ===================================================== */
 
         .music-button {
-
             position: fixed;
 
             right: 18px;
@@ -663,6 +659,7 @@
 
         @media (max-width: 600px) {
 
+
             .cover h1 {
                 font-size: 54px;
             }
@@ -674,7 +671,16 @@
 
 
             .main-content {
-                padding: 60px 18px;
+                padding: 90px 18px 90px;
+            }
+
+
+            /* BUNGA DI HP */
+
+            .bunga-layar {
+                width: 85px;
+
+                top: 65px;
             }
 
 
@@ -713,6 +719,7 @@
             .gift-section,
             .rsvp-section {
                 padding-left: 20px;
+
                 padding-right: 20px;
             }
 
@@ -790,9 +797,26 @@
     >
 
 
-        <!-- =========================
+        <!-- BUNGA KIRI -->
+
+        <img
+            src="bunga-kiri.png"
+            class="bunga-layar bunga-layar-kiri"
+        >
+
+
+        <!-- BUNGA KANAN -->
+
+        <img
+            src="bunga-kanan.png"
+            class="bunga-layar bunga-layar-kanan"
+        >
+
+
+
+        <!-- =================================================
              OPENING
-        ========================= -->
+        ================================================= -->
 
         <div class="opening">
 
@@ -1174,7 +1198,6 @@
     </audio>
 
 
-
     <button
         class="music-button"
         id="musicButton"
@@ -1198,18 +1221,14 @@
 
         function bukaUndangan() {
 
-
             document.querySelector(".cover").style.display =
                 "none";
-
 
             document.getElementById("mainContent").style.display =
                 "block";
 
-
             document.getElementById("musicButton").style.display =
                 "block";
-
 
             window.scrollTo(0, 0);
 
@@ -1237,10 +1256,8 @@
 
         function toggleMusic() {
 
-
             const music =
                 document.getElementById("backgroundMusic");
-
 
             const button =
                 document.getElementById("musicButton");
@@ -1275,7 +1292,6 @@
 
 
         function updateCountdown() {
-
 
             const now =
                 new Date().getTime();
@@ -1375,7 +1391,6 @@
                 "submit",
                 function(e) {
 
-
                     e.preventDefault();
 
 
@@ -1442,17 +1457,13 @@
                     .then(
                         function() {
 
-
                             message.innerHTML =
                                 "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
 
-
                             form.reset();
-
 
                             button.disabled =
                                 false;
-
 
                             button.innerHTML =
                                 "Kirim RSVP";
@@ -1463,17 +1474,13 @@
                     .catch(
                         function(error) {
 
-
                             console.error(error);
-
 
                             message.innerHTML =
                                 "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
 
-
                             button.disabled =
                                 false;
-
 
                             button.innerHTML =
                                 "Kirim RSVP";
