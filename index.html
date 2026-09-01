@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,12 +14,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            background: #fff;
+            background: #ffffff;
             color: #654f4f;
             font-family: Georgia, serif;
         }
+
 
         /* =========================
            COVER
@@ -26,73 +33,120 @@
         .cover {
             min-height: 100vh;
             position: relative;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             text-align: center;
+
             padding: 30px;
+
             overflow: hidden;
         }
+
 
         .content {
             width: 100%;
             max-width: 500px;
+
             position: relative;
+
             z-index: 10;
         }
 
 
         /* =========================
-           TEXT
+           TEXT COVER
         ========================= */
 
         .small-text {
             font-family: Arial, sans-serif;
+
             font-size: 13px;
+
             letter-spacing: 4px;
+
             color: #9b7777;
+
             margin-bottom: 25px;
         }
+
 
         .line {
             width: 70px;
             height: 1px;
+
             background: #cdaaaa;
+
             margin: 0 auto 25px;
         }
 
+
         h1 {
             font-size: 58px;
+
             font-weight: normal;
+
             line-height: 1.15;
+
             margin: 0;
+
             color: #8d6262;
         }
 
+
         .ampersand {
             font-size: 30px;
+
             font-style: italic;
+
             color: #b58b8b;
+
             margin: 8px 0;
         }
 
+
         .date {
             font-family: Arial, sans-serif;
+
             font-size: 14px;
+
             letter-spacing: 3px;
+
             margin-top: 30px;
+
             color: #806767;
         }
 
+
+        /* =========================
+           BUTTON
+        ========================= */
+
         button {
             margin-top: 35px;
+
             padding: 13px 32px;
+
             border: none;
+
             border-radius: 30px;
+
             background: #c99a9a;
+
             color: white;
+
             font-size: 15px;
+
             cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+            background: #b98585;
         }
 
 
@@ -102,24 +156,29 @@
 
         .bunga-samping {
             position: absolute;
+
             width: 180px;
+
             height: auto;
+
             z-index: 2;
         }
 
-        /* kiri */
 
         .bunga-kiri {
             left: -35px;
+
             top: 50%;
+
             transform: translateY(-50%);
         }
 
-        /* kanan */
 
         .bunga-kanan {
             right: -35px;
+
             top: 50%;
+
             transform: translateY(-50%) scaleX(-1);
         }
 
@@ -130,24 +189,63 @@
 
         .bunga-bouquet {
             position: absolute;
+
             width: 260px;
+
             height: auto;
+
             z-index: 3;
         }
 
-        /* kiri atas */
 
         .bouquet-kiri {
             bottom: -45px;
+
             left: -45px;
         }
 
-        /* kanan bawah */
 
         .bouquet-kanan {
             bottom: -45px;
+
             right: -45px;
+
             transform: scaleX(-1);
+        }
+
+
+        /* =========================
+           HALAMAN UTAMA
+        ========================= */
+
+        .main-content {
+            display: none;
+
+            min-height: 100vh;
+
+            padding: 80px 25px;
+
+            text-align: center;
+
+            background: #ffffff;
+        }
+
+
+        .main-content h2 {
+            color: #8d6262;
+
+            font-weight: normal;
+        }
+
+
+        .main-content p {
+            max-width: 500px;
+
+            margin: 25px auto;
+
+            line-height: 1.8;
+
+            color: #654f4f;
         }
 
 
@@ -161,143 +259,191 @@
                 font-size: 54px;
             }
 
+
             .small-text {
                 font-size: 12px;
             }
+
 
             .bunga-samping {
                 width: 125px;
             }
 
+
             .bunga-kiri {
                 left: -45px;
             }
+
 
             .bunga-kanan {
                 right: -45px;
             }
 
+
             .bunga-bouquet {
                 width: 180px;
             }
 
+
             .bouquet-kiri {
                 bottom: -30px;
+
                 left: -40px;
             }
 
+
             .bouquet-kanan {
                 bottom: -30px;
+
                 right: -40px;
             }
 
         }
-        .main-content {
-            display: none;
-            min-height: 100vh;
-            padding: 80px 25px;
-            text-align: center;
-            background: #fff;
-        }
-        .main-content h2 {
-            color: #8d6262;
-            font-weight: normal;
-        }
-        .main-content p {
-            max-width: 500px;
-            margin: 25px auto;
-            line-height: 1.8;
-            color: #654f4f;
-        }
 
     </style>
+
 </head>
 
 
 <body>
 
+
+    <!-- =========================
+         COVER
+    ========================= -->
+
     <section class="cover">
 
 
-        <!-- BUNGA PANJANG KIRI -->
+        <!-- BUNGA SAMPING KIRI -->
 
-        <img 
+        <img
             src="bunga-samping.png"
             class="bunga-samping bunga-kiri"
         >
 
 
-        <!-- BUNGA PANJANG KANAN -->
+        <!-- BUNGA SAMPING KANAN -->
 
-        <img 
+        <img
             src="bunga-samping.png"
             class="bunga-samping bunga-kanan"
         >
 
 
-        <!-- BOUQUET KIRI ATAS -->
+        <!-- BOUQUET KIRI -->
 
-        <img 
+        <img
             src="bunga-bouquet.png"
             class="bunga-bouquet bouquet-kiri"
         >
 
 
-        <!-- BOUQUET KANAN BAWAH -->
+        <!-- BOUQUET KANAN -->
 
-        <img 
+        <img
             src="bunga-bouquet.png"
             class="bunga-bouquet bouquet-kanan"
         >
 
 
-        <!-- ISI UNDANGAN -->
+        <!-- TULISAN -->
 
         <div class="content">
+
 
             <div class="small-text">
                 THE WEDDING OF
             </div>
 
+
             <div class="line"></div>
 
-            <h1>Hida</h1>
+
+            <h1>
+                Hida
+            </h1>
+
 
             <div class="ampersand">
                 &
             </div>
 
-            <h1>Fauzi</h1>
+
+            <h1>
+                Fauzi
+            </h1>
+
 
             <div class="date">
                 18 SEPTEMBER 2026
             </div>
 
+
             <button onclick="bukaUndangan()">
                 Buka Undangan
             </button>
 
+
         </div>
 
     </section>
-    <section class="main-content" id="mainContent">
+
+
+
+    <!-- =========================
+         HALAMAN SETELAH BUKA
+    ========================= -->
+
+    <section
+        class="main-content"
+        id="mainContent"
+    >
+
         <h2>
-            Assalamu'alaikum Wr. Wb.</h2>
+            Assalamu'alaikum Wr. Wb.
+        </h2>
+
+
         <p>
             Dengan memohon rahmat dan ridho Allah SWT,
             kami bermaksud mengundang Bapak/Ibu/Saudara/i
             untuk hadir dalam acara pernikahan kami.
         </p>
-        <h1>Hida & Fauzi</h1>
-        <p>18 September 2026</p>
 
-</section>
+
+        <h1>
+            Hida & Fauzi
+        </h1>
+
+
+        <p>
+            18 September 2026
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
+
         function bukaUndangan() {
+
             document.querySelector(".cover").style.display = "none";
+
             document.getElementById("mainContent").style.display = "block";
+
+            window.scrollTo(0, 0);
+
         }
 
-</script>
+    </script>
+
+
 </body>
+
 </html>
