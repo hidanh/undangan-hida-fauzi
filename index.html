@@ -17,21 +17,35 @@
             background: #fdf8f8;
             color: #654f4f;
             font-family: Georgia, serif;
+            overflow: hidden;
         }
+
+        /* =========================
+           COVER
+        ========================= */
 
         .cover {
             min-height: 100vh;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 30px;
+            overflow: hidden;
         }
 
         .content {
             width: 100%;
             max-width: 500px;
+            position: relative;
+            z-index: 5;
         }
+
+
+        /* =========================
+           TEXT
+        ========================= */
 
         .small-text {
             font-family: Arial, sans-serif;
@@ -51,7 +65,7 @@
         h1 {
             font-size: 58px;
             font-weight: normal;
-            line-height: 1.2;
+            line-height: 1.15;
             margin: 0;
             color: #8d6262;
         }
@@ -74,7 +88,7 @@
         button {
             margin-top: 35px;
             padding: 13px 32px;
-            border: 1px solid #c99a9a;
+            border: none;
             border-radius: 30px;
             background: #c99a9a;
             color: white;
@@ -82,16 +96,289 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background: #b98585;
+
+        /* =========================
+           FLOWER DECORATION
+        ========================= */
+
+        .flower {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+        }
+
+        .petal {
+            position: absolute;
+            width: 32px;
+            height: 48px;
+            background: #efb8b8;
+            border-radius: 50%;
+            left: 24px;
+            top: 16px;
+            transform-origin: 50% 90%;
+            opacity: 0.85;
+        }
+
+        .p1 {
+            transform: rotate(0deg);
+        }
+
+        .p2 {
+            transform: rotate(72deg);
+        }
+
+        .p3 {
+            transform: rotate(144deg);
+        }
+
+        .p4 {
+            transform: rotate(216deg);
+        }
+
+        .p5 {
+            transform: rotate(288deg);
+        }
+
+        .center {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: #d99b9b;
+            border-radius: 50%;
+            left: 31px;
+            top: 31px;
+            z-index: 2;
+        }
+
+
+        /* =========================
+           TOP LEFT
+        ========================= */
+
+        .flower-tl {
+            top: -15px;
+            left: -15px;
+            transform: scale(1.45);
+        }
+
+
+        /* =========================
+           TOP RIGHT
+        ========================= */
+
+        .flower-tr {
+            top: -15px;
+            right: -15px;
+            transform: scale(1.45);
+        }
+
+
+        /* =========================
+           BOTTOM LEFT
+        ========================= */
+
+        .flower-bl {
+            bottom: -20px;
+            left: -20px;
+            transform: scale(1.2);
+        }
+
+
+        /* =========================
+           BOTTOM RIGHT
+        ========================= */
+
+        .flower-br {
+            bottom: -20px;
+            right: -20px;
+            transform: scale(1.2);
+        }
+
+
+        /* =========================
+           DAUN / RANTING
+        ========================= */
+
+        .leaf {
+            position: absolute;
+            width: 45px;
+            height: 20px;
+            background: #b9b8a5;
+            border-radius: 100% 0 100% 0;
+            opacity: 0.65;
+        }
+
+        .leaf1 {
+            top: 95px;
+            left: 65px;
+            transform: rotate(35deg);
+        }
+
+        .leaf2 {
+            top: 125px;
+            left: 25px;
+            transform: rotate(-30deg);
+        }
+
+        .leaf3 {
+            top: 95px;
+            right: 65px;
+            transform: rotate(-35deg);
+        }
+
+        .leaf4 {
+            top: 125px;
+            right: 25px;
+            transform: rotate(30deg);
+        }
+
+
+        /* =========================
+           SMALL FLOWERS
+        ========================= */
+
+        .small-flower {
+            position: absolute;
+            font-size: 32px;
+            color: #e8a9a9;
+            opacity: 0.75;
+        }
+
+        .sf1 {
+            top: 115px;
+            left: 20px;
+            transform: rotate(-20deg);
+        }
+
+        .sf2 {
+            top: 130px;
+            right: 20px;
+            transform: rotate(20deg);
+        }
+
+        .sf3 {
+            bottom: 100px;
+            left: 25px;
+        }
+
+        .sf4 {
+            bottom: 100px;
+            right: 25px;
+        }
+
+
+        /* =========================
+           HP
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 54px;
+            }
+
+            .small-text {
+                font-size: 12px;
+            }
+
+            .flower-tl,
+            .flower-tr {
+                transform: scale(1.15);
+            }
+
+            .flower-bl,
+            .flower-br {
+                transform: scale(0.95);
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
 
     <section class="cover">
+
+
+        <!-- BUNGA KIRI ATAS -->
+
+        <div class="flower flower-tl">
+
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- BUNGA KANAN ATAS -->
+
+        <div class="flower flower-tr">
+
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- BUNGA KIRI BAWAH -->
+
+        <div class="flower flower-bl">
+
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- BUNGA KANAN BAWAH -->
+
+        <div class="flower flower-br">
+
+            <div class="petal p1"></div>
+            <div class="petal p2"></div>
+            <div class="petal p3"></div>
+            <div class="petal p4"></div>
+            <div class="petal p5"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+
+        <!-- DAUN -->
+
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
+
+
+        <!-- BUNGA KECIL -->
+
+        <div class="small-flower sf1">✿</div>
+        <div class="small-flower sf2">✿</div>
+        <div class="small-flower sf3">✿</div>
+        <div class="small-flower sf4">✿</div>
+
+
+        <!-- ISI UTAMA -->
 
         <div class="content">
 
