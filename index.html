@@ -39,7 +39,6 @@
             align-items: center;
 
             text-align: center;
-
             padding: 30px;
 
             overflow: hidden;
@@ -79,7 +78,6 @@
 
         h1 {
             font-size: 58px;
-
             font-weight: normal;
 
             line-height: 1.15;
@@ -190,14 +188,12 @@
 
         .bouquet-kiri {
             bottom: -45px;
-
             left: -45px;
         }
 
 
         .bouquet-kanan {
             bottom: -45px;
-
             right: -45px;
 
             transform: scaleX(-1);
@@ -238,7 +234,6 @@
             font-family: Arial, sans-serif;
 
             font-size: 12px;
-
             letter-spacing: 4px;
 
             color: #9b7777;
@@ -285,7 +280,6 @@
             font-family: Arial, sans-serif;
 
             font-size: 13px;
-
             letter-spacing: 3px;
 
             color: #806767;
@@ -578,7 +572,64 @@
 
 
         /* =========================
-           TAMPILAN HP
+           HADIAH
+        ========================= */
+
+        .hadiah {
+            max-width: 600px;
+
+            margin: 80px auto 0;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            border-top: 1px solid #ead7d7;
+
+            border-bottom: 1px solid #ead7d7;
+
+            background: #fffafa;
+        }
+
+
+        .hadiah-icon {
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hadiah h2 {
+            margin: 0 0 20px;
+
+            font-size: 32px;
+
+            font-weight: normal;
+
+            color: #8d6262;
+        }
+
+
+        .hadiah p {
+            max-width: 470px;
+
+            margin: 0 auto;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            color: #654f4f;
+        }
+
+
+        .hadiah strong {
+            color: #8d6262;
+        }
+
+
+        /* =========================
+           HP
         ========================= */
 
         @media (max-width: 600px) {
@@ -615,14 +666,12 @@
 
             .bouquet-kiri {
                 bottom: -30px;
-
                 left: -40px;
             }
 
 
             .bouquet-kanan {
                 bottom: -30px;
-
                 right: -40px;
             }
 
@@ -685,6 +734,23 @@
 
             .acara h2 {
                 font-size: 30px;
+            }
+
+
+            .hadiah {
+                margin-top: 60px;
+
+                padding: 40px 20px;
+            }
+
+
+            .hadiah h2 {
+                font-size: 29px;
+            }
+
+
+            .hadiah p {
+                font-size: 14px;
             }
 
         }
@@ -780,9 +846,7 @@
     >
 
 
-        <!-- =========================
-             OPENING
-        ========================= -->
+        <!-- OPENING -->
 
         <div class="opening">
 
@@ -829,9 +893,7 @@
 
 
 
-        <!-- =========================
-             AYAT
-        ========================= -->
+        <!-- AYAT -->
 
         <div class="ayat">
 
@@ -856,9 +918,7 @@
 
 
 
-        <!-- =========================
-             COUNTDOWN
-        ========================= -->
+        <!-- COUNTDOWN -->
 
         <div class="countdown-section">
 
@@ -873,10 +933,7 @@
             </h2>
 
 
-            <div
-                class="countdown"
-                id="countdown"
-            >
+            <div class="countdown" id="countdown">
 
 
                 <div class="count-box">
@@ -949,9 +1006,7 @@
 
 
 
-        <!-- =========================
-             WAKTU & TEMPAT
-        ========================= -->
+        <!-- WAKTU & TEMPAT -->
 
         <div class="acara">
 
@@ -966,7 +1021,7 @@
             </h2>
 
 
-            <!-- AKAD NIKAH -->
+            <!-- AKAD -->
 
             <div class="event">
 
@@ -1044,6 +1099,35 @@
         </div>
 
 
+
+        <!-- =========================
+             HADIAH
+        ========================= -->
+
+        <div class="hadiah">
+
+
+            <div class="hadiah-icon">
+                🎁
+            </div>
+
+
+            <h2>
+                Hadiah
+            </h2>
+
+
+            <p>
+                Bagi kami, hadiah yang paling berharga adalah
+                <strong>kehadiran dan doa restu</strong>
+                dari Bapak/Ibu/Saudara/i
+                di hari bahagia kami.
+            </p>
+
+
+        </div>
+
+
     </section>
 
 
@@ -1067,9 +1151,7 @@
 
 
 
-        /* =========================
-           COUNTDOWN
-        ========================= */
+        /* COUNTDOWN */
 
         const weddingDate =
             new Date("September 18, 2026 07:00:00").getTime();
@@ -1139,7 +1221,6 @@
 
 
         updateCountdown();
-
 
         setInterval(updateCountdown, 1000);
 
