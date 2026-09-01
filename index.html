@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hida & Fauzi</title>
+    <title>Ahmad Fauzi & Nur Hidayah</title>
 
     <style>
 
@@ -334,8 +334,6 @@
 
 
         .ayat-terjemahan {
-            font-family: Georgia, serif;
-
             font-size: 15px;
 
             font-style: italic;
@@ -629,6 +627,230 @@
 
 
         /* =========================
+           RSVP
+        ========================= */
+
+        .rsvp {
+            max-width: 600px;
+
+            margin: 80px auto 0;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            border-top: 1px solid #ead7d7;
+
+            background: #ffffff;
+        }
+
+
+        .rsvp-icon {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .rsvp-title {
+            margin: 0 0 12px;
+
+            font-size: 32px;
+
+            font-weight: normal;
+
+            color: #8d6262;
+        }
+
+
+        .rsvp-description {
+            max-width: 480px;
+
+            margin: 0 auto 30px;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #654f4f;
+        }
+
+
+        .rsvp-form {
+            max-width: 450px;
+
+            margin: 0 auto;
+
+            text-align: left;
+        }
+
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            color: #806767;
+        }
+
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border: 1px solid #dfcaca;
+
+            border-radius: 10px;
+
+            background: #fffafa;
+
+            color: #654f4f;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            outline: none;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #c99a9a;
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+
+        }
+
+
+        /* RADIO */
+
+        .radio-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 10px;
+        }
+
+
+        .radio-option {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 12px 15px;
+
+            border: 1px solid #ead7d7;
+
+            border-radius: 10px;
+
+            background: #fffafa;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            color: #654f4f;
+        }
+
+
+        .radio-option input {
+            width: auto;
+        }
+
+
+        .rsvp-button {
+
+            display: block;
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #c99a9a;
+
+            color: white;
+
+            font-size: 15px;
+
+            cursor: pointer;
+
+        }
+
+
+        .rsvp-button:hover {
+            background: #b98585;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            max-width: 600px;
+
+            margin: 70px auto 0;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #ead7d7;
+        }
+
+
+        .footer p {
+            margin: 6px 0;
+
+            font-size: 13px;
+
+            color: #9b7777;
+        }
+
+
+        .footer-names {
+            font-size: 22px !important;
+
+            color: #8d6262 !important;
+        }
+
+
+        /* =========================
            HP
         ========================= */
 
@@ -752,6 +974,19 @@
             .hadiah p {
                 font-size: 14px;
             }
+
+
+            .rsvp {
+                margin-top: 60px;
+
+                padding: 40px 20px;
+            }
+
+
+            .rsvp-title {
+                font-size: 29px;
+            }
+
 
         }
 
@@ -933,7 +1168,10 @@
             </h2>
 
 
-            <div class="countdown" id="countdown">
+            <div
+                class="countdown"
+                id="countdown"
+            >
 
 
                 <div class="count-box">
@@ -1128,6 +1366,190 @@
         </div>
 
 
+
+        <!-- =========================
+             RSVP
+        ========================= -->
+
+        <div class="rsvp">
+
+
+            <div class="rsvp-icon">
+                💌
+            </div>
+
+
+            <h2 class="rsvp-title">
+                Konfirmasi Kehadiran
+            </h2>
+
+
+            <p class="rsvp-description">
+                Mohon konfirmasi kehadiran Anda
+                untuk membantu kami mempersiapkan
+                hari bahagia ini.
+            </p>
+
+
+            <form
+                class="rsvp-form"
+                onsubmit="return kirimRSVP()"
+            >
+
+
+                <!-- NAMA -->
+
+                <div class="form-group">
+
+                    <label for="nama">
+                        Nama
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Masukkan nama Anda"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- KEHADIRAN -->
+
+                <div class="form-group">
+
+                    <label>
+                        Apakah Anda akan hadir?
+                    </label>
+
+
+                    <div class="radio-group">
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="kehadiran"
+                                value="Hadir"
+                                required
+                            >
+
+                            Ya, saya akan hadir
+
+                        </label>
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="kehadiran"
+                                value="Tidak hadir"
+                            >
+
+                            Maaf, saya tidak dapat hadir
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- JUMLAH TAMU -->
+
+                <div class="form-group">
+
+                    <label for="jumlah">
+                        Jumlah tamu
+                    </label>
+
+
+                    <select id="jumlah">
+
+                        <option value="1">
+                            1 orang
+                        </option>
+
+                        <option value="2">
+                            2 orang
+                        </option>
+
+                        <option value="3">
+                            3 orang
+                        </option>
+
+                        <option value="4">
+                            4 orang
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- UCAPAN -->
+
+                <div class="form-group">
+
+                    <label for="ucapan">
+                        Ucapan & doa
+                    </label>
+
+
+                    <textarea
+                        id="ucapan"
+                        placeholder="Tuliskan ucapan dan doa untuk kami..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="rsvp-button"
+                >
+                    Kirim Konfirmasi
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
+        <div class="footer">
+
+            <p>
+                Terima kasih atas doa dan kehadiran Anda.
+            </p>
+
+            <p class="footer-names">
+                Ahmad Fauzi & Nur Hidayah
+            </p>
+
+            <p>
+                18 September 2026
+            </p>
+
+        </div>
+
+
     </section>
 
 
@@ -1151,7 +1573,9 @@
 
 
 
-        /* COUNTDOWN */
+        /* =========================
+           COUNTDOWN
+        ========================= */
 
         const weddingDate =
             new Date("September 18, 2026 07:00:00").getTime();
@@ -1159,9 +1583,11 @@
 
         function updateCountdown() {
 
-            const now = new Date().getTime();
+            const now =
+                new Date().getTime();
 
-            const distance = weddingDate - now;
+            const distance =
+                weddingDate - now;
 
 
             if (distance <= 0) {
@@ -1179,27 +1605,35 @@
             }
 
 
-            const days = Math.floor(
-                distance / (1000 * 60 * 60 * 24)
-            );
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
 
 
-            const hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24))
-                / (1000 * 60 * 60)
-            );
+            const hours =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
 
 
-            const minutes = Math.floor(
-                (distance % (1000 * 60 * 60))
-                / (1000 * 60)
-            );
+            const minutes =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
 
 
-            const seconds = Math.floor(
-                (distance % (1000 * 60))
-                / 1000
-            );
+            const seconds =
+                Math.floor(
+                    (distance %
+                    (1000 * 60)) /
+                    1000
+                );
 
 
             document.getElementById("days").textContent =
@@ -1224,6 +1658,21 @@
 
         setInterval(updateCountdown, 1000);
 
+
+
+        /* =========================
+           RSVP SEMENTARA
+        ========================= */
+
+        function kirimRSVP() {
+
+            alert(
+                "Terima kasih atas konfirmasinya 🤍"
+            );
+
+            return false;
+
+        }
 
     </script>
 
