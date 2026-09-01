@@ -6,9 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hida & Fauzi</title>
+    <title>Ahmad Fauzi & Nur Hidayah</title>
 
     <style>
+
+        /* =========================
+           DASAR
+        ========================= */
 
         * {
             box-sizing: border-box;
@@ -27,7 +31,7 @@
 
 
         /* =========================
-           COVER
+           COVER AWAL
         ========================= */
 
         .cover {
@@ -43,6 +47,8 @@
             padding: 30px;
 
             overflow: hidden;
+
+            background: #ffffff;
         }
 
 
@@ -57,7 +63,7 @@
 
 
         /* =========================
-           TEXT COVER
+           TEKS COVER
         ========================= */
 
         .small-text {
@@ -151,7 +157,7 @@
 
 
         /* =========================
-           BUNGA COVER
+           BUNGA COVER SAMPING
         ========================= */
 
         .bunga-samping {
@@ -183,6 +189,10 @@
         }
 
 
+        /* =========================
+           BOUQUET COVER
+        ========================= */
+
         .bunga-bouquet {
             position: absolute;
 
@@ -210,60 +220,79 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            HALAMAN UTAMA
-        ========================= */
+        ===================================================== */
 
         .main-content {
+
             display: none;
 
             min-height: 100vh;
 
-            padding: 90px 25px 120px;
+            position: relative;
+
+            padding: 125px 25px 135px;
 
             text-align: center;
 
             background: #ffffff;
-
-            position: relative;
         }
 
 
-        /* =========================
-           BUNGA FIXED
-           MUNCUL SETELAH BUKA
-        ========================= */
+
+        /* =====================================================
+           BUNGA ATAS & BAWAH
+           
+           FIXED = TETAP MENEMPEL DI LAYAR SAAT SCROLL
+        ===================================================== */
 
         .bunga-fixed {
+
             position: fixed;
 
             left: 0;
 
             width: 100%;
 
-            height: auto;
+            height: 105px;
 
-            z-index: 999;
+            z-index: 2;
 
             pointer-events: none;
+
+            object-fit: cover;
         }
 
+
+        /* BUNGA ATAS */
 
         .bunga-atas {
+
             top: 0;
+
+            object-position: center top;
         }
 
+
+        /* BUNGA BAWAH */
 
         .bunga-bawah {
+
             bottom: 0;
+
+            object-position: center bottom;
         }
 
 
-        /* =========================
-           OPENING
-        ========================= */
+
+        /* =====================================================
+           ISI UTAMA
+        ===================================================== */
 
         .opening {
+
             max-width: 600px;
 
             margin: 0 auto;
@@ -277,6 +306,7 @@
 
 
         .opening-small {
+
             font-family: Arial, sans-serif;
 
             font-size: 12px;
@@ -290,6 +320,7 @@
 
 
         .pengantin {
+
             display: block;
 
             width: 300px;
@@ -303,6 +334,7 @@
 
 
         .opening h2 {
+
             margin: 5px 0;
 
             font-size: 32px;
@@ -314,6 +346,7 @@
 
 
         .and {
+
             font-size: 28px;
 
             font-style: italic;
@@ -325,6 +358,7 @@
 
 
         .opening-date {
+
             font-family: Arial, sans-serif;
 
             font-size: 13px;
@@ -338,6 +372,7 @@
 
 
         .opening-text {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -348,29 +383,33 @@
         }
 
 
+
         /* =========================
            ORNAMEN
         ========================= */
 
         .ornamen {
+
             margin: 55px auto;
 
             color: #c99a9a;
 
-            font-size: 25px;
+            font-size: 23px;
 
             letter-spacing: 8px;
         }
 
 
-        /* =========================
+
+        /* =====================================================
            COUNTDOWN
-        ========================= */
+        ===================================================== */
 
         .countdown-section {
-            margin: 70px auto 80px;
 
             max-width: 600px;
+
+            margin: 70px auto 80px;
 
             position: relative;
 
@@ -379,6 +418,7 @@
 
 
         .section-title {
+
             font-size: 28px;
 
             font-weight: normal;
@@ -390,6 +430,7 @@
 
 
         .countdown {
+
             display: flex;
 
             justify-content: center;
@@ -401,6 +442,7 @@
 
 
         .count-box {
+
             width: 75px;
 
             padding: 15px 5px;
@@ -409,11 +451,12 @@
 
             border-radius: 12px;
 
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
         }
 
 
         .count-number {
+
             display: block;
 
             font-size: 25px;
@@ -423,6 +466,9 @@
 
 
         .count-label {
+
+            display: block;
+
             font-family: Arial, sans-serif;
 
             font-size: 9px;
@@ -435,11 +481,13 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            WAKTU & TEMPAT
-        ========================= */
+        ===================================================== */
 
         .event-section {
+
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -451,6 +499,7 @@
 
 
         .event-card {
+
             padding: 30px 20px;
 
             margin-top: 25px;
@@ -459,11 +508,12 @@
 
             border-radius: 18px;
 
-            background: rgba(255,255,255,0.92);
+            background: rgba(255,255,255,0.95);
         }
 
 
         .event-title {
+
             font-size: 21px;
 
             color: #8d6262;
@@ -473,6 +523,7 @@
 
 
         .event-time {
+
             font-family: Arial, sans-serif;
 
             font-size: 15px;
@@ -484,6 +535,7 @@
 
 
         .event-place {
+
             margin-top: 18px;
 
             font-size: 15px;
@@ -495,6 +547,7 @@
 
 
         .maps-button {
+
             display: inline-block;
 
             margin-top: 20px;
@@ -515,11 +568,13 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            HADIAH
-        ========================= */
+        ===================================================== */
 
         .gift-section {
+
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -530,7 +585,7 @@
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,0.94);
+            background: rgba(255,255,255,0.95);
 
             position: relative;
 
@@ -539,6 +594,7 @@
 
 
         .gift-icon {
+
             font-size: 42px;
 
             margin-bottom: 15px;
@@ -546,6 +602,7 @@
 
 
         .gift-section h2 {
+
             font-size: 27px;
 
             font-weight: normal;
@@ -557,6 +614,7 @@
 
 
         .gift-section p {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -567,11 +625,13 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            RSVP
-        ========================= */
+        ===================================================== */
 
         .rsvp-section {
+
             max-width: 600px;
 
             margin: 0 auto 80px;
@@ -582,7 +642,7 @@
 
             border-radius: 20px;
 
-            background: rgba(255,255,255,0.94);
+            background: rgba(255,255,255,0.95);
 
             position: relative;
 
@@ -591,6 +651,7 @@
 
 
         .rsvp-section h2 {
+
             font-size: 27px;
 
             font-weight: normal;
@@ -602,6 +663,7 @@
 
 
         .rsvp-section p {
+
             font-size: 14px;
 
             line-height: 1.7;
@@ -611,6 +673,7 @@
 
 
         .rsvp-form {
+
             margin-top: 25px;
         }
 
@@ -618,6 +681,7 @@
         .rsvp-form input,
         .rsvp-form select,
         .rsvp-form textarea {
+
             width: 100%;
 
             padding: 13px 15px;
@@ -641,6 +705,7 @@
 
 
         .rsvp-form textarea {
+
             min-height: 100px;
 
             resize: vertical;
@@ -648,6 +713,7 @@
 
 
         .rsvp-form button {
+
             margin-top: 5px;
 
             width: 100%;
@@ -655,6 +721,7 @@
 
 
         #rsvpMessage {
+
             margin-top: 15px;
 
             font-family: Arial, sans-serif;
@@ -665,16 +732,18 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            PENUTUP
-        ========================= */
+        ===================================================== */
 
         .closing {
+
             max-width: 600px;
 
             margin: 0 auto;
 
-            padding: 20px 25px 120px;
+            padding: 20px 25px 80px;
 
             position: relative;
 
@@ -683,6 +752,7 @@
 
 
         .closing p {
+
             font-size: 14px;
 
             line-height: 1.8;
@@ -692,6 +762,7 @@
 
 
         .closing-names {
+
             margin-top: 25px;
 
             font-size: 28px;
@@ -700,11 +771,13 @@
         }
 
 
-        /* =========================
+
+        /* =====================================================
            TOMBOL MUSIK
-        ========================= */
+        ===================================================== */
 
         .music-button {
+
             position: fixed;
 
             right: 18px;
@@ -733,43 +806,54 @@
         }
 
 
-        /* =========================
-           HP
-        ========================= */
+
+        /* =====================================================
+           TAMPILAN HP
+        ===================================================== */
 
         @media (max-width: 600px) {
 
+
             h1 {
+
                 font-size: 54px;
             }
 
 
             .small-text {
+
                 font-size: 12px;
             }
 
 
+            /* Bunga cover */
+
             .bunga-samping {
+
                 width: 125px;
             }
 
 
             .bunga-kiri {
+
                 left: -45px;
             }
 
 
             .bunga-kanan {
+
                 right: -45px;
             }
 
 
             .bunga-bouquet {
+
                 width: 180px;
             }
 
 
             .bouquet-kiri {
+
                 bottom: -30px;
 
                 left: -40px;
@@ -777,19 +861,28 @@
 
 
             .bouquet-kanan {
+
                 bottom: -30px;
 
                 right: -40px;
             }
 
 
+            /* Bunga fixed */
+
             .bunga-fixed {
-                width: 100%;
+
+                height: 75px;
             }
 
 
+            /* Jarak isi supaya tidak bertabrakan dengan bunga */
+
             .main-content {
+
                 padding-top: 100px;
+
+                padding-bottom: 100px;
 
                 padding-left: 18px;
 
@@ -798,22 +891,55 @@
 
 
             .pengantin {
+
                 width: 270px;
             }
 
 
             .opening h2 {
+
                 font-size: 28px;
             }
 
 
+            .opening-text {
+
+                font-size: 14px;
+
+                padding: 0 10px;
+            }
+
+
             .count-box {
+
                 width: 68px;
             }
 
 
             .count-number {
+
                 font-size: 22px;
+            }
+
+
+            .section-title {
+
+                font-size: 25px;
+            }
+
+
+            .gift-section,
+            .rsvp-section {
+
+                padding-left: 20px;
+
+                padding-right: 20px;
+            }
+
+
+            .closing-names {
+
+                font-size: 24px;
             }
 
         }
@@ -823,12 +949,13 @@
 </head>
 
 
+
 <body>
 
 
-    <!-- =========================
+    <!-- =====================================================
          COVER
-    ========================= -->
+    ===================================================== -->
 
     <section class="cover">
 
@@ -899,21 +1026,25 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          HALAMAN UTAMA
-    ========================= -->
+    ===================================================== -->
 
-    <section class="main-content" id="mainContent">
+    <section
+        class="main-content"
+        id="mainContent"
+    >
 
 
-        <!-- BUNGA ATAS DAN BAWAH
-             AKAN TETAP MENEMPEL SAAT SCROLL -->
+        <!-- BUNGA ATAS -->
 
         <img
             src="bunga-atas.png"
             class="bunga-fixed bunga-atas"
         >
 
+
+        <!-- BUNGA BAWAH -->
 
         <img
             src="bunga-bawah.png"
@@ -922,9 +1053,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              OPENING
-        ========================= -->
+        ================================================= -->
 
         <div class="opening">
 
@@ -977,9 +1108,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              COUNTDOWN
-        ========================= -->
+        ================================================= -->
 
         <div class="countdown-section">
 
@@ -993,6 +1124,7 @@
 
 
                 <div class="count-box">
+
                     <span
                         class="count-number"
                         id="days"
@@ -1003,10 +1135,12 @@
                     <span class="count-label">
                         HARI
                     </span>
+
                 </div>
 
 
                 <div class="count-box">
+
                     <span
                         class="count-number"
                         id="hours"
@@ -1017,10 +1151,12 @@
                     <span class="count-label">
                         JAM
                     </span>
+
                 </div>
 
 
                 <div class="count-box">
+
                     <span
                         class="count-number"
                         id="minutes"
@@ -1031,10 +1167,12 @@
                     <span class="count-label">
                         MENIT
                     </span>
+
                 </div>
 
 
                 <div class="count-box">
+
                     <span
                         class="count-number"
                         id="seconds"
@@ -1045,6 +1183,7 @@
                     <span class="count-label">
                         DETIK
                     </span>
+
                 </div>
 
 
@@ -1054,9 +1193,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              WAKTU & TEMPAT
-        ========================= -->
+        ================================================= -->
 
         <div class="event-section">
 
@@ -1065,6 +1204,8 @@
                 Waktu & Tempat
             </h2>
 
+
+            <!-- AKAD -->
 
             <div class="event-card">
 
@@ -1088,6 +1229,8 @@
             </div>
 
 
+
+            <!-- RESEPSI -->
 
             <div class="event-card">
 
@@ -1130,9 +1273,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              HADIAH
-        ========================= -->
+        ================================================= -->
 
         <div class="gift-section">
 
@@ -1158,9 +1301,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              RSVP
-        ========================= -->
+        ================================================= -->
 
         <div class="rsvp-section">
 
@@ -1234,9 +1377,9 @@
 
 
 
-        <!-- =========================
+        <!-- =================================================
              PENUTUP
-        ========================= -->
+        ================================================= -->
 
         <div class="closing">
 
@@ -1266,21 +1409,26 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          MUSIK
-    ========================= -->
+    ===================================================== -->
 
     <audio
         id="backgroundMusic"
         loop
         preload="auto"
     >
+
         <source
             src="asepirawan20-wedding-background-music-55.mp3"
             type="audio/mpeg"
         >
+
     </audio>
 
+
+
+    <!-- TOMBOL MUSIK -->
 
     <button
         class="music-button"
@@ -1292,27 +1440,30 @@
 
 
 
-    <!-- =========================
+    <!-- =====================================================
          JAVASCRIPT
-    ========================= -->
+    ===================================================== -->
 
     <script>
 
 
-        /* =========================
+        /* =================================================
            BUKA UNDANGAN
-        ========================= */
+        ================================================= */
 
         function bukaUndangan() {
 
 
-            document.querySelector(".cover").style.display = "none";
+            document.querySelector(".cover").style.display =
+                "none";
 
 
-            document.getElementById("mainContent").style.display = "block";
+            document.getElementById("mainContent").style.display =
+                "block";
 
 
-            document.getElementById("musicButton").style.display = "block";
+            document.getElementById("musicButton").style.display =
+                "block";
 
 
             window.scrollTo(0, 0);
@@ -1324,18 +1475,20 @@
 
             music.play().catch(function(error) {
 
-                console.log("Musik belum dapat diputar:", error);
+                console.log(
+                    "Musik belum dapat diputar:",
+                    error
+                );
 
             });
-
 
         }
 
 
 
-        /* =========================
+        /* =================================================
            MUSIK
-        ========================= */
+        ================================================= */
 
         function toggleMusic() {
 
@@ -1350,13 +1503,18 @@
 
             if (music.paused) {
 
+
                 music.play();
+
 
                 button.innerHTML = "🔊";
 
+
             } else {
 
+
                 music.pause();
+
 
                 button.innerHTML = "🔇";
 
@@ -1366,12 +1524,14 @@
 
 
 
-        /* =========================
+        /* =================================================
            COUNTDOWN
-        ========================= */
+        ================================================= */
 
         const weddingDate =
-            new Date("September 18, 2026 07:00:00").getTime();
+            new Date(
+                "September 18, 2026 07:00:00"
+            ).getTime();
 
 
         function updateCountdown() {
@@ -1387,13 +1547,22 @@
 
             if (distance <= 0) {
 
-                document.getElementById("days").innerHTML = "00";
 
-                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("days").innerHTML =
+                    "00";
 
-                document.getElementById("minutes").innerHTML = "00";
 
-                document.getElementById("seconds").innerHTML = "00";
+                document.getElementById("hours").innerHTML =
+                    "00";
+
+
+                document.getElementById("minutes").innerHTML =
+                    "00";
+
+
+                document.getElementById("seconds").innerHTML =
+                    "00";
+
 
                 return;
 
@@ -1402,28 +1571,35 @@
 
             const days =
                 Math.floor(
-                    distance / (1000 * 60 * 60 * 24)
+                    distance /
+                    (1000 * 60 * 60 * 24)
                 );
 
 
             const hours =
                 Math.floor(
-                    (distance % (1000 * 60 * 60 * 24))
-                    / (1000 * 60 * 60)
+                    (distance %
+                        (1000 * 60 * 60 * 24))
+                    /
+                    (1000 * 60 * 60)
                 );
 
 
             const minutes =
                 Math.floor(
-                    (distance % (1000 * 60 * 60))
-                    / (1000 * 60)
+                    (distance %
+                        (1000 * 60 * 60))
+                    /
+                    (1000 * 60)
                 );
 
 
             const seconds =
                 Math.floor(
-                    (distance % (1000 * 60))
-                    / 1000
+                    (distance %
+                        (1000 * 60))
+                    /
+                    1000
                 );
 
 
@@ -1448,13 +1624,16 @@
         updateCountdown();
 
 
-        setInterval(updateCountdown, 1000);
+        setInterval(
+            updateCountdown,
+            1000
+        );
 
 
 
-        /* =========================
-           RSVP GOOGLE SHEETS
-        ========================= */
+        /* =================================================
+           RSVP → GOOGLE SHEETS
+        ================================================= */
 
         const scriptURL =
             "https://script.google.com/macros/s/AKfycbwGvpO9AnrKhbBDos8Tpc1X-_NDGhwcBvVFWTQm1ACnoruGrAzugrmUtJTidoa2u-Ra/exec";
@@ -1462,87 +1641,120 @@
 
         document
             .getElementById("rsvpForm")
-            .addEventListener("submit", function(e) {
+            .addEventListener(
+                "submit",
+                function(e) {
 
 
-                e.preventDefault();
+                    e.preventDefault();
 
 
-                const form =
-                    document.getElementById("rsvpForm");
+                    const form =
+                        document.getElementById(
+                            "rsvpForm"
+                        );
 
 
-                const message =
-                    document.getElementById("rsvpMessage");
+                    const message =
+                        document.getElementById(
+                            "rsvpMessage"
+                        );
 
 
-                const button =
-                    form.querySelector("button");
+                    const button =
+                        form.querySelector(
+                            "button"
+                        );
 
 
-                button.disabled = true;
-
-                button.innerHTML = "Mengirim...";
+                    button.disabled = true;
 
 
-                const data =
-                    new URLSearchParams();
+                    button.innerHTML =
+                        "Mengirim...";
 
 
-                data.append(
-                    "nama",
-                    document.getElementById("nama").value
-                );
+                    const data =
+                        new URLSearchParams();
 
 
-                data.append(
-                    "kehadiran",
-                    document.getElementById("kehadiran").value
-                );
+                    data.append(
+                        "nama",
+                        document.getElementById(
+                            "nama"
+                        ).value
+                    );
 
 
-                data.append(
-                    "pesan",
-                    document.getElementById("pesan").value
-                );
+                    data.append(
+                        "kehadiran",
+                        document.getElementById(
+                            "kehadiran"
+                        ).value
+                    );
 
 
-                fetch(scriptURL, {
-
-                    method: "POST",
-
-                    body: data
-
-                })
-
-                .then(function(response) {
-
-                    message.innerHTML =
-                        "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
-
-                    form.reset();
-
-                    button.disabled = false;
-
-                    button.innerHTML = "Kirim RSVP";
-
-                })
-
-                .catch(function(error) {
-
-                    console.error(error);
-
-                    message.innerHTML =
-                        "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
-
-                    button.disabled = false;
-
-                    button.innerHTML = "Kirim RSVP";
-
-                });
+                    data.append(
+                        "pesan",
+                        document.getElementById(
+                            "pesan"
+                        ).value
+                    );
 
 
-            });
+                    fetch(
+                        scriptURL,
+                        {
+                            method: "POST",
+                            body: data
+                        }
+                    )
+
+                    .then(
+                        function(response) {
+
+
+                            message.innerHTML =
+                                "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
+
+
+                            form.reset();
+
+
+                            button.disabled =
+                                false;
+
+
+                            button.innerHTML =
+                                "Kirim RSVP";
+
+                        }
+                    )
+
+
+                    .catch(
+                        function(error) {
+
+
+                            console.error(error);
+
+
+                            message.innerHTML =
+                                "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
+
+
+                            button.disabled =
+                                false;
+
+
+                            button.innerHTML =
+                                "Kirim RSVP";
+
+                        }
+                    );
+
+                }
+            );
 
 
     </script>
