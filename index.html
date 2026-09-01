@@ -192,6 +192,23 @@
             }
 
         }
+        .main-content {
+            display: none;
+            min-height: 100vh;
+            padding: 80px 25px;
+            text-align: center;
+            background: #fff;
+        }
+        .main-content h2 {
+            color: #8d6262;
+            font-weight: normal;
+        }
+        .main-content p {
+            max-width: 500px;
+            margin: 25px auto;
+            line-height: 1.8;
+            color: #654f4f;
+        }
 
     </style>
 </head>
@@ -256,13 +273,31 @@
                 18 SEPTEMBER 2026
             </div>
 
-            <button>
+            <button onclick="bukaUndangan()">
                 Buka Undangan
             </button>
 
         </div>
 
     </section>
+    <section class="main-content" id="mainContent">
+        <h2>
+            Assalamu'alaikum Wr. Wb.</h2>
+        <p>
+            Dengan memohon rahmat dan ridho Allah SWT,
+            kami bermaksud mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam acara pernikahan kami.
+        </p>
+        <h1>Hida & Fauzi</h1>
+        <p>18 September 2026</p>
 
+</section>
+    <script>
+        function bukaUndangan() {
+            document.querySelector(".cover").style.display = "none";
+            document.getElementById("mainContent").style.display = "block";
+        }
+
+</script>
 </body>
 </html>
