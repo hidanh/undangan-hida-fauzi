@@ -55,12 +55,9 @@
         }
 
 
-        /* =========================
-           TEXT COVER
-        ========================= */
-
         .small-text {
             font-family: Arial, sans-serif;
+
             font-size: 13px;
             letter-spacing: 4px;
 
@@ -82,6 +79,7 @@
 
         h1 {
             font-size: 58px;
+
             font-weight: normal;
 
             line-height: 1.15;
@@ -94,6 +92,7 @@
 
         .ampersand {
             font-size: 30px;
+
             font-style: italic;
 
             color: #b58b8b;
@@ -106,6 +105,7 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
+
             letter-spacing: 3px;
 
             margin-top: 30px;
@@ -124,6 +124,7 @@
             padding: 13px 32px;
 
             border: none;
+
             border-radius: 30px;
 
             background: #c99a9a;
@@ -151,6 +152,7 @@
             position: absolute;
 
             width: 180px;
+
             height: auto;
 
             z-index: 2;
@@ -159,6 +161,7 @@
 
         .bunga-kiri {
             left: -35px;
+
             top: 50%;
 
             transform: translateY(-50%);
@@ -167,6 +170,7 @@
 
         .bunga-kanan {
             right: -35px;
+
             top: 50%;
 
             transform: translateY(-50%) scaleX(-1);
@@ -181,6 +185,7 @@
             position: absolute;
 
             width: 260px;
+
             height: auto;
 
             z-index: 3;
@@ -189,12 +194,14 @@
 
         .bouquet-kiri {
             bottom: -45px;
+
             left: -45px;
         }
 
 
         .bouquet-kanan {
             bottom: -45px;
+
             right: -45px;
 
             transform: scaleX(-1);
@@ -210,7 +217,7 @@
 
             min-height: 100vh;
 
-            padding: 80px 25px;
+            padding: 70px 25px 100px;
 
             text-align: center;
 
@@ -240,7 +247,7 @@
 
             color: #9b7777;
 
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
 
@@ -248,11 +255,12 @@
             display: block;
 
             width: 300px;
+
             max-width: 80%;
 
             height: auto;
 
-            margin: 10px auto 5px;
+            margin: 10px auto 15px;
         }
 
 
@@ -305,6 +313,62 @@
 
 
         /* =========================
+           AYAT
+        ========================= */
+
+        .ayat {
+            max-width: 600px;
+
+            margin: 60px auto 20px;
+
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #d8baba;
+
+            border-bottom: 1px solid #d8baba;
+        }
+
+
+        .ayat-arab {
+            font-size: 25px;
+
+            line-height: 2;
+
+            color: #8d6262;
+
+            direction: rtl;
+
+            margin-bottom: 20px;
+        }
+
+
+        .ayat-terjemahan {
+            font-family: Georgia, serif;
+
+            font-size: 15px;
+
+            font-style: italic;
+
+            line-height: 1.8;
+
+            color: #654f4f;
+        }
+
+
+        .ayat-sumber {
+            margin-top: 15px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #9b7777;
+        }
+
+
+        /* =========================
            TAMPILAN HP
         ========================= */
 
@@ -342,12 +406,14 @@
 
             .bouquet-kiri {
                 bottom: -30px;
+
                 left: -40px;
             }
 
 
             .bouquet-kanan {
                 bottom: -30px;
+
                 right: -40px;
             }
 
@@ -359,6 +425,25 @@
 
             .opening h2 {
                 font-size: 29px;
+            }
+
+
+            .ayat {
+                margin-top: 50px;
+
+                padding: 30px 15px;
+            }
+
+
+            .ayat-arab {
+                font-size: 21px;
+
+                line-height: 2.1;
+            }
+
+
+            .ayat-terjemahan {
+                font-size: 14px;
             }
 
         }
@@ -378,15 +463,11 @@
     <section class="cover">
 
 
-        <!-- BUNGA PANJANG KIRI -->
-
         <img
             src="bunga-samping.png"
             class="bunga-samping bunga-kiri"
         >
 
-
-        <!-- BUNGA PANJANG KANAN -->
 
         <img
             src="bunga-samping.png"
@@ -394,23 +475,17 @@
         >
 
 
-        <!-- BOUQUET KIRI BAWAH -->
-
         <img
             src="bunga-bouquet.png"
             class="bunga-bouquet bouquet-kiri"
         >
 
 
-        <!-- BOUQUET KANAN BAWAH -->
-
         <img
             src="bunga-bouquet.png"
             class="bunga-bouquet bouquet-kanan"
         >
 
-
-        <!-- ISI COVER -->
 
         <div class="content">
 
@@ -455,7 +530,7 @@
 
 
     <!-- =========================
-         HALAMAN SETELAH BUKA
+         HALAMAN UTAMA
     ========================= -->
 
     <section
@@ -502,6 +577,33 @@
                 kami bermaksud mengundang Bapak/Ibu/Saudara/i
                 untuk hadir dalam acara pernikahan kami.
             </p>
+
+
+        </div>
+
+
+
+        <!-- =========================
+             AYAT
+        ========================= -->
+
+        <div class="ayat">
+
+
+            <div class="ayat-arab">
+                وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+            </div>
+
+
+            <div class="ayat-terjemahan">
+                “Dan segala sesuatu kami jadikan berpasang-pasangan,
+                supaya kamu mengingat kebesaran Allah.”
+            </div>
+
+
+            <div class="ayat-sumber">
+                [QS. Adz Dzariyaat (51):49]
+            </div>
 
 
         </div>
