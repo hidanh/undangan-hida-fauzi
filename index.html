@@ -166,17 +166,13 @@
 
 
         /* =====================================================
-           BUNGA KIRI & KANAN
-           
-           MENEMPEL DI LAYAR SAAT SCROLL
+           BUNGA SISI LAYAR
         ===================================================== */
 
         .bunga-layar {
             position: fixed;
 
-            top: 70px;
-
-            width: 145px;
+            width: 230px;
 
             height: auto;
 
@@ -186,13 +182,23 @@
         }
 
 
+        /* BUNGA KIRI
+           Masuk dari kiri + posisi atas */
+
         .bunga-layar-kiri {
-            left: 0;
+            left: -5px;
+
+            top: 45px;
         }
 
 
+        /* BUNGA KANAN
+           Masuk dari kanan + posisi bawah */
+
         .bunga-layar-kanan {
-            right: 0;
+            right: -5px;
+
+            bottom: 45px;
         }
 
 
@@ -308,6 +314,10 @@
             max-width: 600px;
 
             margin: 70px auto 80px;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
@@ -378,6 +388,10 @@
             max-width: 600px;
 
             margin: 0 auto 80px;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
@@ -462,6 +476,10 @@
             border-radius: 20px;
 
             background: #ffffff;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
@@ -510,6 +528,10 @@
             border-radius: 20px;
 
             background: #ffffff;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
@@ -599,6 +621,10 @@
             margin: 0 auto;
 
             padding: 20px 25px 80px;
+
+            position: relative;
+
+            z-index: 10;
         }
 
 
@@ -675,12 +701,24 @@
             }
 
 
-            /* BUNGA DI HP */
+            /* BUNGA HP */
 
             .bunga-layar {
-                width: 85px;
+                width: 120px;
+            }
 
-                top: 65px;
+
+            .bunga-layar-kiri {
+                left: -5px;
+
+                top: 45px;
+            }
+
+
+            .bunga-layar-kanan {
+                right: -5px;
+
+                bottom: 45px;
             }
 
 
@@ -802,6 +840,7 @@
         <img
             src="bunga-kiri.png"
             class="bunga-layar bunga-layar-kiri"
+            alt=""
         >
 
 
@@ -810,6 +849,7 @@
         <img
             src="bunga-kanan.png"
             class="bunga-layar bunga-layar-kanan"
+            alt=""
         >
 
 
@@ -829,6 +869,7 @@
             <img
                 src="pengantin.png"
                 class="pengantin"
+                alt="Ahmad Fauzi & Nur Hidayah"
             >
 
 
