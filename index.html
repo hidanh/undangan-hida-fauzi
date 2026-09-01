@@ -369,7 +369,120 @@
 
 
         /* =========================
-           TAMPILAN HP
+           ACARA
+        ========================= */
+
+        .acara {
+            max-width: 600px;
+
+            margin: 70px auto 0;
+
+            text-align: center;
+        }
+
+
+        .acara-title {
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 4px;
+
+            color: #9b7777;
+
+            margin-bottom: 15px;
+        }
+
+
+        .acara h2 {
+            font-size: 34px;
+
+            font-weight: normal;
+
+            color: #8d6262;
+
+            margin: 0 0 35px;
+        }
+
+
+        .event {
+            margin: 0 auto 35px;
+
+            padding: 25px 20px;
+
+            max-width: 420px;
+
+            border: 1px solid #ead7d7;
+
+            border-radius: 15px;
+
+            background: #fffafa;
+        }
+
+
+        .event h3 {
+            margin: 0 0 12px;
+
+            font-size: 24px;
+
+            font-weight: normal;
+
+            color: #8d6262;
+        }
+
+
+        .event-time {
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+
+            color: #806767;
+
+            margin-bottom: 15px;
+        }
+
+
+        .event-place {
+            font-size: 15px;
+
+            line-height: 1.7;
+
+            color: #654f4f;
+        }
+
+
+        .maps-button {
+            display: inline-block;
+
+            margin-top: 10px;
+
+            padding: 13px 28px;
+
+            border-radius: 30px;
+
+            background: #c99a9a;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .maps-button:hover {
+            background: #b98585;
+        }
+
+
+        /* =========================
+           HP
         ========================= */
 
         @media (max-width: 600px) {
@@ -444,6 +557,16 @@
 
             .ayat-terjemahan {
                 font-size: 14px;
+            }
+
+
+            .acara {
+                margin-top: 60px;
+            }
+
+
+            .acara h2 {
+                font-size: 30px;
             }
 
         }
@@ -538,6 +661,9 @@
         id="mainContent"
     >
 
+
+        <!-- OPENING -->
+
         <div class="opening">
 
 
@@ -583,9 +709,7 @@
 
 
 
-        <!-- =========================
-             AYAT
-        ========================= -->
+        <!-- AYAT -->
 
         <div class="ayat">
 
@@ -607,6 +731,101 @@
 
 
         </div>
+
+
+
+        <!-- ACARA -->
+
+        <div class="acara">
+
+
+            <div class="acara-title">
+                WAKTU & TEMPAT
+            </div>
+
+
+            <h2>
+                Acara Pernikahan
+            </h2>
+
+
+            <!-- AKAD -->
+
+            <div class="event">
+
+
+                <h3>
+                    Akad Nikah
+                </h3>
+
+
+                <div class="event-time">
+                    07.00 WIB
+                </div>
+
+
+                <div class="event-place">
+
+                    <strong>
+                        Masjid Akbar Moedhar Arifin
+                    </strong>
+
+                    <br>
+
+                    Kec. Sidayu, Kabupaten Gresik
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RESEPSI -->
+
+            <div class="event">
+
+
+                <h3>
+                    Resepsi
+                </h3>
+
+
+                <div class="event-time">
+                    08.30 – 10.30 WIB
+                </div>
+
+
+                <div class="event-place">
+
+                    <strong>
+                        Masjid Akbar Moedhar Arifin
+                    </strong>
+
+                    <br>
+
+                    Kec. Sidayu, Kabupaten Gresik
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- GOOGLE MAPS -->
+
+            <a
+                href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
+                target="_blank"
+                class="maps-button"
+            >
+                📍 Lihat Lokasi di Google Maps
+            </a>
+
+
+        </div>
+
 
     </section>
 
