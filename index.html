@@ -21,6 +21,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
             overflow-x: hidden;
         }
 
@@ -40,10 +41,17 @@
 
 
         /* =====================================================
-           SCROLL
+           SCROLL SNAP
         ===================================================== */
 
+        .main-content {
+            scroll-snap-type: none;
+        }
+
+
         .scroll-section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
             position: relative;
         }
 
@@ -57,11 +65,12 @@
             opacity: 0;
 
             transform:
-                translateY(35px);
+                translateY(70px)
+                scale(.96);
 
             transition:
-                opacity 1s ease,
-                transform 1s cubic-bezier(.16, 1, .3, 1);
+                opacity .8s ease,
+                transform .9s cubic-bezier(.16, 1, .3, 1);
 
             will-change:
                 opacity,
@@ -74,7 +83,8 @@
             opacity: 1;
 
             transform:
-                translateY(0);
+                translateY(0)
+                scale(1);
         }
 
 
@@ -130,6 +140,10 @@
                     #ffffff 48%,
                     #fff4f7 100%
                 );
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
@@ -457,6 +471,8 @@
 
             bottom: 0;
 
+            transform: none;
+
             width: 100vw;
 
             max-width: none;
@@ -467,7 +483,7 @@
 
             object-fit: contain;
 
-            object-position: bottom center;
+            object-position: bottom;
 
             z-index: 2;
 
@@ -530,81 +546,111 @@
 
         .opening-section {
 
-            min-height: auto;
+            min-height: 100vh;
+
+            height: 100svh;
 
             padding:
-                65px 0
-                45px;
+                60px 0
+                40px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
         .details-section {
 
-            min-height: auto;
+            min-height: 100vh;
+
+            height: 100svh;
 
             padding:
-                55px 0
-                45px;
+                50px 0
+                40px;
 
             display: flex;
 
             flex-direction: column;
 
             justify-content: center;
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
         .gift-page-section {
 
-            min-height: auto;
+            min-height: 100vh;
+
+            height: 100svh;
 
             padding:
-                55px 0
-                45px;
+                50px 0
+                40px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
         .rsvp-page-section {
 
-            min-height: auto;
+            min-height: 100vh;
+
+            height: 100svh;
 
             padding:
-                55px 0
-                45px;
+                50px 0
+                40px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
         .closing-section {
 
-            min-height: auto;
+            min-height: 100vh;
+
+            height: 100svh;
 
             padding:
-                55px 0
-                70px;
+                50px 0
+                60px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            scroll-snap-align: start;
+
+            scroll-snap-stop: always;
         }
 
 
@@ -892,7 +938,7 @@
 
             margin:
                 0 auto
-                20px;
+                30px;
 
             position: relative;
 
@@ -940,67 +986,102 @@
 
         .quran-verse {
 
-            max-width: 600px;
-
-            width: 100%;
+            max-width: 560px;
 
             margin:
-                0 auto 28px;
+                0 auto
+                22px;
 
-            text-align: center;
+            padding:
+                22px 28px;
 
             position: relative;
 
-            z-index: 10;
+            background:
+                rgba(255,255,255,.42);
+
+            border:
+                1.5px solid
+                rgba(217,154,171,.65);
+
+            border-radius:
+                30px 22px
+                30px 22px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(190,110,135,.08);
+
+            text-align: center;
+        }
+
+
+        /* Garis pink tipis bergelombang bagian dalam */
+
+        .quran-verse::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 5px;
+
+            border:
+                1px solid
+                rgba(217,154,171,.45);
+
+            border-radius:
+                24px 18px
+                24px 18px;
+
+            pointer-events: none;
         }
 
 
         .quran-arabic {
 
-            font-family:
-                "Times New Roman",
-                Georgia,
-                serif;
+            position: relative;
+
+            z-index: 2;
 
             font-size: 23px;
 
             line-height: 2;
 
-            color: #9f6173;
+            color: #b8667e;
 
             margin:
-                0 5px 10px;
+                0 0 10px;
         }
 
 
         .quran-translation {
 
+            position: relative;
+
+            z-index: 2;
+
             font-size: 13px;
 
-            line-height: 1.8;
+            line-height: 1.7;
 
             color: #654f4f;
 
-            font-style: italic;
-
-            margin:
-                0 auto 5px;
-
-            max-width: 520px;
+            margin: 0;
         }
 
 
         .quran-reference {
 
-            font-family: Arial, sans-serif;
+            position: relative;
 
-            font-size: 11px;
+            z-index: 2;
 
-            letter-spacing: .5px;
+            font-size: 12px;
 
             color: #b8667e;
 
-            margin: 0;
+            margin-top: 8px;
         }
 
 
@@ -2017,51 +2098,61 @@
 
             .opening-section {
 
-                min-height: auto;
+                min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
-                    55px 0
-                    35px;
+                    60px 0
+                    40px;
             }
 
 
             .details-section {
 
-                min-height: auto;
+                min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
-                    45px 0
-                    35px;
+                    50px 0
+                    40px;
             }
 
 
             .gift-page-section {
 
-                min-height: auto;
+                min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
-                    45px 0
-                    35px;
+                    50px 0
+                    40px;
             }
 
 
             .rsvp-page-section {
 
-                min-height: auto;
+                min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
-                    45px 0
-                    35px;
+                    50px 0
+                    40px;
             }
 
 
             .closing-section {
 
-                min-height: auto;
+                min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
                     40px 0
-                    55px;
+                    60px;
             }
 
 
@@ -2154,15 +2245,44 @@
             }
 
 
+            /* =================================================
+               AYAT AL-QURAN - HP
+            ================================================= */
+
+            .quran-verse {
+
+                max-width: 100%;
+
+                margin:
+                    0 auto
+                    18px;
+
+                padding:
+                    18px 18px;
+
+                border-radius:
+                    25px 19px
+                    25px 19px;
+            }
+
+
+            .quran-verse::before {
+
+                inset: 4px;
+
+                border-radius:
+                    20px 15px
+                    20px 15px;
+            }
+
+
             .quran-arabic {
 
-                font-size: 20px;
+                font-size: 19px;
 
                 line-height: 1.9;
 
-                margin-left: 0;
-
-                margin-right: 0;
+                margin-bottom: 8px;
             }
 
 
@@ -2170,8 +2290,15 @@
 
                 font-size: 12px;
 
-                padding:
-                    0 8px;
+                line-height: 1.65;
+            }
+
+
+            .quran-reference {
+
+                font-size: 11px;
+
+                margin-top: 7px;
             }
 
 
@@ -2278,6 +2405,27 @@
 
                 transform:
                     scale(.92);
+            }
+
+
+            .quran-verse {
+
+                padding:
+                    16px 14px;
+            }
+
+
+            .quran-arabic {
+
+                font-size: 17px;
+
+                line-height: 1.85;
+            }
+
+
+            .quran-translation {
+
+                font-size: 11px;
             }
 
 
@@ -2489,30 +2637,37 @@
         <div class="scroll-section details-section">
 
 
-            <div class="quran-verse reveal">
-
-                <p class="quran-arabic" dir="rtl">
-                    وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
-                </p>
-
-                <p class="quran-translation">
-                    “Dan segala sesuatu kami jadikan berpasang-pasangan,
-                    supaya kamu mengingat kebesaran Allah.”
-                </p>
-
-                <p class="quran-reference">
-                    QS. Adz Dzariyaat (51): 49
-                </p>
-
-            </div>
-
-
             <div class="countdown-section reveal">
 
 
                 <h2 class="section-title">
                     Menuju Hari Bahagia
                 </h2>
+
+
+                <!-- AYAT AL-QURAN -->
+
+                <div class="quran-verse reveal">
+
+                    <p class="quran-arabic">
+                        وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+                    </p>
+
+
+                    <p class="quran-translation">
+
+                        “Dan segala sesuatu kami jadikan
+                        berpasang-pasangan, supaya kamu
+                        mengingat kebesaran Allah.”
+
+                    </p>
+
+
+                    <div class="quran-reference">
+                        QS. Adz Dzariyaat (51): 49
+                    </div>
+
+                </div>
 
 
                 <div class="countdown">
