@@ -427,15 +427,16 @@
         /* =====================================================
            SECTIONS
            
-           TIDAK LAGI 100SVH
-           supaya tidak ada space kosong terlalu besar
+           DIUBAH:
+           opening-section tidak lagi 100vh
+           supaya jarak kosong sebelum ayat tidak terlalu besar
         ===================================================== */
 
         .opening-section {
-            min-height: 100vh;
+            min-height: auto;
 
             padding:
-                60px 0 70px;
+                60px 0 20px;
 
             display: flex;
 
@@ -723,7 +724,7 @@
         /* =====================================================
            AYAT AL-QURAN
            
-           SEKARANG AYAT DI ATAS JUDUL
+           AYAT DI ATAS JUDUL
         ===================================================== */
 
         .quran-verse {
@@ -755,8 +756,7 @@
 
         /*
            Frame pink bergelombang.
-           Dibuat dengan background SVG supaya garisnya
-           benar-benar terlihat bergelombang.
+           TETAP SAMA
         */
 
         .quran-verse::before {
@@ -1739,11 +1739,12 @@
                     0 18px 60px;
             }
 
+            /* DIUBAH: tidak lagi satu layar penuh */
             .opening-section {
-                min-height: 100svh;
+                min-height: auto;
 
                 padding:
-                    60px 0 70px;
+                    60px 0 20px;
             }
 
             .details-section {
