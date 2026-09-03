@@ -20,9 +20,51 @@
 
         body {
             margin: 0;
-            background: #ffffff;
-            color: #654f4f;
+
             font-family: Georgia, serif;
+
+            color: #654f4f;
+
+            background: #ffffff;
+
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        .reveal.active {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .delay-1 {
+            transition-delay: .12s;
+        }
+
+
+        .delay-2 {
+            transition-delay: .24s;
+        }
+
+
+        .delay-3 {
+            transition-delay: .36s;
         }
 
 
@@ -31,13 +73,16 @@
         ===================================================== */
 
         .cover {
+
             min-height: 100vh;
             height: 100vh;
 
             position: relative;
+
             overflow: hidden;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
@@ -45,58 +90,136 @@
 
             padding: 30px;
 
-            background: #ffffff;
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #fff8fa 0%,
+                    #ffffff 48%,
+                    #fff4f7 100%
+                );
+        }
+
+
+        .cover::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(217,154,171,.18),
+                    transparent 70%
+                );
+
+            top: -150px;
+            left: -150px;
+
+            animation: softFloat 8s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+
+        .cover::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(217,154,171,.13),
+                    transparent 70%
+                );
+
+            bottom: -150px;
+            right: -120px;
+
+            animation: softFloatReverse 9s ease-in-out infinite;
+
+            pointer-events: none;
         }
 
 
         .content {
+
             width: 100%;
+
             max-width: 500px;
 
             position: relative;
+
             z-index: 10;
+
+            animation:
+                coverAppear 1.5s
+                cubic-bezier(.22,1,.36,1);
         }
 
 
-        /* =====================================================
-           TEKS COVER
-        ===================================================== */
-
         .small-text {
+
             font-family: Arial, sans-serif;
 
             font-size: 13px;
+
             letter-spacing: 4px;
 
             color: #c27f93;
 
             margin-bottom: 25px;
+
+            animation:
+                fadeDown 1.2s ease .1s both;
         }
 
 
         .line {
+
             width: 70px;
             height: 1px;
 
             background: #d99aab;
 
             margin: 0 auto 25px;
+
+            animation:
+                lineGrow 1s ease .3s both;
         }
 
 
         .cover h1 {
+
             font-size: 58px;
 
             font-weight: normal;
+
             line-height: 1.15;
 
             margin: 0;
 
             color: #b8667e;
+
+            animation:
+                titleFloat 5s ease-in-out infinite;
         }
 
 
         .ampersand {
+
             font-size: 30px;
 
             font-style: italic;
@@ -104,10 +227,14 @@
             color: #d08a9d;
 
             margin: 8px 0;
+
+            animation:
+                gentlePulse 4s ease-in-out infinite;
         }
 
 
         .date {
+
             font-family: Arial, sans-serif;
 
             font-size: 14px;
@@ -117,6 +244,9 @@
             margin-top: 30px;
 
             color: #b87588;
+
+            animation:
+                fadeUp 1s ease .5s both;
         }
 
 
@@ -125,14 +255,21 @@
         ===================================================== */
 
         button {
+
             margin-top: 35px;
 
             padding: 13px 32px;
 
             border: none;
+
             border-radius: 30px;
 
-            background: #d08a9d;
+            background:
+                linear-gradient(
+                    135deg,
+                    #d99aab,
+                    #c97891
+                );
 
             color: white;
 
@@ -140,28 +277,56 @@
 
             cursor: pointer;
 
-            transition: 0.3s;
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease,
+                background .35s ease;
+
+            box-shadow:
+                0 8px 20px
+                rgba(190,110,135,.20);
+
+            animation:
+                buttonAppear 1s ease .8s both;
         }
 
 
         button:hover {
-            background: #b8667e;
+
+            transform:
+                translateY(-3px)
+                scale(1.03);
+
+            box-shadow:
+                0 12px 25px
+                rgba(190,110,135,.28);
+        }
+
+
+        button:active {
+
+            transform:
+                translateY(0)
+                scale(.98);
         }
 
 
         /* =====================================================
-           BUNGA POPPY - BAWAH COVER
+           BUNGA POPPY COVER
         ===================================================== */
 
         .cover-poppy {
+
             position: absolute;
 
             left: 50%;
+
             bottom: -5px;
 
             transform: translateX(-50%);
 
             width: 420px;
+
             max-width: 85%;
 
             height: auto;
@@ -169,25 +334,57 @@
             z-index: 1;
 
             pointer-events: none;
+
+            animation:
+                poppyFloat 6s ease-in-out infinite;
         }
 
 
         /* =====================================================
-           HALAMAN UTAMA
+           MAIN CONTENT
         ===================================================== */
 
         .main-content {
+
             display: none;
 
             min-height: 100vh;
 
             position: relative;
 
-            padding: 100px 25px 100px;
+            padding:
+                100px
+                25px
+                100px;
 
             text-align: center;
 
-            background: #ffffff;
+            background:
+
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(255,220,229,.55),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(255,226,234,.50),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 50% 70%,
+                    rgba(255,235,240,.70),
+                    transparent 40%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #fffafb 0%,
+                    #fff4f7 45%,
+                    #fffafb 100%
+                );
         }
 
 
@@ -196,6 +393,7 @@
         ===================================================== */
 
         .opening {
+
             max-width: 600px;
 
             margin: 0 auto;
@@ -209,6 +407,7 @@
 
 
         .opening-small {
+
             font-family: Arial, sans-serif;
 
             font-size: 12px;
@@ -217,24 +416,197 @@
 
             color: #c27f93;
 
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+
+        /* =====================================================
+           FOTO PENGANTIN + FRAME
+        ===================================================== */
+
+        .couple-frame {
+
+            position: relative;
+
+            width: 330px;
+
+            max-width: 82%;
+
+            height: 430px;
+
+            margin:
+                10px auto
+                15px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation:
+                coupleFloating
+                5s
+                ease-in-out
+                infinite;
+        }
+
+
+        /* frame utama */
+
+        .couple-frame::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 275px;
+
+            height: 385px;
+
+            border-radius:
+                50%
+                50%
+                45%
+                45%;
+
+            border:
+                3px solid
+                #d99aab;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.95),
+                    rgba(255,226,234,.70)
+                );
+
+            box-shadow:
+
+                0 10px 35px
+                rgba(190,110,135,.18),
+
+                inset 0 0 0 8px
+                rgba(255,255,255,.65);
+
+            z-index: 0;
+        }
+
+
+        /* frame kedua */
+
+        .couple-frame::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 292px;
+
+            height: 402px;
+
+            border-radius:
+                50%
+                50%
+                45%
+                45%;
+
+            border:
+                1px solid
+                rgba(194,127,147,.55);
+
+            z-index: 0;
+
+            animation:
+                framePulse
+                4s
+                ease-in-out
+                infinite;
         }
 
 
         .pengantin {
+
             display: block;
 
-            width: 300px;
+            width: 285px;
 
-            max-width: 80%;
+            max-width: 85%;
 
             height: auto;
 
-            margin: 10px auto 5px;
+            position: relative;
+
+            z-index: 3;
+
+            filter:
+                drop-shadow(
+                    0 12px 12px
+                    rgba(125,76,88,.14)
+                );
         }
 
 
+        /* lingkaran dekor kecil */
+
+        .frame-decoration {
+
+            position: absolute;
+
+            z-index: 5;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e4a7b6,
+                    #cc7f95
+                );
+
+            border:
+                4px solid #ffffff;
+
+            box-shadow:
+                0 5px 15px
+                rgba(190,110,135,.20);
+
+            animation:
+                decorationFloat
+                4s
+                ease-in-out
+                infinite;
+        }
+
+
+        .frame-decoration.one {
+
+            top: 50px;
+
+            left: 15px;
+        }
+
+
+        .frame-decoration.two {
+
+            right: 15px;
+
+            bottom: 45px;
+
+            animation-delay: 1s;
+        }
+
+
+        /* =====================================================
+           OPENING TEXT
+        ===================================================== */
+
         .opening h2 {
+
             margin: 5px 0;
 
             font-size: 32px;
@@ -246,6 +618,7 @@
 
 
         .and {
+
             font-size: 28px;
 
             font-style: italic;
@@ -253,10 +626,17 @@
             color: #d08a9d;
 
             margin: 2px 0;
+
+            animation:
+                gentlePulse
+                4s
+                ease-in-out
+                infinite;
         }
 
 
         .opening-date {
+
             font-family: Arial, sans-serif;
 
             font-size: 13px;
@@ -270,6 +650,7 @@
 
 
         .opening-text {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -285,13 +666,21 @@
         ===================================================== */
 
         .ornamen {
-            margin: 55px auto;
+
+            margin:
+                55px auto;
 
             color: #d08a9d;
 
             font-size: 23px;
 
             letter-spacing: 8px;
+
+            animation:
+                ornamentFloat
+                5s
+                ease-in-out
+                infinite;
         }
 
 
@@ -300,9 +689,12 @@
         ===================================================== */
 
         .countdown-section {
+
             max-width: 600px;
 
-            margin: 70px auto 80px;
+            margin:
+                70px auto
+                80px;
 
             position: relative;
 
@@ -311,6 +703,7 @@
 
 
         .section-title {
+
             font-size: 28px;
 
             font-weight: normal;
@@ -318,10 +711,35 @@
             color: #b8667e;
 
             margin-bottom: 25px;
+
+            position: relative;
+        }
+
+
+        .section-title::before,
+        .section-title::after {
+
+            content: "✦";
+
+            display: inline-block;
+
+            margin:
+                0 15px;
+
+            color: #d99aab;
+
+            font-size: 15px;
+
+            animation:
+                gentlePulse
+                3s
+                ease-in-out
+                infinite;
         }
 
 
         .countdown {
+
             display: flex;
 
             justify-content: center;
@@ -333,6 +751,7 @@
 
 
         .count-box {
+
             width: 75px;
 
             padding: 15px 5px;
@@ -341,14 +760,60 @@
 
             border-radius: 15px;
 
-            background: #d99aab;
+            background:
+                linear-gradient(
+                    145deg,
+                    #dfa1b1,
+                    #d18399
+                );
 
             box-shadow:
-                0 7px 20px rgba(190, 110, 135, 0.18);
+                0 8px 22px
+                rgba(190,110,135,.20);
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+
+            animation:
+                cardFloat
+                5s
+                ease-in-out
+                infinite;
+        }
+
+
+        .count-box:nth-child(2) {
+
+            animation-delay: .5s;
+        }
+
+
+        .count-box:nth-child(3) {
+
+            animation-delay: 1s;
+        }
+
+
+        .count-box:nth-child(4) {
+
+            animation-delay: 1.5s;
+        }
+
+
+        .count-box:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 14px 30px
+                rgba(190,110,135,.28);
         }
 
 
         .count-number {
+
             display: block;
 
             font-size: 25px;
@@ -358,6 +823,7 @@
 
 
         .count-label {
+
             display: block;
 
             font-family: Arial, sans-serif;
@@ -373,13 +839,16 @@
 
 
         /* =====================================================
-           WAKTU & TEMPAT
+           EVENT
         ===================================================== */
 
         .event-section {
+
             max-width: 600px;
 
-            margin: 0 auto 80px;
+            margin:
+                0 auto
+                80px;
 
             position: relative;
 
@@ -388,7 +857,9 @@
 
 
         .event-card {
-            padding: 30px 20px;
+
+            padding:
+                30px 20px;
 
             margin-top: 25px;
 
@@ -396,14 +867,77 @@
 
             border-radius: 20px;
 
-            background: #d99aab;
+            background:
+                linear-gradient(
+                    145deg,
+                    #dfa1b1,
+                    #d18399
+                );
 
             box-shadow:
-                0 8px 25px rgba(190, 110, 135, 0.18);
+                0 8px 25px
+                rgba(190,110,135,.20);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition:
+                transform .45s ease,
+                box-shadow .45s ease;
+        }
+
+
+        /* efek cahaya bergerak */
+
+        .event-card::before,
+        .gift-section::before,
+        .rsvp-section::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 60%;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.13),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            animation:
+                shine
+                7s
+                ease-in-out
+                infinite;
+        }
+
+
+        .event-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(190,110,135,.27);
         }
 
 
         .event-title {
+
             font-size: 21px;
 
             color: #ffffff;
@@ -413,6 +947,7 @@
 
 
         .event-time {
+
             font-family: Arial, sans-serif;
 
             font-size: 15px;
@@ -424,6 +959,7 @@
 
 
         .event-place {
+
             margin-top: 18px;
 
             font-size: 15px;
@@ -435,11 +971,13 @@
 
 
         .maps-button {
+
             display: inline-block;
 
             margin-top: 20px;
 
-            padding: 12px 25px;
+            padding:
+                12px 25px;
 
             border-radius: 25px;
 
@@ -453,62 +991,104 @@
 
             font-size: 14px;
 
-            transition: 0.3s;
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
         }
 
 
         .maps-button:hover {
-            background: #fff4f7;
 
-            color: #a95770;
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 7px 18px
+                rgba(100,50,60,.15);
         }
 
 
         /* =====================================================
-           HADIAH
+           GIFT
         ===================================================== */
 
         .gift-section {
+
             max-width: 600px;
 
-            margin: 0 auto 80px;
+            margin:
+                0 auto
+                80px;
 
-            padding: 35px 25px;
+            padding:
+                35px 25px;
 
             border: none;
 
             border-radius: 22px;
 
-            background: #d99aab;
+            background:
+                linear-gradient(
+                    145deg,
+                    #dfa1b1,
+                    #d18399
+                );
 
             box-shadow:
-                0 8px 25px rgba(190, 110, 135, 0.18);
+                0 8px 25px
+                rgba(190,110,135,.20);
 
             position: relative;
 
-            z-index: 10;
+            overflow: hidden;
+
+            transition:
+                transform .45s ease,
+                box-shadow .45s ease;
+        }
+
+
+        .gift-section:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(190,110,135,.27);
         }
 
 
         .gift-icon {
+
             font-size: 42px;
 
             margin-bottom: 15px;
+
+            animation:
+                giftFloat
+                3s
+                ease-in-out
+                infinite;
         }
 
 
         .gift-section h2 {
+
             font-size: 27px;
 
             font-weight: normal;
 
             color: #ffffff;
 
-            margin: 5px 0 20px;
+            margin:
+                5px 0
+                20px;
         }
 
 
         .gift-section p {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -524,28 +1104,54 @@
         ===================================================== */
 
         .rsvp-section {
+
             max-width: 600px;
 
-            margin: 0 auto 80px;
+            margin:
+                0 auto
+                80px;
 
-            padding: 35px 25px;
+            padding:
+                35px 25px;
 
             border: none;
 
             border-radius: 22px;
 
-            background: #d99aab;
+            background:
+                linear-gradient(
+                    145deg,
+                    #dfa1b1,
+                    #d18399
+                );
 
             box-shadow:
-                0 8px 25px rgba(190, 110, 135, 0.18);
+                0 8px 25px
+                rgba(190,110,135,.20);
 
             position: relative;
 
-            z-index: 10;
+            overflow: hidden;
+
+            transition:
+                transform .45s ease,
+                box-shadow .45s ease;
+        }
+
+
+        .rsvp-section:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(190,110,135,.27);
         }
 
 
         .rsvp-section h2 {
+
             font-size: 27px;
 
             font-weight: normal;
@@ -557,6 +1163,7 @@
 
 
         .rsvp-section p {
+
             font-size: 14px;
 
             line-height: 1.7;
@@ -566,6 +1173,7 @@
 
 
         .rsvp-form {
+
             margin-top: 25px;
         }
 
@@ -576,7 +1184,8 @@
 
             width: 100%;
 
-            padding: 13px 15px;
+            padding:
+                13px 15px;
 
             margin-bottom: 15px;
 
@@ -593,16 +1202,35 @@
             color: #654f4f;
 
             outline: none;
+
+            transition:
+                box-shadow .3s ease,
+                transform .3s ease;
+        }
+
+
+        .rsvp-form input:focus,
+        .rsvp-form select:focus,
+        .rsvp-form textarea:focus {
+
+            box-shadow:
+                0 0 0 3px
+                rgba(255,255,255,.35);
+
+            transform:
+                translateY(-2px);
         }
 
 
         .rsvp-form input::placeholder,
         .rsvp-form textarea::placeholder {
+
             color: #b999a2;
         }
 
 
         .rsvp-form textarea {
+
             min-height: 100px;
 
             resize: vertical;
@@ -610,20 +1238,33 @@
 
 
         .rsvp-form button {
+
             margin-top: 5px;
 
             width: 100%;
 
-            background: #b8667e;
+            background:
+                linear-gradient(
+                    135deg,
+                    #b8667e,
+                    #c97891
+                );
         }
 
 
         .rsvp-form button:hover {
-            background: #a95770;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a95770,
+                    #bd6d85
+                );
         }
 
 
         #rsvpMessage {
+
             margin-top: 15px;
 
             font-family: Arial, sans-serif;
@@ -635,15 +1276,18 @@
 
 
         /* =====================================================
-           PENUTUP
+           CLOSING
         ===================================================== */
 
         .closing {
+
             max-width: 600px;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
-            padding: 20px 25px 80px;
+            padding:
+                20px 25px 80px;
 
             position: relative;
 
@@ -652,6 +1296,7 @@
 
 
         .closing p {
+
             font-size: 14px;
 
             line-height: 1.8;
@@ -661,19 +1306,27 @@
 
 
         .closing-names {
+
             margin-top: 25px;
 
             font-size: 28px;
 
             color: #b8667e;
+
+            animation:
+                titleFloat
+                5s
+                ease-in-out
+                infinite;
         }
 
 
         /* =====================================================
-           MUSIK
+           MUSIC
         ===================================================== */
 
         .music-button {
+
             position: fixed;
 
             right: 18px;
@@ -690,7 +1343,12 @@
 
             border-radius: 50%;
 
-            background: #d08a9d;
+            background:
+                linear-gradient(
+                    135deg,
+                    #d99aab,
+                    #c97891
+                );
 
             color: white;
 
@@ -701,12 +1359,361 @@
             display: none;
 
             box-shadow:
-                0 5px 15px rgba(190, 110, 135, 0.25);
+                0 5px 15px
+                rgba(190,110,135,.25);
+
+            animation:
+                musicPulse
+                3s
+                ease-in-out
+                infinite;
         }
 
 
         .music-button:hover {
+
             background: #b8667e;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes coverAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.97);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes fadeDown {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes lineGrow {
+
+            from {
+
+                width: 0;
+
+                opacity: 0;
+            }
+
+            to {
+
+                width: 70px;
+
+                opacity: 1;
+            }
+        }
+
+
+        @keyframes titleFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-4px);
+            }
+        }
+
+
+        @keyframes gentlePulse {
+
+            0%,
+            100% {
+
+                opacity: .8;
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.04);
+            }
+        }
+
+
+        @keyframes buttonAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(.95);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        @keyframes poppyFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateX(-50%)
+                    translateY(-8px);
+            }
+        }
+
+
+        @keyframes coupleFloating {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        @keyframes framePulse {
+
+            0%,
+            100% {
+
+                opacity: .55;
+
+                transform:
+                    scale(1);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.015);
+            }
+        }
+
+
+        @keyframes decorationFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-8px)
+                    rotate(5deg);
+            }
+        }
+
+
+        @keyframes ornamentFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-5px);
+            }
+        }
+
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-3px);
+            }
+        }
+
+
+        @keyframes giftFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-7px)
+                    rotate(3deg);
+            }
+        }
+
+
+        @keyframes shine {
+
+            0% {
+
+                left: -100%;
+            }
+
+            30%,
+            100% {
+
+                left: 140%;
+            }
+        }
+
+
+        @keyframes softFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+
+                transform:
+                    translate(20px,15px);
+            }
+        }
+
+
+        @keyframes softFloatReverse {
+
+            0%,
+            100% {
+
+                transform:
+                    translate(0,0);
+            }
+
+            50% {
+
+                transform:
+                    translate(-20px,-15px);
+            }
+        }
+
+
+        @keyframes musicPulse {
+
+            0%,
+            100% {
+
+                box-shadow:
+                    0 5px 15px
+                    rgba(190,110,135,.25);
+            }
+
+            50% {
+
+                box-shadow:
+                    0 5px 23px
+                    rgba(190,110,135,.40);
+            }
         }
 
 
@@ -717,18 +1724,19 @@
         @media (max-width: 600px) {
 
             .cover h1 {
+
                 font-size: 54px;
             }
 
 
             .small-text {
+
                 font-size: 12px;
             }
 
 
-            /* BUNGA POPPY DI HP */
-
             .cover-poppy {
+
                 width: 300px;
 
                 max-width: 80%;
@@ -738,21 +1746,72 @@
 
 
             .main-content {
-                padding: 90px 18px 90px;
+
+                padding:
+                    90px 18px 90px;
+            }
+
+
+            /* FOTO HP */
+
+            .couple-frame {
+
+                width: 310px;
+
+                max-width: 95%;
+
+                height: 405px;
+            }
+
+
+            .couple-frame::before {
+
+                width: 255px;
+
+                height: 360px;
+            }
+
+
+            .couple-frame::after {
+
+                width: 272px;
+
+                height: 377px;
             }
 
 
             .pengantin {
-                width: 270px;
+
+                width: 265px;
+
+                max-width: 82%;
+            }
+
+
+            .frame-decoration.one {
+
+                left: 5px;
+
+                top: 45px;
+            }
+
+
+            .frame-decoration.two {
+
+                right: 5px;
+
+                bottom: 40px;
             }
 
 
             .opening h2 {
+
                 font-size: 28px;
             }
 
 
             .opening-text {
+
                 font-size: 14px;
 
                 padding: 0 10px;
@@ -760,22 +1819,34 @@
 
 
             .count-box {
+
                 width: 68px;
             }
 
 
             .count-number {
+
                 font-size: 22px;
             }
 
 
             .section-title {
+
                 font-size: 25px;
+            }
+
+
+            .section-title::before,
+            .section-title::after {
+
+                margin:
+                    0 7px;
             }
 
 
             .gift-section,
             .rsvp-section {
+
                 padding-left: 20px;
 
                 padding-right: 20px;
@@ -783,7 +1854,30 @@
 
 
             .closing-names {
+
                 font-size: 24px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCE MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: .01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                scroll-behavior: auto !important;
+
+                transition-duration: .01ms !important;
             }
 
         }
@@ -842,11 +1936,6 @@
         </div>
 
 
-        <!-- =================================================
-             BUNGA POPPY
-             File: poppy.png
-        ================================================== -->
-
         <img
             src="poppy.png"
             class="cover-poppy"
@@ -859,7 +1948,7 @@
 
 
     <!-- =====================================================
-         HALAMAN UTAMA
+         MAIN CONTENT
     ===================================================== -->
 
     <section
@@ -872,7 +1961,7 @@
              OPENING
         ================================================= -->
 
-        <div class="opening">
+        <div class="opening reveal">
 
 
             <div class="opening-small">
@@ -880,34 +1969,47 @@
             </div>
 
 
-            <img
-                src="pengantin.png"
-                class="pengantin"
-                alt="Ahmad Fauzi & Nur Hidayah"
-            >
+            <!-- FOTO + FRAME -->
+
+            <div class="couple-frame">
 
 
-            <h2>
+                <span class="frame-decoration one"></span>
+
+                <span class="frame-decoration two"></span>
+
+
+                <img
+                    src="pengantin.png"
+                    class="pengantin"
+                    alt="Ahmad Fauzi & Nur Hidayah"
+                >
+
+
+            </div>
+
+
+            <h2 class="reveal delay-1">
                 Ahmad Fauzi
             </h2>
 
 
-            <div class="and">
+            <div class="and reveal delay-1">
                 &
             </div>
 
 
-            <h2>
+            <h2 class="reveal delay-2">
                 Nur Hidayah
             </h2>
 
 
-            <div class="opening-date">
+            <div class="opening-date reveal delay-2">
                 18 SEPTEMBER 2026
             </div>
 
 
-            <p class="opening-text">
+            <p class="opening-text reveal delay-3">
 
                 Dengan memohon rahmat dan ridho Allah SWT,
                 kami bermaksud mengundang Bapak/Ibu/Saudara/i
@@ -920,7 +2022,7 @@
 
 
 
-        <div class="ornamen">
+        <div class="ornamen reveal">
             ✦ ✿ ✦
         </div>
 
@@ -930,7 +2032,7 @@
              COUNTDOWN
         ================================================= -->
 
-        <div class="countdown-section">
+        <div class="countdown-section reveal">
 
 
             <h2 class="section-title">
@@ -941,7 +2043,7 @@
             <div class="countdown">
 
 
-                <div class="count-box">
+                <div class="count-box reveal delay-1">
 
                     <span
                         class="count-number"
@@ -957,7 +2059,7 @@
                 </div>
 
 
-                <div class="count-box">
+                <div class="count-box reveal delay-2">
 
                     <span
                         class="count-number"
@@ -973,7 +2075,7 @@
                 </div>
 
 
-                <div class="count-box">
+                <div class="count-box reveal delay-3">
 
                     <span
                         class="count-number"
@@ -989,7 +2091,7 @@
                 </div>
 
 
-                <div class="count-box">
+                <div class="count-box reveal">
 
                     <span
                         class="count-number"
@@ -1012,10 +2114,10 @@
 
 
         <!-- =================================================
-             WAKTU & TEMPAT
+             EVENT
         ================================================= -->
 
-        <div class="event-section">
+        <div class="event-section reveal">
 
 
             <h2 class="section-title">
@@ -1023,7 +2125,7 @@
             </h2>
 
 
-            <div class="event-card">
+            <div class="event-card reveal delay-1">
 
 
                 <div class="event-title">
@@ -1048,7 +2150,7 @@
 
 
 
-            <div class="event-card">
+            <div class="event-card reveal delay-2">
 
 
                 <div class="event-title">
@@ -1085,17 +2187,17 @@
 
 
 
-        <div class="ornamen">
+        <div class="ornamen reveal">
             ✦ ✿ ✦
         </div>
 
 
 
         <!-- =================================================
-             HADIAH
+             GIFT
         ================================================= -->
 
-        <div class="gift-section">
+        <div class="gift-section reveal">
 
 
             <div class="gift-icon">
@@ -1125,7 +2227,7 @@
              RSVP
         ================================================= -->
 
-        <div class="rsvp-section">
+        <div class="rsvp-section reveal">
 
 
             <h2>
@@ -1200,10 +2302,10 @@
 
 
         <!-- =================================================
-             PENUTUP
+             CLOSING
         ================================================= -->
 
-        <div class="closing">
+        <div class="closing reveal">
 
 
             <p>
@@ -1270,9 +2372,9 @@
     <script>
 
 
-        /* =========================
+        /* =====================================================
            BUKA UNDANGAN
-        ========================= */
+        ===================================================== */
 
         function bukaUndangan() {
 
@@ -1285,8 +2387,26 @@
             document.getElementById("musicButton").style.display =
                 "block";
 
+
             window.scrollTo(0, 0);
 
+
+            /* Aktifkan animasi awal */
+
+            setTimeout(function() {
+
+                document
+                    .querySelectorAll(".reveal")
+                    .forEach(function(element) {
+
+                        element.classList.add("active");
+
+                    });
+
+            }, 100);
+
+
+            /* Musik */
 
             const music =
                 document.getElementById("backgroundMusic");
@@ -1305,9 +2425,9 @@
 
 
 
-        /* =========================
+        /* =====================================================
            MUSIK
-        ========================= */
+        ===================================================== */
 
         function toggleMusic() {
 
@@ -1336,9 +2456,9 @@
 
 
 
-        /* =========================
+        /* =====================================================
            COUNTDOWN
-        ========================= */
+        ===================================================== */
 
         const weddingDate =
             new Date(
@@ -1358,13 +2478,17 @@
 
             if (distance <= 0) {
 
-                document.getElementById("days").innerHTML = "00";
+                document.getElementById("days").innerHTML =
+                    "00";
 
-                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("hours").innerHTML =
+                    "00";
 
-                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("minutes").innerHTML =
+                    "00";
 
-                document.getElementById("seconds").innerHTML = "00";
+                document.getElementById("seconds").innerHTML =
+                    "00";
 
                 return;
             }
@@ -1432,9 +2556,49 @@
 
 
 
-        /* =========================
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(function(element) {
+
+                revealObserver.observe(element);
+
+            });
+
+
+
+        /* =====================================================
            RSVP GOOGLE SHEETS
-        ========================= */
+        ===================================================== */
 
         const scriptURL =
             "https://script.google.com/macros/s/AKfycbwGvpO9AnrKhbBDos8Tpc1X-_NDGhwcBvVFWTQm1ACnoruGrAzugrmUtJTidoa2u-Ra/exec";
