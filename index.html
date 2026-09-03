@@ -20,14 +20,8 @@
         ===================================================== */
 
         html {
-
-            /* UBAH:
-               scroll snap sekarang diterapkan ke halaman,
-               bukan .main-content */
             scroll-behavior: smooth;
-
             scroll-snap-type: y mandatory;
-
             overflow-x: hidden;
         }
 
@@ -50,120 +44,15 @@
            SCROLL SNAP
         ===================================================== */
 
-        /* UBAH:
-           sebelumnya proximity, sekarang mandatory
-           supaya setiap scroll berhenti seperti pindah halaman */
-
         .main-content {
             scroll-snap-type: none;
         }
 
 
         .scroll-section {
-
             scroll-snap-align: start;
-
-            /* UBAH */
             scroll-snap-stop: always;
-
             position: relative;
-        }
-
-
-        /* =====================================================
-           PAGE TRANSITION
-        ===================================================== */
-
-        /*
-           UBAH / TAMBAHAN
-
-           Efek ini hanya bekerja pada isi utama setiap halaman.
-           Desain isi tidak diubah.
-
-           Saat halaman masuk:
-           - sedikit dari bawah
-           - sedikit mengecil
-           - sedikit blur
-
-           Saat sudah berada di tengah:
-           - kembali normal
-        */
-
-        .scroll-section > .opening,
-        .scroll-section > .countdown-section,
-        .scroll-section > .event-section,
-        .scroll-section > .gift-section,
-        .scroll-section > .rsvp-section,
-        .scroll-section > .closing {
-
-            transition:
-                opacity .75s cubic-bezier(.16,1,.3,1),
-                transform .85s cubic-bezier(.16,1,.3,1),
-                filter .75s ease;
-
-            will-change:
-                opacity,
-                transform,
-                filter;
-        }
-
-
-        /*
-           State awal halaman yang belum aktif
-        */
-
-        .scroll-section.page-before > .opening,
-        .scroll-section.page-before > .countdown-section,
-        .scroll-section.page-before > .event-section,
-        .scroll-section.page-before > .gift-section,
-        .scroll-section.page-before > .rsvp-section,
-        .scroll-section.page-before > .closing {
-
-            opacity: .45;
-
-            transform:
-                translateY(-45px)
-                scale(.96);
-
-            filter: blur(4px);
-        }
-
-
-        .scroll-section.page-after > .opening,
-        .scroll-section.page-after > .countdown-section,
-        .scroll-section.page-after > .event-section,
-        .scroll-section.page-after > .gift-section,
-        .scroll-section.page-after > .rsvp-section,
-        .scroll-section.page-after > .closing {
-
-            opacity: .35;
-
-            transform:
-                translateY(55px)
-                scale(.94);
-
-            filter: blur(7px);
-        }
-
-
-        /*
-           Halaman aktif kembali normal
-        */
-
-        .scroll-section.page-active > .opening,
-        .scroll-section.page-active > .countdown-section,
-        .scroll-section.page-active > .event-section,
-        .scroll-section.page-active > .gift-section,
-        .scroll-section.page-active > .rsvp-section,
-        .scroll-section.page-active > .closing {
-
-            opacity: 1;
-
-            transform:
-                translateY(0)
-                scale(1);
-
-            filter: blur(0);
         }
 
 
@@ -176,20 +65,16 @@
             opacity: 0;
 
             transform:
-                translateY(100px)
-                scale(.88);
-
-            filter: blur(10px);
+                translateY(70px)
+                scale(.96);
 
             transition:
-                opacity 1s ease,
-                transform 1.15s cubic-bezier(.16, 1, .3, 1),
-                filter 1s ease;
+                opacity .8s ease,
+                transform .9s cubic-bezier(.16, 1, .3, 1);
 
             will-change:
                 opacity,
-                transform,
-                filter;
+                transform;
         }
 
 
@@ -200,8 +85,6 @@
             transform:
                 translateY(0)
                 scale(1);
-
-            filter: blur(0);
         }
 
 
@@ -231,9 +114,9 @@
 
         .cover {
 
-            min-height: 100vh;
+            min-height: 100svh;
 
-            height: 100vh;
+            height: 100svh;
 
             position: relative;
 
@@ -258,8 +141,8 @@
                     #fff4f7 100%
                 );
 
-            /* UBAH */
             scroll-snap-align: start;
+
             scroll-snap-stop: always;
         }
 
@@ -584,28 +467,19 @@
 
             position: absolute;
 
-            left: 50%;
+            left: 0;
 
             bottom: 0;
 
-            transform:
-                translateX(-50%);
-
-            /*
-               UBAH:
-               sekarang benar-benar mengikuti lebar layar.
-            */
+            transform: none;
 
             width: 100vw;
 
             max-width: none;
 
-            /*
-               Tinggi dibatasi supaya bunga tetap berada
-               di bagian bawah dan tidak menutupi envelope.
-            */
-
             height: 190px;
+
+            max-height: none;
 
             object-fit: fill;
 
@@ -674,9 +548,11 @@
 
             min-height: 100vh;
 
+            height: 100svh;
+
             padding:
-                95px 0
-                60px;
+                60px 0
+                40px;
 
             display: flex;
 
@@ -686,7 +562,6 @@
 
             scroll-snap-align: start;
 
-            /* UBAH */
             scroll-snap-stop: always;
         }
 
@@ -695,9 +570,11 @@
 
             min-height: 100vh;
 
+            height: 100svh;
+
             padding:
-                80px 0
-                70px;
+                50px 0
+                40px;
 
             display: flex;
 
@@ -707,22 +584,19 @@
 
             scroll-snap-align: start;
 
-            /* UBAH */
             scroll-snap-stop: always;
         }
 
 
         .gift-page-section {
 
-            /*
-               UBAH:
-               supaya Hadiah menjadi satu halaman penuh.
-            */
-
             min-height: 100vh;
 
+            height: 100svh;
+
             padding:
-                80px 0;
+                50px 0
+                40px;
 
             display: flex;
 
@@ -740,8 +614,11 @@
 
             min-height: 100vh;
 
+            height: 100svh;
+
             padding:
-                80px 0;
+                50px 0
+                40px;
 
             display: flex;
 
@@ -751,23 +628,19 @@
 
             scroll-snap-align: start;
 
-            /* UBAH */
             scroll-snap-stop: always;
         }
 
 
         .closing-section {
 
-            /*
-               UBAH:
-               penutup menjadi halaman penuh juga.
-            */
-
             min-height: 100vh;
+
+            height: 100svh;
 
             padding:
                 50px 0
-                80px;
+                60px;
 
             display: flex;
 
@@ -1065,7 +938,7 @@
 
             margin:
                 0 auto
-                45px;
+                30px;
 
             position: relative;
 
@@ -1224,9 +1097,9 @@
         .event-card {
 
             padding:
-                30px 20px;
+                25px 20px;
 
-            margin-top: 25px;
+            margin-top: 18px;
 
             border: none;
 
@@ -1732,7 +1605,6 @@
         @keyframes coverAppear {
 
             from {
-
                 opacity: 0;
 
                 transform:
@@ -1741,7 +1613,6 @@
             }
 
             to {
-
                 opacity: 1;
 
                 transform:
@@ -1754,7 +1625,6 @@
         @keyframes fadeDown {
 
             from {
-
                 opacity: 0;
 
                 transform:
@@ -1762,7 +1632,6 @@
             }
 
             to {
-
                 opacity: 1;
 
                 transform:
@@ -1774,16 +1643,12 @@
         @keyframes lineGrow {
 
             from {
-
                 width: 0;
-
                 opacity: 0;
             }
 
             to {
-
                 width: 70px;
-
                 opacity: 1;
             }
         }
@@ -1793,13 +1658,11 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0);
             }
 
             50% {
-
                 transform:
                     translateY(-4px);
             }
@@ -1810,7 +1673,6 @@
 
             0%,
             100% {
-
                 opacity: .8;
 
                 transform:
@@ -1818,7 +1680,6 @@
             }
 
             50% {
-
                 opacity: 1;
 
                 transform:
@@ -1830,7 +1691,6 @@
         @keyframes envelopeAppear {
 
             from {
-
                 opacity: 0;
 
                 transform:
@@ -1839,7 +1699,6 @@
             }
 
             to {
-
                 opacity: 1;
 
                 transform:
@@ -1853,14 +1712,12 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0)
                     rotate(0deg);
             }
 
             50% {
-
                 transform:
                     translateY(-7px)
                     rotate(.8deg);
@@ -1872,16 +1729,12 @@
 
             0%,
             100% {
-
                 transform:
-                    translateX(-50%)
                     translateY(0);
             }
 
             50% {
-
                 transform:
-                    translateX(-50%)
                     translateY(-6px);
             }
         }
@@ -1891,13 +1744,11 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0);
             }
 
             50% {
-
                 transform:
                     translateY(-9px);
             }
@@ -1908,7 +1759,6 @@
 
             0%,
             100% {
-
                 opacity: .55;
 
                 transform:
@@ -1916,7 +1766,6 @@
             }
 
             50% {
-
                 opacity: 1;
 
                 transform:
@@ -1929,14 +1778,12 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0)
                     rotate(0deg);
             }
 
             50% {
-
                 transform:
                     translateY(-8px)
                     rotate(5deg);
@@ -1948,13 +1795,11 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0);
             }
 
             50% {
-
                 transform:
                     translateY(-5px);
             }
@@ -1965,13 +1810,11 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0);
             }
 
             50% {
-
                 transform:
                     translateY(-3px);
             }
@@ -1982,14 +1825,12 @@
 
             0%,
             100% {
-
                 transform:
                     translateY(0)
                     rotate(0deg);
             }
 
             50% {
-
                 transform:
                     translateY(-7px)
                     rotate(3deg);
@@ -2000,13 +1841,11 @@
         @keyframes shine {
 
             0% {
-
                 left: -100%;
             }
 
             30%,
             100% {
-
                 left: 140%;
             }
         }
@@ -2016,13 +1855,11 @@
 
             0%,
             100% {
-
                 transform:
                     translate(0,0);
             }
 
             50% {
-
                 transform:
                     translate(20px,15px);
             }
@@ -2033,13 +1870,11 @@
 
             0%,
             100% {
-
                 transform:
                     translate(0,0);
             }
 
             50% {
-
                 transform:
                     translate(-20px,-15px);
             }
@@ -2050,14 +1885,12 @@
 
             0%,
             100% {
-
                 box-shadow:
                     0 5px 15px
                     rgba(190,110,135,.25);
             }
 
             50% {
-
                 box-shadow:
                     0 5px 23px
                     rgba(190,110,135,.40);
@@ -2132,8 +1965,7 @@
 
 
             /* =================================================
-               BUNGA COVER - UBAH
-               FULL LEBAR LAYAR
+               BUNGA COVER
             ================================================= */
 
             .cover-poppy {
@@ -2141,11 +1973,6 @@
                 width: 100vw;
 
                 max-width: none;
-
-                /*
-                   Dibuat lebih pendek di HP
-                   supaya envelope tetap aman.
-                */
 
                 height: 135px;
 
@@ -2169,66 +1996,59 @@
 
                 min-height: 100svh;
 
+                height: 100svh;
+
                 padding:
-                    80px 0
-                    60px;
+                    60px 0
+                    40px;
             }
 
 
             .details-section {
 
-                /*
-                   Tetap satu halaman penuh
-                */
-
                 min-height: 100svh;
 
+                height: 100svh;
+
                 padding:
-                    90px 0
-                    70px;
+                    50px 0
+                    40px;
             }
 
 
             .gift-page-section {
 
-                /*
-                   UBAH:
-                   satu halaman penuh
-                */
-
                 min-height: 100svh;
 
+                height: 100svh;
+
                 padding:
-                    80px 0;
+                    50px 0
+                    40px;
             }
 
 
             .rsvp-page-section {
 
-                /*
-                   UBAH:
-                   satu halaman penuh
-                */
-
                 min-height: 100svh;
 
+                height: 100svh;
+
                 padding:
-                    80px 0;
+                    50px 0
+                    40px;
             }
 
 
             .closing-section {
 
-                /*
-                   UBAH:
-                   satu halaman penuh
-                */
-
                 min-height: 100svh;
+
+                height: 100svh;
 
                 padding:
                     40px 0
-                    70px;
+                    60px;
             }
 
 
@@ -2351,7 +2171,7 @@
             .event-card {
 
                 padding:
-                    28px 18px;
+                    24px 18px;
             }
 
 
@@ -2442,9 +2262,7 @@
         @media (prefers-reduced-motion: reduce) {
 
             *,
-
             *::before,
-
             *::after {
 
                 animation-duration:
@@ -3014,11 +2832,6 @@
             });
 
 
-            /*
-               Opening tetap langsung tampil
-               seperti versi kamu sebelumnya.
-            */
-
             setTimeout(function() {
 
                 const opening =
@@ -3036,31 +2849,24 @@
                 }
 
 
-                /*
-                   UBAH:
-                   tandai halaman pertama sebagai
-                   halaman aktif.
-                */
+                document
+                    .querySelectorAll(
+                        ".opening .reveal"
+                    )
+                    .forEach(function(element) {
 
-                const firstSection =
-                    document.querySelector(
-                        ".scroll-section"
-                    );
+                        element.classList.add(
+                            "active"
+                        );
 
-                if (firstSection) {
-
-                    firstSection.classList.add(
-                        "page-active"
-                    );
-
-                }
+                    });
 
             }, 100);
 
 
-            /*
-               Jalankan musik setelah klik.
-            */
+            /* =================================================
+               MUSIK
+            ================================================= */
 
             const music =
                 document.getElementById(
@@ -3279,296 +3085,8 @@
 
 
         /* =====================================================
-           PAGE TRANSITION OBSERVER
+           SECTION OBSERVER
         ===================================================== */
-
-        /*
-           UBAH / TAMBAHAN
-
-           Observer ini menentukan halaman mana
-           yang sedang menjadi halaman aktif.
-
-           Jadi ketika scroll ke bawah:
-
-           Opening
-                ↓
-           Countdown + Event
-                ↓
-           Hadiah
-                ↓
-           RSVP
-                ↓
-           Closing
-        */
-
-        const pageSections =
-            document.querySelectorAll(
-                ".scroll-section"
-            );
-
-
-        const pageObserver =
-            new IntersectionObserver(
-
-                function(entries) {
-
-                    entries.forEach(function(entry) {
-
-                        if (
-                            entry.isIntersecting &&
-                            entry.intersectionRatio >= .55
-                        ) {
-
-                            pageSections.forEach(
-                                function(section) {
-
-                                    section.classList.remove(
-                                        "page-active"
-                                    );
-
-                                }
-                            );
-
-
-                            entry.target.classList.remove(
-                                "page-before"
-                            );
-
-                            entry.target.classList.remove(
-                                "page-after"
-                            );
-
-
-                            entry.target.classList.add(
-                                "page-active"
-                            );
-
-
-                            /*
-                               Tentukan halaman
-                               sebelum dan sesudah.
-                            */
-
-                            const currentIndex =
-                                Array.from(
-                                    pageSections
-                                ).indexOf(
-                                    entry.target
-                                );
-
-
-                            pageSections.forEach(
-                                function(section, index) {
-
-                                    section.classList.remove(
-                                        "page-before"
-                                    );
-
-                                    section.classList.remove(
-                                        "page-after"
-                                    );
-
-
-                                    if (
-                                        index <
-                                        currentIndex
-                                    ) {
-
-                                        section.classList.add(
-                                            "page-before"
-                                        );
-
-                                    }
-
-
-                                    if (
-                                        index >
-                                        currentIndex
-                                    ) {
-
-                                        section.classList.add(
-                                            "page-after"
-                                        );
-
-                                    }
-
-                                }
-                            );
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    threshold: [
-                        .55,
-                        .7,
-                        .85
-                    ]
-                }
-
-            );
-
-
-        pageSections.forEach(
-            function(section) {
-
-                pageObserver.observe(
-                    section
-                );
-
-            }
-        );
-
-
-
-        /*
-           Tambahan kecil supaya posisi page state
-           langsung benar ketika pertama kali
-           undangan dibuka.
-        */
-
-        setTimeout(function() {
-
-            if (
-                document
-                    .getElementById("mainContent")
-                    .style.display === "block"
-            ) {
-
-                const first =
-                    pageSections[0];
-
-                if (first) {
-
-                    first.classList.add(
-                        "page-active"
-                    );
-
-                }
-
-            }
-
-        }, 150);
-
-
-
-        /*
-           Tambahan:
-           ketika user benar-benar scroll,
-           kita perbarui posisi halaman.
-
-           Ini membuat efek lebih halus daripada
-           hanya menunggu observer.
-        */
-
-        let scrollTimer;
-
-
-        window.addEventListener(
-            "scroll",
-            function() {
-
-                if (scrollTimer) {
-                    return;
-                }
-
-
-                scrollTimer =
-                    requestAnimationFrame(
-                        function() {
-
-                            const viewportCenter =
-                                window.innerHeight / 2;
-
-
-                            let closestSection =
-                                null;
-
-                            let closestDistance =
-                                Infinity;
-
-
-                            pageSections.forEach(
-                                function(section) {
-
-                                    const rect =
-                                        section.getBoundingClientRect();
-
-
-                                    const sectionCenter =
-                                        rect.top +
-                                        rect.height / 2;
-
-
-                                    const distance =
-                                        Math.abs(
-                                            sectionCenter -
-                                            viewportCenter
-                                        );
-
-
-                                    if (
-                                        distance <
-                                        closestDistance
-                                    ) {
-
-                                        closestDistance =
-                                            distance;
-
-                                        closestSection =
-                                            section;
-
-                                    }
-
-                                }
-                            );
-
-
-                            if (
-                                closestSection &&
-                                closestDistance <
-                                window.innerHeight * .55
-                            ) {
-
-                                pageSections.forEach(
-                                    function(section) {
-
-                                        section.classList.remove(
-                                            "page-active"
-                                        );
-
-                                    }
-                                );
-
-
-                                closestSection.classList.add(
-                                    "page-active"
-                                );
-
-                            }
-
-
-                            scrollTimer = null;
-
-                        }
-                    );
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-
-        /*
-           Tambahan efek section:
-           ketika section besar mulai masuk viewport,
-           elemen-elemen di dalamnya diarahkan untuk muncul.
-        */
 
         const sectionObserver =
             new IntersectionObserver(
