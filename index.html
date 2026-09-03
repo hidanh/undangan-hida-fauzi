@@ -14,9 +14,15 @@
             box-sizing: border-box;
         }
 
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             margin: 0;
@@ -33,6 +39,21 @@
 
 
         /* =====================================================
+           SCROLL SNAP
+        ===================================================== */
+
+        .main-content {
+            scroll-snap-type: y proximity;
+        }
+
+
+        .scroll-section {
+            scroll-snap-align: start;
+            scroll-snap-stop: normal;
+        }
+
+
+        /* =====================================================
            SCROLL REVEAL
         ===================================================== */
 
@@ -41,15 +62,20 @@
             opacity: 0;
 
             transform:
-                translateY(80px)
-                scale(.94);
+                translateY(100px)
+                scale(.88);
 
-            filter: blur(6px);
+            filter: blur(10px);
 
             transition:
-                opacity 1.1s ease,
-                transform 1.1s cubic-bezier(.16,1,.3,1),
-                filter 1.1s ease;
+                opacity 1s ease,
+                transform 1.15s cubic-bezier(.16, 1, .3, 1),
+                filter 1s ease;
+
+            will-change:
+                opacity,
+                transform,
+                filter;
         }
 
 
@@ -66,22 +92,22 @@
 
 
         .delay-1 {
-            transition-delay: .15s;
+            transition-delay: .12s;
         }
 
 
         .delay-2 {
-            transition-delay: .30s;
+            transition-delay: .24s;
         }
 
 
         .delay-3 {
-            transition-delay: .45s;
+            transition-delay: .36s;
         }
 
 
         .delay-4 {
-            transition-delay: .60s;
+            transition-delay: .48s;
         }
 
 
@@ -304,7 +330,6 @@
                 );
 
             box-shadow:
-
                 0 12px 25px
                 rgba(190,110,135,.25);
 
@@ -315,8 +340,6 @@
                 box-shadow .4s ease;
         }
 
-
-        /* bagian lipatan kiri-kanan */
 
         .envelope-body::before {
 
@@ -342,8 +365,6 @@
                 55px solid rgba(255,255,255,.16);
         }
 
-
-        /* flap atas */
 
         .envelope-flap {
 
@@ -375,8 +396,6 @@
                 );
         }
 
-
-        /* tulisan */
 
         .envelope-label {
 
@@ -449,18 +468,22 @@
 
             left: 50%;
 
-            bottom: -5px;
+            bottom: 0;
 
             transform:
                 translateX(-50%);
 
             width: 420px;
 
-            max-width: 85%;
+            max-width: 88vw;
+
+            max-height: 43vh;
 
             height: auto;
 
-            z-index: 1;
+            object-fit: contain;
+
+            z-index: 2;
 
             pointer-events: none;
 
@@ -482,8 +505,7 @@
             position: relative;
 
             padding:
-                100px 25px
-                100px;
+                0 25px 100px;
 
             text-align: center;
 
@@ -517,12 +539,106 @@
 
 
         /* =====================================================
+           MAJOR SCROLL SECTION
+        ===================================================== */
+
+        .opening-section {
+
+            min-height: 100vh;
+
+            padding:
+                95px 0
+                60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            scroll-snap-align: start;
+        }
+
+
+        .details-section {
+
+            min-height: 100vh;
+
+            padding:
+                80px 0
+                70px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            scroll-snap-align: start;
+        }
+
+
+        .gift-page-section {
+
+            min-height: 85vh;
+
+            padding:
+                80px 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            scroll-snap-align: start;
+        }
+
+
+        .rsvp-page-section {
+
+            min-height: 100vh;
+
+            padding:
+                80px 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            scroll-snap-align: start;
+        }
+
+
+        .closing-section {
+
+            min-height: 45vh;
+
+            padding:
+                50px 0
+                80px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            scroll-snap-align: start;
+        }
+
+
+        /* =====================================================
            OPENING
         ===================================================== */
 
         .opening {
 
             max-width: 600px;
+
+            width: 100%;
 
             margin: 0 auto;
 
@@ -580,8 +696,6 @@
         }
 
 
-        /* frame pink */
-
         .couple-frame::before {
 
             content: "";
@@ -620,8 +734,6 @@
             z-index: 0;
         }
 
-
-        /* frame kedua */
 
         .couple-frame::after {
 
@@ -776,7 +888,7 @@
         .ornamen {
 
             margin:
-                55px auto;
+                45px auto;
 
             color: #d08a9d;
 
@@ -798,9 +910,11 @@
 
             max-width: 600px;
 
+            width: 100%;
+
             margin:
-                70px auto
-                80px;
+                0 auto
+                45px;
 
             position: relative;
 
@@ -945,9 +1059,10 @@
 
             max-width: 600px;
 
+            width: 100%;
+
             margin:
-                0 auto
-                80px;
+                0 auto;
 
             position: relative;
 
@@ -1110,9 +1225,10 @@
 
             max-width: 600px;
 
+            width: 100%;
+
             margin:
-                0 auto
-                80px;
+                0 auto;
 
             padding:
                 35px 25px;
@@ -1199,9 +1315,10 @@
 
             max-width: 600px;
 
+            width: 100%;
+
             margin:
-                0 auto
-                80px;
+                0 auto;
 
             padding:
                 35px 25px;
@@ -1375,12 +1492,14 @@
 
             max-width: 600px;
 
+            width: 100%;
+
             margin:
                 0 auto;
 
             padding:
                 20px 25px
-                80px;
+                50px;
 
             position: relative;
 
@@ -1395,20 +1514,6 @@
             line-height: 1.8;
 
             color: #654f4f;
-        }
-
-
-        .closing-names {
-
-            margin-top: 25px;
-
-            font-size: 28px;
-
-            color: #b8667e;
-
-            animation:
-                titleFloat
-                5s ease-in-out infinite;
         }
 
 
@@ -1431,6 +1536,8 @@
             margin: 0;
 
             padding: 0;
+
+            border: none;
 
             border-radius: 50%;
 
@@ -1456,6 +1563,8 @@
             animation:
                 musicPulse
                 3s ease-in-out infinite;
+
+            cursor: pointer;
         }
 
 
@@ -1622,7 +1731,7 @@
 
                 transform:
                     translateX(-50%)
-                    translateY(-8px);
+                    translateY(-6px);
             }
         }
 
@@ -1811,33 +1920,138 @@
 
         @media (max-width: 600px) {
 
+            .cover {
+
+                padding:
+                    20px 18px;
+
+                min-height: 100svh;
+
+                height: 100svh;
+            }
+
+
+            .content {
+
+                max-width: 100%;
+
+                z-index: 10;
+
+                transform:
+                    translateY(-25px);
+            }
+
+
             .cover h1 {
 
-                font-size: 54px;
+                font-size: 48px;
             }
 
 
             .small-text {
 
-                font-size: 12px;
+                font-size: 10px;
+
+                letter-spacing: 3px;
+
+                margin-bottom: 18px;
             }
 
 
+            .line {
+
+                margin-bottom: 18px;
+            }
+
+
+            .ampersand {
+
+                font-size: 27px;
+
+                margin: 5px 0;
+            }
+
+
+            .envelope-button {
+
+                transform: scale(.84);
+
+                margin-top: 25px;
+            }
+
+
+            /*
+               BUNGA DIBUAT LEBIH BESAR DAN
+               LANGSUNG MENEMPEL DI BAWAH VIEWPORT
+            */
+
             .cover-poppy {
 
-                width: 300px;
+                width: 355px;
 
-                max-width: 80%;
+                max-width: 94vw;
 
-                bottom: -5px;
+                max-height: 34vh;
+
+                bottom: 0;
+
+                z-index: 2;
             }
 
 
             .main-content {
 
                 padding:
-                    90px 18px
-                    90px;
+                    0 18px
+                    80px;
+            }
+
+
+            .opening-section {
+
+                min-height: 100svh;
+
+                padding:
+                    80px 0
+                    60px;
+            }
+
+
+            .details-section {
+
+                min-height: auto;
+
+                padding:
+                    90px 0
+                    70px;
+            }
+
+
+            .gift-page-section {
+
+                min-height: 75svh;
+
+                padding:
+                    80px 0;
+            }
+
+
+            .rsvp-page-section {
+
+                min-height: 90svh;
+
+                padding:
+                    80px 0;
+            }
+
+
+            .closing-section {
+
+                min-height: 35vh;
+
+                padding:
+                    40px 0
+                    70px;
             }
 
 
@@ -1905,21 +2119,18 @@
             }
 
 
-            .count-box {
+            .ornamen {
 
-                width: 68px;
-            }
-
-
-            .count-number {
-
-                font-size: 22px;
+                margin:
+                    35px auto;
             }
 
 
             .section-title {
 
-                font-size: 25px;
+                font-size: 24px;
+
+                line-height: 1.4;
             }
 
 
@@ -1927,7 +2138,43 @@
             .section-title::after {
 
                 margin:
-                    0 7px;
+                    0 5px;
+
+                font-size: 12px;
+            }
+
+
+            .countdown {
+
+                gap: 8px;
+            }
+
+
+            .count-box {
+
+                width: 67px;
+
+                padding:
+                    13px 4px;
+            }
+
+
+            .count-number {
+
+                font-size: 21px;
+            }
+
+
+            .count-label {
+
+                font-size: 8px;
+            }
+
+
+            .event-card {
+
+                padding:
+                    28px 18px;
             }
 
 
@@ -1940,17 +2187,70 @@
             }
 
 
-            .closing-names {
+            .gift-section h2,
+            .rsvp-section h2 {
 
-                font-size: 24px;
+                font-size: 25px;
+            }
+
+
+            .closing {
+
+                padding:
+                    10px 20px
+                    50px;
+            }
+
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONE
+        ===================================================== */
+
+        @media (max-width: 380px) {
+
+            .cover h1 {
+
+                font-size: 43px;
+            }
+
+
+            .content {
+
+                transform:
+                    translateY(-18px);
             }
 
 
             .envelope-button {
 
-                transform: scale(.92);
+                transform: scale(.76);
 
-                margin-top: 35px;
+                margin-top: 18px;
+            }
+
+
+            .cover-poppy {
+
+                width: 330px;
+
+                max-width: 95vw;
+
+                max-height: 31vh;
+            }
+
+
+            .couple-frame {
+
+                transform:
+                    scale(.92);
+            }
+
+
+            .count-box {
+
+                width: 62px;
             }
 
         }
@@ -2022,9 +2322,7 @@
             </h1>
 
 
-            <!-- =================================================
-                 AMPLOP
-            ================================================== -->
+            <!-- AMPLOP -->
 
             <div
                 class="envelope-button"
@@ -2056,6 +2354,8 @@
         </div>
 
 
+        <!-- BUNGA COVER -->
+
         <img
             src="poppy.png"
             class="cover-poppy"
@@ -2078,153 +2378,67 @@
 
 
         <!-- =================================================
-             OPENING
+             OPENING SECTION
         ================================================= -->
 
-        <div class="opening reveal">
+        <div class="scroll-section opening-section">
 
 
-            <div class="opening-small">
-                THE WEDDING OF
-            </div>
+            <div class="opening reveal">
 
 
-            <!-- FOTO PENGANTIN -->
-
-            <div class="couple-frame">
-
-
-                <span
-                    class="frame-decoration one"
-                ></span>
+                <div class="opening-small">
+                    THE WEDDING OF
+                </div>
 
 
-                <span
-                    class="frame-decoration two"
-                ></span>
+                <!-- FOTO PENGANTIN -->
 
+                <div class="couple-frame">
 
-                <img
-                    src="pengantin.png"
-                    class="pengantin"
-                    alt="Ahmad Fauzi & Nur Hidayah"
-                >
-
-
-            </div>
-
-
-            <h2 class="reveal delay-1">
-                Ahmad Fauzi
-            </h2>
-
-
-            <div class="and reveal delay-2">
-                &
-            </div>
-
-
-            <h2 class="reveal delay-3">
-                Nur Hidayah
-            </h2>
-
-
-            <p class="opening-text reveal delay-4">
-
-                Dengan memohon rahmat dan ridho Allah SWT,
-                kami bermaksud mengundang Bapak/Ibu/Saudara/i
-                untuk hadir dalam acara pernikahan kami.
-
-            </p>
-
-
-        </div>
-
-
-
-        <div class="ornamen reveal">
-            ✦ ✿ ✦
-        </div>
-
-
-
-        <!-- =================================================
-             COUNTDOWN
-        ================================================= -->
-
-        <div class="countdown-section reveal">
-
-
-            <h2 class="section-title">
-                Menuju Hari Bahagia
-            </h2>
-
-
-            <div class="countdown">
-
-
-                <div class="count-box reveal delay-1">
 
                     <span
-                        class="count-number"
-                        id="days"
-                    >
-                        00
-                    </span>
+                        class="frame-decoration one"
+                    ></span>
 
-                    <span class="count-label">
-                        HARI
-                    </span>
+
+                    <span
+                        class="frame-decoration two"
+                    ></span>
+
+
+                    <img
+                        src="pengantin.png"
+                        class="pengantin"
+                        alt="Ahmad Fauzi & Nur Hidayah"
+                    >
+
 
                 </div>
 
 
-                <div class="count-box reveal delay-2">
+                <h2 class="reveal delay-1">
+                    Ahmad Fauzi
+                </h2>
 
-                    <span
-                        class="count-number"
-                        id="hours"
-                    >
-                        00
-                    </span>
 
-                    <span class="count-label">
-                        JAM
-                    </span>
-
+                <div class="and reveal delay-2">
+                    &
                 </div>
 
 
-                <div class="count-box reveal delay-3">
-
-                    <span
-                        class="count-number"
-                        id="minutes"
-                    >
-                        00
-                    </span>
-
-                    <span class="count-label">
-                        MENIT
-                    </span>
-
-                </div>
+                <h2 class="reveal delay-3">
+                    Nur Hidayah
+                </h2>
 
 
-                <div class="count-box reveal delay-4">
+                <p class="opening-text reveal delay-4">
 
-                    <span
-                        class="count-number"
-                        id="seconds"
-                    >
-                        00
-                    </span>
+                    Dengan memohon rahmat dan ridho Allah SWT,
+                    kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                    untuk hadir dalam acara pernikahan kami.
 
-                    <span class="count-label">
-                        DETIK
-                    </span>
-
-                </div>
+                </p>
 
 
             </div>
@@ -2235,30 +2449,87 @@
 
 
         <!-- =================================================
-             EVENT
-             LANGSUNG SETELAH COUNTDOWN
+             DETAILS SECTION
+             COUNTDOWN + EVENT
         ================================================= -->
 
-        <div class="event-section">
+        <div class="scroll-section details-section">
 
 
-            <div class="event-card reveal">
+            <div class="countdown-section reveal">
 
 
-                <div class="event-title">
-                    Akad Nikah
-                </div>
+                <h2 class="section-title">
+                    Menuju Hari Bahagia
+                </h2>
 
 
-                <div class="event-time">
-                    07.00 WIB
-                </div>
+                <div class="countdown">
 
 
-                <div class="event-place">
+                    <div class="count-box reveal delay-1">
 
-                    Masjid Akbar Moedhar Arifin<br>
-                    Kec. Sidayu, Gresik
+                        <span
+                            class="count-number"
+                            id="days"
+                        >
+                            00
+                        </span>
+
+                        <span class="count-label">
+                            HARI
+                        </span>
+
+                    </div>
+
+
+                    <div class="count-box reveal delay-2">
+
+                        <span
+                            class="count-number"
+                            id="hours"
+                        >
+                            00
+                        </span>
+
+                        <span class="count-label">
+                            JAM
+                        </span>
+
+                    </div>
+
+
+                    <div class="count-box reveal delay-3">
+
+                        <span
+                            class="count-number"
+                            id="minutes"
+                        >
+                            00
+                        </span>
+
+                        <span class="count-label">
+                            MENIT
+                        </span>
+
+                    </div>
+
+
+                    <div class="count-box reveal delay-4">
+
+                        <span
+                            class="count-number"
+                            id="seconds"
+                        >
+                            00
+                        </span>
+
+                        <span class="count-label">
+                            DETIK
+                        </span>
+
+                    </div>
+
 
                 </div>
 
@@ -2267,73 +2538,104 @@
 
 
 
-            <div class="event-card reveal delay-2">
+            <div class="event-section">
 
 
-                <div class="event-title">
-                    Resepsi
+                <div class="event-card reveal">
+
+
+                    <div class="event-title">
+                        Akad Nikah
+                    </div>
+
+
+                    <div class="event-time">
+                        07.00 WIB
+                    </div>
+
+
+                    <div class="event-place">
+
+                        Masjid Akbar Moedhar Arifin<br>
+                        Kec. Sidayu, Gresik
+
+                    </div>
+
+
                 </div>
 
 
-                <div class="event-time">
-                    08.30 – 10.30 WIB
+
+                <div class="event-card reveal delay-2">
+
+
+                    <div class="event-title">
+                        Resepsi
+                    </div>
+
+
+                    <div class="event-time">
+                        08.30 – 10.30 WIB
+                    </div>
+
+
+                    <div class="event-place">
+
+                        Masjid Akbar Moedhar Arifin<br>
+                        Kec. Sidayu, Gresik
+
+                    </div>
+
+
+                    <a
+                        href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
+                        target="_blank"
+                        class="maps-button"
+                    >
+                        📍 Buka Google Maps
+                    </a>
+
+
                 </div>
-
-
-                <div class="event-place">
-
-                    Masjid Akbar Moedhar Arifin<br>
-                    Kec. Sidayu, Gresik
-
-                </div>
-
-
-                <a
-                    href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
-                    target="_blank"
-                    class="maps-button"
-                >
-                    📍 Buka Google Maps
-                </a>
 
 
             </div>
 
 
-        </div>
-
-
-
-        <div class="ornamen reveal">
-            ✦ ✿ ✦
         </div>
 
 
 
         <!-- =================================================
-             GIFT
+             GIFT SECTION
         ================================================= -->
 
-        <div class="gift-section reveal">
+        <div class="scroll-section gift-page-section">
 
 
-            <div class="gift-icon">
-                🎁
+            <div class="gift-section reveal">
+
+
+                <div class="gift-icon">
+                    🎁
+                </div>
+
+
+                <h2>
+                    Hadiah
+                </h2>
+
+
+                <p>
+
+                    Hadiah paling berharga bagi kami adalah
+                    kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
+                    untuk kebahagiaan pernikahan kami.
+
+                </p>
+
+
             </div>
-
-
-            <h2>
-                Hadiah
-            </h2>
-
-
-            <p>
-
-                Hadiah paling berharga bagi kami adalah
-                kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
-                untuk kebahagiaan pernikahan kami.
-
-            </p>
 
 
         </div>
@@ -2341,77 +2643,83 @@
 
 
         <!-- =================================================
-             RSVP
+             RSVP SECTION
         ================================================= -->
 
-        <div class="rsvp-section reveal">
+        <div class="scroll-section rsvp-page-section">
 
 
-            <h2>
-                Konfirmasi Kehadiran
-            </h2>
+            <div class="rsvp-section reveal">
 
 
-            <p>
-
-                Mohon konfirmasi kehadiran Anda
-                melalui formulir berikut.
-
-            </p>
+                <h2>
+                    Konfirmasi Kehadiran
+                </h2>
 
 
-            <form
-                class="rsvp-form"
-                id="rsvpForm"
-            >
+                <p>
+
+                    Mohon konfirmasi kehadiran Anda
+                    melalui formulir berikut.
+
+                </p>
 
 
-                <input
-                    type="text"
-                    id="nama"
-                    name="nama"
-                    placeholder="Nama"
-                    required
+                <form
+                    class="rsvp-form"
+                    id="rsvpForm"
                 >
 
 
-                <select
-                    id="kehadiran"
-                    name="kehadiran"
-                    required
-                >
-
-                    <option value="">
-                        Konfirmasi Kehadiran
-                    </option>
-
-                    <option value="Hadir">
-                        Hadir
-                    </option>
-
-                    <option value="Tidak Hadir">
-                        Tidak Hadir
-                    </option>
-
-                </select>
+                    <input
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Nama"
+                        required
+                    >
 
 
-                <textarea
-                    id="pesan"
-                    name="pesan"
-                    placeholder="Ucapan / doa untuk Hida & Fauzi"
-                ></textarea>
+                    <select
+                        id="kehadiran"
+                        name="kehadiran"
+                        required
+                    >
+
+                        <option value="">
+                            Konfirmasi Kehadiran
+                        </option>
+
+                        <option value="Hadir">
+                            Hadir
+                        </option>
+
+                        <option value="Tidak Hadir">
+                            Tidak Hadir
+                        </option>
+
+                    </select>
 
 
-                <button type="submit">
-                    Kirim RSVP
-                </button>
+                    <textarea
+                        id="pesan"
+                        name="pesan"
+                        placeholder="Ucapan / doa untuk Hida & Fauzi"
+                    ></textarea>
 
 
-            </form>
+                    <button type="submit">
+                        Kirim RSVP
+                    </button>
 
 
-            <div id="rsvpMessage"></div>
+                </form>
+
+
+                <div id="rsvpMessage"></div>
+
+
+            </div>
 
 
         </div>
@@ -2422,28 +2730,29 @@
              CLOSING
         ================================================= -->
 
-        <div class="closing reveal">
+        <div class="scroll-section closing-section">
 
 
-            <p>
-
-                Merupakan suatu kebahagiaan bagi kami
-                apabila Bapak/Ibu/Saudara/i berkenan
-                hadir dan memberikan doa restu.
-
-            </p>
+            <div class="closing reveal">
 
 
-            <p>
+                <p>
 
-                Terima kasih atas doa, perhatian,
-                dan kasih sayang yang diberikan kepada kami.
+                    Merupakan suatu kebahagiaan bagi kami
+                    apabila Bapak/Ibu/Saudara/i berkenan
+                    hadir dan memberikan doa restu.
 
-            </p>
+                </p>
 
 
-            <div class="closing-names">
-                Ahmad Fauzi & Nur Hidayah
+                <p>
+
+                    Terima kasih atas doa, perhatian,
+                    dan kasih sayang yang diberikan kepada kami.
+
+                </p>
+
+
             </div>
 
 
@@ -2476,6 +2785,7 @@
         class="music-button"
         id="musicButton"
         onclick="toggleMusic()"
+        aria-label="Kontrol Musik"
     >
         🔊
     </button>
@@ -2495,33 +2805,62 @@
 
         function bukaUndangan() {
 
-            document.querySelector(".cover").style.display =
+            const cover =
+                document.querySelector(".cover");
+
+            const main =
+                document.getElementById("mainContent");
+
+            const musicButton =
+                document.getElementById("musicButton");
+
+
+            cover.style.display =
                 "none";
 
 
-            document.getElementById("mainContent").style.display =
+            main.style.display =
                 "block";
 
 
-            document.getElementById("musicButton").style.display =
+            musicButton.style.display =
                 "block";
 
 
-            window.scrollTo(0, 0);
+            window.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
 
+
+            /*
+               Opening dibuat langsung terlihat.
+               Section berikutnya baru muncul ketika discroll.
+            */
 
             setTimeout(function() {
 
-                document
-                    .querySelectorAll(".reveal")
-                    .forEach(function(element) {
+                const opening =
+                    document.querySelector(
+                        ".opening.reveal"
+                    );
 
-                        element.classList.add("active");
 
-                    });
+                if (opening) {
+
+                    opening.classList.add(
+                        "active"
+                    );
+
+                }
+
 
             }, 100);
 
+
+            /*
+               Jalankan musik setelah klik.
+            */
 
             const music =
                 document.getElementById(
@@ -2529,7 +2868,12 @@
                 );
 
 
-            music.play().catch(function(error) {
+            music.play().then(function() {
+
+                musicButton.innerHTML =
+                    "🔊";
+
+            }).catch(function(error) {
 
                 console.log(
                     "Musik belum dapat diputar:",
@@ -2564,7 +2908,8 @@
 
                 music.play();
 
-                button.innerHTML = "🔊";
+                button.innerHTML =
+                    "🔊";
 
             }
 
@@ -2572,7 +2917,8 @@
 
                 music.pause();
 
-                button.innerHTML = "🔇";
+                button.innerHTML =
+                    "🔇";
 
             }
 
@@ -2713,10 +3059,10 @@
                 },
 
                 {
-                    threshold: 0.12,
+                    threshold: 0.16,
 
                     rootMargin:
-                        "0px 0px -80px 0px"
+                        "0px 0px -60px 0px"
                 }
 
             );
@@ -2727,6 +3073,58 @@
             .forEach(function(element) {
 
                 revealObserver.observe(element);
+
+            });
+
+
+
+        /*
+           Tambahan efek section:
+           ketika section besar mulai masuk viewport,
+           elemen-elemen di dalamnya diarahkan untuk muncul.
+        */
+
+        const sectionObserver =
+            new IntersectionObserver(
+
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target
+                                .querySelectorAll(
+                                    ".reveal"
+                                )
+                                .forEach(function(element) {
+
+                                    element.classList.add(
+                                        "active"
+                                    );
+
+                                });
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.10
+                }
+
+            );
+
+
+        document
+            .querySelectorAll(".scroll-section")
+            .forEach(function(section) {
+
+                sectionObserver.observe(section);
 
             });
 
@@ -2768,6 +3166,7 @@
 
 
                     button.disabled = true;
+
 
                     button.innerHTML =
                         "Mengirim...";
