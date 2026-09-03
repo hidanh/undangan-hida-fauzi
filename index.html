@@ -21,7 +21,6 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-snap-type: y mandatory;
             overflow-x: hidden;
         }
 
@@ -41,17 +40,10 @@
 
 
         /* =====================================================
-           SCROLL SNAP
+           SCROLL
         ===================================================== */
 
-        .main-content {
-            scroll-snap-type: none;
-        }
-
-
         .scroll-section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
             position: relative;
         }
 
@@ -65,12 +57,11 @@
             opacity: 0;
 
             transform:
-                translateY(70px)
-                scale(.96);
+                translateY(35px);
 
             transition:
-                opacity .8s ease,
-                transform .9s cubic-bezier(.16, 1, .3, 1);
+                opacity 1s ease,
+                transform 1s cubic-bezier(.16, 1, .3, 1);
 
             will-change:
                 opacity,
@@ -83,8 +74,7 @@
             opacity: 1;
 
             transform:
-                translateY(0)
-                scale(1);
+                translateY(0);
         }
 
 
@@ -140,10 +130,6 @@
                     #ffffff 48%,
                     #fff4f7 100%
                 );
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
@@ -471,19 +457,17 @@
 
             bottom: 0;
 
-            transform: none;
-
             width: 100vw;
 
             max-width: none;
 
-            height: 190px;
+            height: auto;
 
             max-height: none;
 
-            object-fit: fill;
+            object-fit: contain;
 
-            object-position: bottom;
+            object-position: bottom center;
 
             z-index: 2;
 
@@ -507,7 +491,7 @@
             position: relative;
 
             padding:
-                0 25px 100px;
+                0 25px;
 
             text-align: center;
 
@@ -546,111 +530,81 @@
 
         .opening-section {
 
-            min-height: 100vh;
-
-            height: 100svh;
+            min-height: auto;
 
             padding:
-                60px 0
-                40px;
+                65px 0
+                45px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
         .details-section {
 
-            min-height: 100vh;
-
-            height: 100svh;
+            min-height: auto;
 
             padding:
-                50px 0
-                40px;
+                55px 0
+                45px;
 
             display: flex;
 
             flex-direction: column;
 
             justify-content: center;
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
         .gift-page-section {
 
-            min-height: 100vh;
-
-            height: 100svh;
+            min-height: auto;
 
             padding:
-                50px 0
-                40px;
+                55px 0
+                45px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
         .rsvp-page-section {
 
-            min-height: 100vh;
-
-            height: 100svh;
+            min-height: auto;
 
             padding:
-                50px 0
-                40px;
+                55px 0
+                45px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
         .closing-section {
 
-            min-height: 100vh;
-
-            height: 100svh;
+            min-height: auto;
 
             padding:
-                50px 0
-                60px;
+                55px 0
+                70px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
-
-            scroll-snap-align: start;
-
-            scroll-snap-stop: always;
         }
 
 
@@ -938,7 +892,7 @@
 
             margin:
                 0 auto
-                30px;
+                20px;
 
             position: relative;
 
@@ -977,6 +931,76 @@
             animation:
                 gentlePulse
                 3s ease-in-out infinite;
+        }
+
+
+        /* =====================================================
+           AYAT AL-QURAN
+        ===================================================== */
+
+        .quran-verse {
+
+            max-width: 600px;
+
+            width: 100%;
+
+            margin:
+                0 auto 28px;
+
+            text-align: center;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        .quran-arabic {
+
+            font-family:
+                "Times New Roman",
+                Georgia,
+                serif;
+
+            font-size: 23px;
+
+            line-height: 2;
+
+            color: #9f6173;
+
+            margin:
+                0 5px 10px;
+        }
+
+
+        .quran-translation {
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            color: #654f4f;
+
+            font-style: italic;
+
+            margin:
+                0 auto 5px;
+
+            max-width: 520px;
+        }
+
+
+        .quran-reference {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: .5px;
+
+            color: #b8667e;
+
+            margin: 0;
         }
 
 
@@ -1974,7 +1998,7 @@
 
                 max-width: none;
 
-                height: 135px;
+                height: auto;
 
                 max-height: none;
 
@@ -1987,68 +2011,57 @@
             .main-content {
 
                 padding:
-                    0 18px
-                    80px;
+                    0 18px;
             }
 
 
             .opening-section {
 
-                min-height: 100svh;
-
-                height: 100svh;
+                min-height: auto;
 
                 padding:
-                    60px 0
-                    40px;
+                    55px 0
+                    35px;
             }
 
 
             .details-section {
 
-                min-height: 100svh;
-
-                height: 100svh;
+                min-height: auto;
 
                 padding:
-                    50px 0
-                    40px;
+                    45px 0
+                    35px;
             }
 
 
             .gift-page-section {
 
-                min-height: 100svh;
-
-                height: 100svh;
+                min-height: auto;
 
                 padding:
-                    50px 0
-                    40px;
+                    45px 0
+                    35px;
             }
 
 
             .rsvp-page-section {
 
-                min-height: 100svh;
-
-                height: 100svh;
+                min-height: auto;
 
                 padding:
-                    50px 0
-                    40px;
+                    45px 0
+                    35px;
             }
 
 
             .closing-section {
 
-                min-height: 100svh;
-
-                height: 100svh;
+                min-height: auto;
 
                 padding:
                     40px 0
-                    60px;
+                    55px;
             }
 
 
@@ -2138,6 +2151,27 @@
                     0 5px;
 
                 font-size: 12px;
+            }
+
+
+            .quran-arabic {
+
+                font-size: 20px;
+
+                line-height: 1.9;
+
+                margin-left: 0;
+
+                margin-right: 0;
+            }
+
+
+            .quran-translation {
+
+                font-size: 12px;
+
+                padding:
+                    0 8px;
             }
 
 
@@ -2234,7 +2268,7 @@
 
                 max-width: none;
 
-                height: 120px;
+                height: auto;
 
                 max-height: none;
             }
@@ -2453,6 +2487,24 @@
         ================================================= -->
 
         <div class="scroll-section details-section">
+
+
+            <div class="quran-verse reveal">
+
+                <p class="quran-arabic" dir="rtl">
+                    وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+                </p>
+
+                <p class="quran-translation">
+                    “Dan segala sesuatu kami jadikan berpasang-pasangan,
+                    supaya kamu mengingat kebesaran Allah.”
+                </p>
+
+                <p class="quran-reference">
+                    QS. Adz Dzariyaat (51): 49
+                </p>
+
+            </div>
 
 
             <div class="countdown-section reveal">
