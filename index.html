@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -160,6 +161,42 @@
             animation:
                 coverAppear 1.5s
                 cubic-bezier(.22,1,.36,1);
+        }
+
+        /* =====================================================
+           NAMA TAMU
+        ===================================================== */
+
+        .guest-name {
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+
+            font-weight: normal;
+
+            color: #b8667e;
+
+            margin-bottom: 7px;
+
+            letter-spacing: .3px;
+
+            animation:
+                fadeDown 1.2s ease both;
+        }
+
+        .guest-invitation {
+            font-family: Georgia, serif;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+            color: #9b777f;
+
+            margin-bottom: 23px;
+
+            animation:
+                fadeDown 1.2s ease .15s both;
         }
 
         .small-text {
@@ -717,7 +754,6 @@
 
         /* =====================================================
            AYAT AL-QURAN
-           FRAME TETAP SAMA
         ===================================================== */
 
         .quran-verse {
@@ -1294,6 +1330,19 @@
                     #b8667e,
                     #c97891
                 );
+
+            border: none;
+            border-radius: 10px;
+
+            padding: 13px;
+
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            cursor: pointer;
         }
 
         .rsvp-form button:hover {
@@ -1680,6 +1729,16 @@
                     translateY(-25px);
             }
 
+            .guest-name {
+                font-size: 17px;
+                margin-bottom: 6px;
+            }
+
+            .guest-invitation {
+                font-size: 13px;
+                margin-bottom: 18px;
+            }
+
             .cover h1 {
                 font-size: 48px;
             }
@@ -1911,6 +1970,14 @@
                     translateY(-18px);
             }
 
+            .guest-name {
+                font-size: 16px;
+            }
+
+            .guest-invitation {
+                font-size: 12px;
+            }
+
             .envelope-button {
                 transform: scale(.76);
 
@@ -1991,6 +2058,20 @@
 
         <div class="content">
 
+            <!-- NAMA TAMU DINAMIS -->
+
+            <div
+                class="guest-name"
+                id="guestName"
+            >
+                Hi, Guest
+            </div>
+
+            <div class="guest-invitation">
+                You're invited to
+            </div>
+
+
             <div class="small-text">
                 THE WEDDING OF
             </div>
@@ -2008,6 +2089,7 @@
             <h1>
                 Fauzi
             </h1>
+
 
             <div
                 class="envelope-button"
@@ -2033,6 +2115,7 @@
             </div>
 
         </div>
+
 
         <img
             src="poppy.png"
@@ -2097,7 +2180,7 @@
 
 
                 <!-- =================================================
-                     AYAT AL-QURAN DI BAWAH NAMA PENGANTIN
+                     AYAT AL-QURAN
                 ================================================= -->
 
                 <div class="quran-verse reveal delay-4">
@@ -2381,7 +2464,7 @@
 
         <!-- =================================================
              CLOSING
-        ================================================= -->
+        ===================================================== -->
 
         <div class="closing-section">
 
@@ -2439,6 +2522,54 @@
 
 
     <script>
+
+        /* =====================================================
+           NAMA TAMU DARI URL
+           
+           Contoh:
+           ?to=Andi
+           ?to=Bu Rina
+           ?to=Bapak Andi dan Keluarga
+        ===================================================== */
+
+        function setGuestName() {
+
+            const params =
+                new URLSearchParams(
+                    window.location.search
+                );
+
+            const guest =
+                params.get("to");
+
+            const guestName =
+                document.getElementById(
+                    "guestName"
+                );
+
+
+            if (guest && guest.trim() !== "") {
+
+                guestName.innerHTML =
+                    "Hi, " +
+                    decodeURIComponent(
+                        guest
+                    ).trim();
+
+            }
+
+            else {
+
+                guestName.innerHTML =
+                    "Hi, Guest";
+
+            }
+
+        }
+
+
+        setGuestName();
+
 
         /* =====================================================
            BUKA UNDANGAN
@@ -2903,3 +3034,4 @@
 </body>
 
 </html>
+```
