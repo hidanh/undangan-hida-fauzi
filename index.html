@@ -426,10 +426,6 @@
 
         /* =====================================================
            SECTIONS
-           
-           DIUBAH:
-           opening-section tidak lagi 100vh
-           supaya jarak kosong sebelum ayat tidak terlalu besar
         ===================================================== */
 
         .opening-section {
@@ -668,8 +664,7 @@
 
             animation:
                 gentlePulse
-                4s
-                ease-in-out
+                4s ease-in-out
                 infinite;
         }
 
@@ -699,8 +694,7 @@
 
             animation:
                 ornamentFloat
-                5s
-                ease-in-out
+                5s ease-in-out
                 infinite;
         }
 
@@ -723,15 +717,14 @@
 
         /* =====================================================
            AYAT AL-QURAN
-           
-           AYAT DI ATAS JUDUL
+           FRAME TETAP SAMA
         ===================================================== */
 
         .quran-verse {
             max-width: 560px;
 
             margin:
-                0 auto 22px;
+                30px auto 25px;
 
             padding:
                 22px 28px;
@@ -753,11 +746,6 @@
 
             text-align: center;
         }
-
-        /*
-           Frame pink bergelombang.
-           TETAP SAMA
-        */
 
         .quran-verse::before {
             content: "";
@@ -1739,7 +1727,6 @@
                     0 18px 60px;
             }
 
-            /* DIUBAH: tidak lagi satu layar penuh */
             .opening-section {
                 min-height: auto;
 
@@ -1821,7 +1808,7 @@
                 max-width: 100%;
 
                 margin:
-                    0 auto 18px;
+                    25px auto 18px;
 
                 padding:
                     18px 18px;
@@ -2108,7 +2095,33 @@
                     Nur Hidayah
                 </h2>
 
-                <p class="opening-text reveal delay-4">
+
+                <!-- =================================================
+                     AYAT AL-QURAN DI BAWAH NAMA PENGANTIN
+                ================================================= -->
+
+                <div class="quran-verse reveal delay-4">
+
+                    <p class="quran-arabic">
+                        وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+                    </p>
+
+                    <p class="quran-translation">
+
+                        “Dan segala sesuatu kami jadikan
+                        berpasang-pasangan, supaya kamu
+                        mengingat kebesaran Allah.”
+
+                    </p>
+
+                    <div class="quran-reference">
+                        QS. Adz Dzariyaat (51): 49
+                    </div>
+
+                </div>
+
+
+                <p class="opening-text reveal">
 
                     Dengan memohon rahmat dan ridho Allah SWT,
                     kami bermaksud mengundang Bapak/Ibu/Saudara/i
@@ -2129,29 +2142,6 @@
 
 
             <div class="countdown-section">
-
-
-                <!-- AYAT DI ATAS MENUJU HARI BAHAGIA -->
-
-                <div class="quran-verse reveal">
-
-                    <p class="quran-arabic">
-                        وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
-                    </p>
-
-                    <p class="quran-translation">
-
-                        “Dan segala sesuatu kami jadikan
-                        berpasang-pasangan, supaya kamu
-                        mengingat kebesaran Allah.”
-
-                    </p>
-
-                    <div class="quran-reference">
-                        QS. Adz Dzariyaat (51): 49
-                    </div>
-
-                </div>
 
 
                 <h2 class="section-title reveal">
