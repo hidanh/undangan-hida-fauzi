@@ -26,11 +26,15 @@
         body {
             margin: 0;
             padding: 0;
+
             font-family: Georgia, serif;
             color: #654f4f;
+
             background: #ffffff;
+
             overflow-x: hidden;
         }
+
 
         /* =====================================================
            SCROLL REVEAL
@@ -38,15 +42,19 @@
 
         .reveal {
             opacity: 0;
+
             transform: translateY(35px);
+
             transition:
                 opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
             will-change: opacity, transform;
         }
 
         .reveal.active {
             opacity: 1;
+
             transform: translateY(0);
         }
 
@@ -76,465 +84,11 @@
 
 
         /* =====================================================
-           COVER
-           BACKGROUND ASLI TETAP
-        ===================================================== */
-
-        .cover {
-            min-height: 100svh;
-            height: 100svh;
-
-            position: relative;
-            overflow: hidden;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-            padding: 30px;
-
-            background:
-                radial-gradient(
-                    circle at 50% 35%,
-                    #fff8fa 0%,
-                    #ffffff 48%,
-                    #fff4f7 100%
-                );
-        }
-
-
-        .cover::before {
-            content: "";
-
-            position: absolute;
-
-            width: 420px;
-            height: 420px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(217,154,171,.18),
-                    transparent 70%
-                );
-
-            top: -150px;
-            left: -150px;
-
-            animation:
-                softFloat 8s ease-in-out infinite;
-
-            pointer-events: none;
-
-            z-index: 1;
-        }
-
-
-        .cover::after {
-            content: "";
-
-            position: absolute;
-
-            width: 350px;
-            height: 350px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(217,154,171,.13),
-                    transparent 70%
-                );
-
-            bottom: -150px;
-            right: -120px;
-
-            animation:
-                softFloatReverse 9s ease-in-out infinite;
-
-            pointer-events: none;
-
-            z-index: 1;
-        }
-
-
-        /* =====================================================
-           COVER CONTENT
-        ===================================================== */
-
-        .content {
-            width: 100%;
-            max-width: 500px;
-
-            position: relative;
-            z-index: 10;
-
-            animation:
-                coverAppear 1.5s
-                cubic-bezier(.22,1,.36,1);
-        }
-
-
-        /* =====================================================
-           NAMA TAMU
-        ===================================================== */
-
-        .guest-name {
-            font-family: Arial, sans-serif;
-
-            font-size: 17px;
-            letter-spacing: 1px;
-
-            color: #9d6978;
-
-            margin-bottom: 10px;
-
-            animation:
-                fadeDown 1.2s ease both;
-        }
-
-
-        .invited-text {
-            font-family: Arial, sans-serif;
-
-            font-size: 11px;
-            letter-spacing: 4px;
-
-            color: #c27f93;
-
-            margin-bottom: 28px;
-
-            animation:
-                fadeDown 1.2s ease .15s both;
-        }
-
-
-        .small-text {
-            font-family: Arial, sans-serif;
-
-            font-size: 13px;
-            letter-spacing: 4px;
-
-            color: #c27f93;
-
-            margin-bottom: 25px;
-
-            animation:
-                fadeDown 1.2s ease .25s both;
-        }
-
-
-        .line {
-            width: 70px;
-            height: 1px;
-
-            background: #d99aab;
-
-            margin: 0 auto 25px;
-
-            animation:
-                lineGrow 1s ease .3s both;
-        }
-
-
-        .cover h1 {
-            font-size: 58px;
-            font-weight: normal;
-
-            line-height: 1.15;
-
-            margin: 0;
-
-            color: #b8667e;
-
-            animation:
-                titleFloat 5s ease-in-out infinite;
-        }
-
-
-        .ampersand {
-            font-size: 30px;
-
-            font-style: italic;
-
-            color: #d08a9d;
-
-            margin: 8px 0;
-
-            animation:
-                gentlePulse 4s ease-in-out infinite;
-        }
-
-
-        /* =====================================================
-           AMPLOP
-        ===================================================== */
-
-        .envelope-button {
-            width: 145px;
-            height: 105px;
-
-            margin: 45px auto 0;
-
-            position: relative;
-
-            cursor: pointer;
-
-            animation:
-                envelopeAppear 1s ease .8s both,
-                envelopeFloat 4s ease-in-out 1.8s infinite;
-        }
-
-
-        .envelope-body {
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 145px;
-            height: 88px;
-
-            border-radius: 8px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #e4a7b6,
-                    #cc7f95
-                );
-
-            box-shadow:
-                0 12px 25px
-                rgba(190,110,135,.25);
-
-            overflow: hidden;
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease;
-        }
-
-
-        .envelope-body::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 0;
-            height: 0;
-
-            border-left:
-                72px solid transparent;
-
-            border-right:
-                72px solid transparent;
-
-            border-bottom:
-                55px solid rgba(255,255,255,.16);
-        }
-
-
-        .envelope-flap {
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 0;
-            height: 0;
-
-            border-left:
-                72px solid transparent;
-
-            border-right:
-                72px solid transparent;
-
-            border-top:
-                53px solid #f0bdc9;
-
-            z-index: 3;
-
-            filter:
-                drop-shadow(
-                    0 2px 2px
-                    rgba(150,70,90,.10)
-                );
-        }
-
-
-        .envelope-label {
-            position: absolute;
-
-            left: 50%;
-            top: 48px;
-
-            transform:
-                translate(-50%,-50%);
-
-            z-index: 5;
-
-            color: #ffffff;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 11px;
-            letter-spacing: 1.5px;
-
-            white-space: nowrap;
-        }
-
-
-        .envelope-heart {
-            position: absolute;
-
-            left: 50%;
-            top: 27px;
-
-            transform:
-                translateX(-50%);
-
-            z-index: 6;
-
-            color: #ffffff;
-
-            font-size: 19px;
-
-            text-shadow:
-                0 2px 4px
-                rgba(100,50,60,.15);
-        }
-
-
-        .envelope-button:hover
-        .envelope-body {
-            transform:
-                translateY(-5px)
-                scale(1.04);
-
-            box-shadow:
-                0 18px 32px
-                rgba(190,110,135,.32);
-        }
-
-
-        /* =====================================================
-           BUNGA POPPY
-           FULL KIRI - KANAN LAPTOP
-        ===================================================== */
-
-        .cover-poppy {
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100vw;
-            min-width: 100vw;
-            max-width: none;
-
-            height: auto;
-
-            object-fit: contain;
-            object-position: bottom center;
-
-            z-index: 2;
-
-            pointer-events: none;
-
-            animation:
-                poppyFloat 6s ease-in-out infinite;
-        }
-
-
-        /* =====================================================
-           CURTAIN
-        ===================================================== */
-
-        .curtain-wrapper {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 9999;
-
-            display: none;
-
-            overflow: hidden;
-
-            pointer-events: none;
-        }
-
-
-        .curtain-wrapper.active {
-            display: block;
-        }
-
-
-        .curtain-left,
-        .curtain-right {
-            position: absolute;
-
-            top: 0;
-
-            width: 50%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e8c4cd,
-                    #d99aab,
-                    #c97d94
-                );
-
-            transition:
-                transform 1.5s
-                cubic-bezier(.77,0,.18,1);
-
-            box-shadow:
-                inset 0 0 35px
-                rgba(255,255,255,.25);
-        }
-
-
-        .curtain-left {
-            left: 0;
-        }
-
-
-        .curtain-right {
-            right: 0;
-        }
-
-
-        .curtain-wrapper.open
-        .curtain-left {
-            transform:
-                translateX(-100%);
-        }
-
-
-        .curtain-wrapper.open
-        .curtain-right {
-            transform:
-                translateX(100%);
-        }
-
-
-        /* =====================================================
            MAIN CONTENT
+           SUDAH ADA DI BELAKANG COVER
         ===================================================== */
 
         .main-content {
-            display: none;
 
             min-height: 100vh;
 
@@ -544,6 +98,14 @@
                 0 25px 80px;
 
             text-align: center;
+
+            opacity: 0;
+
+            transform: scale(.985);
+
+            transition:
+                opacity 1.5s ease,
+                transform 1.5s ease;
 
             background:
 
@@ -574,11 +136,529 @@
         }
 
 
+        .main-content.opened {
+
+            opacity: 1;
+
+            transform: scale(1);
+
+        }
+
+
+        /* =====================================================
+           COVER WRAPPER
+        ===================================================== */
+
+        .cover {
+
+            position: fixed;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100svh;
+
+            z-index: 9999;
+
+            overflow: hidden;
+
+            pointer-events: auto;
+
+        }
+
+
+        /* =====================================================
+           TIRAI KIRI & KANAN
+        ===================================================== */
+
+        .curtain {
+
+            position: absolute;
+
+            top: 0;
+
+            width: 50.1%;
+
+            height: 100%;
+
+            overflow: hidden;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% 35%,
+                    #fff8fa 0%,
+                    #ffffff 48%,
+                    #fff4f7 100%
+                );
+
+            transition:
+                transform 1.45s cubic-bezier(.77, 0, .18, 1);
+
+            will-change: transform;
+
+        }
+
+
+        .curtain-left {
+
+            left: 0;
+
+        }
+
+
+        .curtain-right {
+
+            right: 0;
+
+        }
+
+
+        /* =====================================================
+           EFEK BUKA TIRAI
+        ===================================================== */
+
+        .cover.open .curtain-left {
+
+            transform:
+                translateX(-101%);
+
+        }
+
+
+        .cover.open .curtain-right {
+
+            transform:
+                translateX(101%);
+
+        }
+
+
+        /* =====================================================
+           EFEK CAHAYA HALUS DI TIRAI
+        ===================================================== */
+
+        .curtain::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(217,154,171,.18),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .curtain-left::before {
+
+            top: -150px;
+            left: -150px;
+
+            animation:
+                softFloat 8s ease-in-out infinite;
+
+        }
+
+
+        .curtain-right::before {
+
+            bottom: -150px;
+            right: -120px;
+
+            animation:
+                softFloatReverse 9s ease-in-out infinite;
+
+        }
+
+
+        /* =====================================================
+           COVER CONTENT
+        ===================================================== */
+
+        .cover-content {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 20;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            transition:
+                opacity .55s ease,
+                transform .7s ease;
+
+        }
+
+
+        .cover.open .cover-content {
+
+            opacity: 0;
+
+            transform:
+                scale(.97);
+
+            pointer-events: none;
+
+        }
+
+
+        .content {
+
+            width: 100%;
+            max-width: 500px;
+
+            position: relative;
+
+            z-index: 10;
+
+            animation:
+                coverAppear 1.5s
+                cubic-bezier(.22,1,.36,1);
+
+        }
+
+
+        /* =====================================================
+           NAMA TAMU
+        ===================================================== */
+
+        .guest-name {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 16px;
+
+            letter-spacing: 1px;
+
+            color: #b8667e;
+
+            margin-bottom: 12px;
+
+            animation:
+                fadeDown 1.2s ease .1s both;
+
+        }
+
+
+        .guest-invite {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            color: #c27f93;
+
+            margin-bottom: 28px;
+
+            animation:
+                fadeDown 1.2s ease .2s both;
+
+        }
+
+
+        .small-text {
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            letter-spacing: 4px;
+
+            color: #c27f93;
+
+            margin-bottom: 25px;
+
+            animation:
+                fadeDown 1.2s ease .3s both;
+
+        }
+
+
+        .line {
+
+            width: 70px;
+            height: 1px;
+
+            background: #d99aab;
+
+            margin: 0 auto 25px;
+
+            animation:
+                lineGrow 1s ease .4s both;
+
+        }
+
+
+        .cover h1 {
+
+            font-size: 58px;
+
+            font-weight: normal;
+
+            line-height: 1.15;
+
+            margin: 0;
+
+            color: #b8667e;
+
+            animation:
+                titleFloat 5s ease-in-out infinite;
+
+        }
+
+
+        .ampersand {
+
+            font-size: 30px;
+
+            font-style: italic;
+
+            color: #d08a9d;
+
+            margin: 8px 0;
+
+            animation:
+                gentlePulse 4s ease-in-out infinite;
+
+        }
+
+
+        /* =====================================================
+           AMPLOP
+        ===================================================== */
+
+        .envelope-button {
+
+            width: 145px;
+            height: 105px;
+
+            margin: 40px auto 0;
+
+            position: relative;
+
+            cursor: pointer;
+
+            animation:
+                envelopeAppear 1s ease .8s both,
+                envelopeFloat 4s ease-in-out 1.8s infinite;
+
+        }
+
+
+        .envelope-body {
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 145px;
+            height: 88px;
+
+            border-radius: 8px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #e4a7b6,
+                    #cc7f95
+                );
+
+            box-shadow:
+
+                0 12px 25px
+                rgba(190,110,135,.25);
+
+            overflow: hidden;
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+
+        }
+
+
+        .envelope-body::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                72px solid transparent;
+
+            border-right:
+                72px solid transparent;
+
+            border-bottom:
+                55px solid rgba(255,255,255,.16);
+
+        }
+
+
+        .envelope-flap {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                72px solid transparent;
+
+            border-right:
+                72px solid transparent;
+
+            border-top:
+                53px solid #f0bdc9;
+
+            z-index: 3;
+
+        }
+
+
+        .envelope-label {
+
+            position: absolute;
+
+            left: 50%;
+            top: 48px;
+
+            transform:
+                translate(-50%,-50%);
+
+            z-index: 5;
+
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            white-space: nowrap;
+
+        }
+
+
+        .envelope-heart {
+
+            position: absolute;
+
+            left: 50%;
+            top: 27px;
+
+            transform:
+                translateX(-50%);
+
+            z-index: 6;
+
+            color: #ffffff;
+
+            font-size: 19px;
+
+        }
+
+
+        .envelope-button:hover
+        .envelope-body {
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+        }
+
+
+        /* =====================================================
+           POPPY
+        ===================================================== */
+
+        .cover-poppy {
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 0;
+
+            width: 100%;
+
+            min-width: 100vw;
+
+            max-width: none;
+
+            height: auto;
+
+            transform:
+                translateX(-50%);
+
+            object-fit: cover;
+
+            object-position: bottom center;
+
+            z-index: 10;
+
+            pointer-events: none;
+
+            transition:
+                opacity .6s ease;
+
+            animation:
+                poppyFloat 6s ease-in-out infinite;
+
+        }
+
+
+        .cover.open .cover-poppy {
+
+            opacity: 0;
+
+        }
+
+
         /* =====================================================
            SECTIONS
         ===================================================== */
 
         .opening-section {
+
+            min-height: auto;
+
             padding:
                 60px 0 20px;
 
@@ -586,25 +666,35 @@
 
             align-items: center;
             justify-content: center;
+
         }
 
 
         .details-section {
+
             padding:
                 25px 0 55px;
 
             display: flex;
 
             flex-direction: column;
+
             justify-content: center;
+
         }
 
 
         .gift-page-section,
         .rsvp-page-section,
         .closing-section {
+
+            min-height: auto;
+
+            height: auto;
+
             padding:
                 45px 0;
+
         }
 
 
@@ -613,6 +703,7 @@
         ===================================================== */
 
         .opening {
+
             max-width: 600px;
             width: 100%;
 
@@ -621,11 +712,14 @@
             text-align: center;
 
             position: relative;
+
             z-index: 10;
+
         }
 
 
         .opening-small {
+
             font-family: Arial, sans-serif;
 
             font-size: 12px;
@@ -635,6 +729,7 @@
             color: #c27f93;
 
             margin-bottom: 15px;
+
         }
 
 
@@ -643,6 +738,7 @@
         ===================================================== */
 
         .couple-frame {
+
             position: relative;
 
             width: 330px;
@@ -664,10 +760,12 @@
                 5s
                 ease-in-out
                 infinite;
+
         }
 
 
         .couple-frame::before {
+
             content: "";
 
             position: absolute;
@@ -685,6 +783,7 @@
                 3px solid #d99aab;
 
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(255,255,255,.95),
@@ -692,6 +791,7 @@
                 );
 
             box-shadow:
+
                 0 10px 35px
                 rgba(190,110,135,.18),
 
@@ -699,10 +799,12 @@
                 rgba(255,255,255,.65);
 
             z-index: 0;
+
         }
 
 
         .couple-frame::after {
+
             content: "";
 
             position: absolute;
@@ -727,10 +829,12 @@
                 4s
                 ease-in-out
                 infinite;
+
         }
 
 
         .pengantin {
+
             display: block;
 
             width: 285px;
@@ -747,10 +851,12 @@
                     0 12px 12px
                     rgba(125,76,88,.14)
                 );
+
         }
 
 
         .frame-decoration {
+
             position: absolute;
 
             z-index: 5;
@@ -761,6 +867,7 @@
             border-radius: 50%;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #e4a7b6,
@@ -777,20 +884,25 @@
             animation:
                 decorationFloat
                 4s ease-in-out infinite;
+
         }
 
 
         .frame-decoration.one {
+
             top: 50px;
             left: 15px;
+
         }
 
 
         .frame-decoration.two {
+
             right: 15px;
             bottom: 45px;
 
             animation-delay: 1s;
+
         }
 
 
@@ -799,6 +911,7 @@
         ===================================================== */
 
         .opening h2 {
+
             margin: 5px 0;
 
             font-size: 32px;
@@ -806,10 +919,12 @@
             font-weight: normal;
 
             color: #b8667e;
+
         }
 
 
         .and {
+
             font-size: 28px;
 
             font-style: italic;
@@ -818,14 +933,11 @@
 
             margin: 2px 0;
 
-            animation:
-                gentlePulse
-                4s ease-in-out
-                infinite;
         }
 
 
         .opening-text {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -833,14 +945,28 @@
             color: #654f4f;
 
             margin-top: 30px;
+
         }
 
 
         /* =====================================================
-           AYAT
+           COUNTDOWN
         ===================================================== */
 
+        .countdown-section {
+
+            max-width: 600px;
+
+            width: 100%;
+
+            margin:
+                0 auto 30px;
+
+        }
+
+
         .quran-verse {
+
             max-width: 560px;
 
             margin:
@@ -863,10 +989,12 @@
                 rgba(190,110,135,.08);
 
             text-align: center;
+
         }
 
 
         .quran-verse::before {
+
             content: "";
 
             position: absolute;
@@ -880,18 +1008,22 @@
             padding: 1.5px;
 
             background:
-                linear-gradient(
-                    135deg,
-                    rgba(217,154,171,.8),
-                    rgba(255,255,255,.3),
-                    rgba(217,154,171,.8)
-                );
+
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 220' preserveAspectRatio='none'%3E%3Cpath d='M18 7 C25 1 32 13 39 7 C46 1 53 13 60 7 C67 1 74 13 81 7 C88 1 95 13 102 7 C109 1 116 13 123 7 C130 1 137 13 144 7 C151 1 158 13 165 7 C172 1 179 13 186 7 C193 1 200 13 207 7 C214 1 221 13 228 7 C235 1 242 13 249 7 C256 1 263 13 270 7 C277 1 284 13 291 7 C298 1 305 13 312 7 C319 1 326 13 333 7 C340 1 347 13 354 7 C361 1 368 13 375 7 C382 1 389 13 396 7 C403 1 410 13 417 7 C424 1 431 13 438 7 C445 1 452 13 459 7 C466 1 473 13 480 7 C487 1 494 13 501 7 C508 1 515 13 522 7 C529 1 536 13 543 7 C550 1 557 13 564 7 C571 1 578 13 582 7 M593 18 C599 25 587 32 593 39 C599 46 587 53 593 60 C599 67 587 74 593 81 C599 88 587 95 593 102 C599 109 587 116 593 123 C599 130 587 137 593 144 C599 151 587 158 593 165 C599 172 587 179 593 186 C599 193 587 200 593 207 C599 214 587 221 593 225 M582 233 C575 227 568 239 561 233 C554 227 547 239 540 233 C533 227 526 239 519 233 C512 227 505 239 498 233 C491 227 484 239 477 233 C470 227 463 239 456 233 C449 227 442 239 435 233 C428 227 421 239 414 233 C407 227 400 239 393 233 C386 227 379 239 372 233 C365 227 358 239 351 233 C344 227 337 239 330 233 C323 227 316 239 309 233 C302 227 295 239 288 233 C281 227 274 239 267 233 C260 227 253 239 246 233 C239 227 232 239 225 233 C218 227 211 239 204 233 C197 227 190 239 183 233 C176 227 169 239 162 233 C155 227 148 239 141 233 C134 227 127 239 120 233 C113 227 106 239 99 233 C92 227 85 239 78 233 C71 227 64 239 57 233 C50 227 43 239 36 233 C29 227 22 239 18 233 M7 222 C13 215 1 208 7 201 C13 194 1 187 7 180 C13 173 1 166 7 159 C13 152 1 145 7 138 C13 131 1 124 7 117 C13 110 1 103 7 96 C13 89 1 82 7 75 C13 68 1 61 7 54 C13 47 1 40 7 33 C13 26 1 19 7 18' fill='none' stroke='%23d99aab' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+            background-size:
+                100% 100%;
+
+            background-repeat:
+                no-repeat;
 
             pointer-events: none;
+
         }
 
 
         .quran-arabic {
+
             position: relative;
 
             z-index: 2;
@@ -904,10 +1036,12 @@
 
             margin:
                 0 0 10px;
+
         }
 
 
         .quran-translation {
+
             position: relative;
 
             z-index: 2;
@@ -919,10 +1053,12 @@
             color: #654f4f;
 
             margin: 0;
+
         }
 
 
         .quran-reference {
+
             position: relative;
 
             z-index: 2;
@@ -932,44 +1068,12 @@
             color: #b8667e;
 
             margin-top: 8px;
-        }
 
-
-        /* =====================================================
-           ORNAMEN
-        ===================================================== */
-
-        .ornamen {
-            margin:
-                45px auto;
-
-            color: #d08a9d;
-
-            font-size: 23px;
-
-            letter-spacing: 8px;
-        }
-
-
-        /* =====================================================
-           COUNTDOWN
-        ===================================================== */
-
-        .countdown-section {
-            max-width: 600px;
-
-            width: 100%;
-
-            margin:
-                0 auto 30px;
-
-            position: relative;
-
-            z-index: 10;
         }
 
 
         .section-title {
+
             font-size: 28px;
 
             font-weight: normal;
@@ -979,12 +1083,12 @@
             margin:
                 0 0 25px;
 
-            position: relative;
         }
 
 
         .section-title::before,
         .section-title::after {
+
             content: "✦";
 
             display: inline-block;
@@ -995,10 +1099,12 @@
             color: #d99aab;
 
             font-size: 15px;
+
         }
 
 
         .countdown {
+
             display: flex;
 
             justify-content: center;
@@ -1006,10 +1112,12 @@
             gap: 12px;
 
             flex-wrap: wrap;
+
         }
 
 
         .count-box {
+
             width: 75px;
 
             padding:
@@ -1018,6 +1126,7 @@
             border-radius: 15px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     #dfa1b1,
@@ -1028,35 +1137,22 @@
                 0 8px 22px
                 rgba(190,110,135,.20);
 
-            animation:
-                cardFloat
-                5s ease-in-out infinite;
-        }
-
-
-        .count-box:nth-child(2) {
-            animation-delay: .5s;
-        }
-
-        .count-box:nth-child(3) {
-            animation-delay: 1s;
-        }
-
-        .count-box:nth-child(4) {
-            animation-delay: 1.5s;
         }
 
 
         .count-number {
+
             display: block;
 
             font-size: 25px;
 
             color: #ffffff;
+
         }
 
 
         .count-label {
+
             display: block;
 
             font-family: Arial, sans-serif;
@@ -1068,6 +1164,7 @@
             color: #ffffff;
 
             margin-top: 5px;
+
         }
 
 
@@ -1076,19 +1173,19 @@
         ===================================================== */
 
         .event-section {
+
             max-width: 600px;
 
             width: 100%;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
-            position: relative;
-
-            z-index: 10;
         }
 
 
         .event-card {
+
             padding:
                 25px 20px;
 
@@ -1097,6 +1194,7 @@
             border-radius: 20px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     #dfa1b1,
@@ -1107,22 +1205,22 @@
                 0 8px 25px
                 rgba(190,110,135,.20);
 
-            position: relative;
-
-            overflow: hidden;
         }
 
 
         .event-title {
+
             font-size: 21px;
 
             color: #ffffff;
 
             margin-bottom: 15px;
+
         }
 
 
         .event-time {
+
             font-family: Arial, sans-serif;
 
             font-size: 15px;
@@ -1130,10 +1228,12 @@
             line-height: 1.8;
 
             color: #ffffff;
+
         }
 
 
         .event-place {
+
             margin-top: 18px;
 
             font-size: 15px;
@@ -1141,10 +1241,12 @@
             line-height: 1.7;
 
             color: #ffffff;
+
         }
 
 
         .maps-button {
+
             display: inline-block;
 
             margin-top: 20px;
@@ -1163,19 +1265,23 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
+
         }
 
 
         /* =====================================================
-           GIFT
+           GIFT + RSVP
         ===================================================== */
 
-        .gift-section {
+        .gift-section,
+        .rsvp-section {
+
             max-width: 600px;
 
             width: 100%;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding:
                 35px 25px;
@@ -1183,6 +1289,7 @@
             border-radius: 22px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     #dfa1b1,
@@ -1192,21 +1299,22 @@
             box-shadow:
                 0 8px 25px
                 rgba(190,110,135,.20);
+
         }
 
 
         .gift-icon {
+
             font-size: 42px;
 
             margin-bottom: 15px;
 
-            animation:
-                giftFloat
-                3s ease-in-out infinite;
         }
 
 
-        .gift-section h2 {
+        .gift-section h2,
+        .rsvp-section h2 {
+
             font-size: 27px;
 
             font-weight: normal;
@@ -1216,10 +1324,13 @@
             margin:
                 5px 0
                 20px;
+
         }
 
 
-        .gift-section p {
+        .gift-section p,
+        .rsvp-section p {
+
             font-size: 15px;
 
             line-height: 1.8;
@@ -1227,66 +1338,25 @@
             margin: 0 auto;
 
             color: #ffffff;
+
         }
 
 
         /* =====================================================
-           RSVP
+           RSVP FORM
         ===================================================== */
 
-        .rsvp-section {
-            max-width: 600px;
-
-            width: 100%;
-
-            margin: 0 auto;
-
-            padding:
-                35px 25px;
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dfa1b1,
-                    #d18399
-                );
-
-            box-shadow:
-                0 8px 25px
-                rgba(190,110,135,.20);
-        }
-
-
-        .rsvp-section h2 {
-            font-size: 27px;
-
-            font-weight: normal;
-
-            color: #ffffff;
-
-            margin-top: 0;
-        }
-
-
-        .rsvp-section p {
-            font-size: 14px;
-
-            line-height: 1.7;
-
-            color: #ffffff;
-        }
-
-
         .rsvp-form {
+
             margin-top: 25px;
+
         }
 
 
         .rsvp-form input,
         .rsvp-form select,
         .rsvp-form textarea {
+
             width: 100%;
 
             padding:
@@ -1307,43 +1377,50 @@
             color: #654f4f;
 
             outline: none;
+
         }
 
 
         .rsvp-form textarea {
+
             min-height: 100px;
 
             resize: vertical;
+
         }
 
 
         .rsvp-form button {
-            margin-top: 5px;
 
             width: 100%;
 
-            padding: 14px;
+            padding: 13px 15px;
 
             border: none;
 
             border-radius: 10px;
 
+            cursor: pointer;
+
             color: #ffffff;
 
             font-family: Arial, sans-serif;
 
-            cursor: pointer;
+            font-size: 14px;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #b8667e,
                     #c97891
                 );
+
         }
 
 
         #rsvpMessage {
+
             margin-top: 15px;
 
             font-family: Arial, sans-serif;
@@ -1351,6 +1428,7 @@
             font-size: 14px;
 
             color: #ffffff;
+
         }
 
 
@@ -1359,27 +1437,28 @@
         ===================================================== */
 
         .closing {
+
             max-width: 600px;
 
             width: 100%;
 
-            margin: 0 auto;
+            margin:
+                0 auto;
 
             padding:
                 20px 25px;
 
-            position: relative;
-
-            z-index: 10;
         }
 
 
         .closing p {
+
             font-size: 14px;
 
             line-height: 1.8;
 
             color: #654f4f;
+
         }
 
 
@@ -1388,6 +1467,7 @@
         ===================================================== */
 
         .music-button {
+
             position: fixed;
 
             right: 18px;
@@ -1401,6 +1481,7 @@
             border-radius: 50%;
 
             background:
+
                 linear-gradient(
                     135deg,
                     #d99aab,
@@ -1415,11 +1496,8 @@
 
             display: none;
 
-            box-shadow:
-                0 5px 15px
-                rgba(190,110,135,.25);
-
             cursor: pointer;
+
         }
 
 
@@ -1430,17 +1508,23 @@
         @keyframes coverAppear {
 
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(25px)
                     scale(.97);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
+
             }
 
         }
@@ -1449,15 +1533,21 @@
         @keyframes fadeDown {
 
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(-20px);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0);
+
             }
 
         }
@@ -1466,13 +1556,19 @@
         @keyframes lineGrow {
 
             from {
+
                 width: 0;
+
                 opacity: 0;
+
             }
 
             to {
+
                 width: 70px;
+
                 opacity: 1;
+
             }
 
         }
@@ -1482,13 +1578,17 @@
 
             0%,
             100% {
+
                 transform:
                     translateY(0);
+
             }
 
             50% {
+
                 transform:
                     translateY(-4px);
+
             }
 
         }
@@ -1498,13 +1598,21 @@
 
             0%,
             100% {
+
                 opacity: .8;
-                transform: scale(1);
+
+                transform:
+                    scale(1);
+
             }
 
             50% {
+
                 opacity: 1;
-                transform: scale(1.04);
+
+                transform:
+                    scale(1.04);
+
             }
 
         }
@@ -1513,17 +1621,23 @@
         @keyframes envelopeAppear {
 
             from {
+
                 opacity: 0;
+
                 transform:
                     translateY(30px)
                     scale(.85);
+
             }
 
             to {
+
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
+
             }
 
         }
@@ -1533,15 +1647,17 @@
 
             0%,
             100% {
+
                 transform:
-                    translateY(0)
-                    rotate(0deg);
+                    translateY(0);
+
             }
 
             50% {
+
                 transform:
-                    translateY(-7px)
-                    rotate(.8deg);
+                    translateY(-7px);
+
             }
 
         }
@@ -1551,13 +1667,19 @@
 
             0%,
             100% {
+
                 transform:
+                    translateX(-50%)
                     translateY(0);
+
             }
 
             50% {
+
                 transform:
+                    translateX(-50%)
                     translateY(-6px);
+
             }
 
         }
@@ -1567,13 +1689,17 @@
 
             0%,
             100% {
+
                 transform:
                     translateY(0);
+
             }
 
             50% {
+
                 transform:
                     translateY(-9px);
+
             }
 
         }
@@ -1583,13 +1709,21 @@
 
             0%,
             100% {
+
                 opacity: .55;
-                transform: scale(1);
+
+                transform:
+                    scale(1);
+
             }
 
             50% {
+
                 opacity: 1;
-                transform: scale(1.015);
+
+                transform:
+                    scale(1.015);
+
             }
 
         }
@@ -1599,49 +1733,17 @@
 
             0%,
             100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
 
-            50% {
-                transform:
-                    translateY(-8px)
-                    rotate(5deg);
-            }
-
-        }
-
-
-        @keyframes cardFloat {
-
-            0%,
-            100% {
                 transform:
                     translateY(0);
+
             }
 
             50% {
+
                 transform:
-                    translateY(-3px);
-            }
+                    translateY(-8px);
 
-        }
-
-
-        @keyframes giftFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-7px)
-                    rotate(3deg);
             }
 
         }
@@ -1651,13 +1753,17 @@
 
             0%,
             100% {
+
                 transform:
                     translate(0,0);
+
             }
 
             50% {
+
                 transform:
                     translate(20px,15px);
+
             }
 
         }
@@ -1667,13 +1773,17 @@
 
             0%,
             100% {
+
                 transform:
                     translate(0,0);
+
             }
 
             50% {
+
                 transform:
                     translate(-20px,-15px);
+
             }
 
         }
@@ -1685,237 +1795,146 @@
 
         @media (max-width: 600px) {
 
-            .cover {
+            .cover-content {
+
                 padding:
                     20px 18px;
-            }
 
-            .content {
-                max-width: 100%;
-                transform:
-                    translateY(-20px);
-            }
-
-            .guest-name {
-                font-size: 15px;
-            }
-
-            .invited-text {
-                font-size: 9px;
-                letter-spacing: 3px;
-                margin-bottom: 22px;
             }
 
             .cover h1 {
+
                 font-size: 48px;
+
+            }
+
+            .guest-name {
+
+                font-size: 15px;
+
+            }
+
+            .guest-invite {
+
+                font-size: 10px;
+
+                letter-spacing: 2.5px;
+
             }
 
             .small-text {
+
                 font-size: 10px;
 
                 letter-spacing: 3px;
 
                 margin-bottom: 18px;
+
             }
 
             .line {
+
                 margin-bottom: 18px;
+
             }
 
             .ampersand {
+
                 font-size: 27px;
 
                 margin: 5px 0;
+
             }
 
             .envelope-button {
+
                 transform: scale(.84);
 
-                margin-top: 25px;
-            }
+                margin-top: 20px;
 
-            .cover-poppy {
-                width: 100vw;
-                min-width: 100vw;
             }
 
             .main-content {
+
                 padding:
                     0 18px 60px;
+
             }
 
             .opening-section {
+
                 padding:
                     60px 0 20px;
+
             }
 
             .details-section {
+
                 padding:
                     25px 0 45px;
-            }
 
-            .gift-page-section,
-            .rsvp-page-section,
-            .closing-section {
-                padding:
-                    35px 0;
             }
 
             .couple-frame {
+
                 width: 310px;
 
                 max-width: 95%;
 
                 height: 405px;
+
             }
 
             .couple-frame::before {
+
                 width: 255px;
 
                 height: 360px;
+
             }
 
             .couple-frame::after {
+
                 width: 272px;
 
                 height: 377px;
+
             }
 
             .pengantin {
+
                 width: 265px;
 
-                max-width: 82%;
-            }
-
-            .frame-decoration.one {
-                left: 5px;
-
-                top: 45px;
-            }
-
-            .frame-decoration.two {
-                right: 5px;
-
-                bottom: 40px;
             }
 
             .opening h2 {
+
                 font-size: 28px;
-            }
 
-            .opening-text {
-                font-size: 14px;
-
-                padding:
-                    0 10px;
-            }
-
-            .quran-verse {
-                padding:
-                    18px 18px;
             }
 
             .quran-arabic {
-                font-size: 19px;
-            }
 
-            .quran-translation {
-                font-size: 12px;
+                font-size: 19px;
+
             }
 
             .section-title {
+
                 font-size: 24px;
-            }
 
-            .section-title::before,
-            .section-title::after {
-                margin:
-                    0 5px;
-
-                font-size: 12px;
             }
 
             .countdown {
+
                 gap: 8px;
+
             }
 
             .count-box {
+
                 width: 67px;
 
-                padding:
-                    13px 4px;
-            }
-
-            .count-number {
-                font-size: 21px;
-            }
-
-            .count-label {
-                font-size: 8px;
-            }
-
-            .event-card {
-                padding:
-                    24px 18px;
-            }
-
-            .gift-section,
-            .rsvp-section {
-                padding-left: 20px;
-
-                padding-right: 20px;
-            }
-
-            .gift-section h2,
-            .rsvp-section h2 {
-                font-size: 25px;
-            }
-
-        }
-
-
-        @media (max-width: 380px) {
-
-            .cover h1 {
-                font-size: 43px;
-            }
-
-            .content {
-                transform:
-                    translateY(-12px);
-            }
-
-            .envelope-button {
-                transform: scale(.76);
-
-                margin-top: 18px;
-            }
-
-            .couple-frame {
-                transform:
-                    scale(.92);
-            }
-
-            .count-box {
-                width: 62px;
-            }
-
-        }
-
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
             }
 
         }
@@ -1929,99 +1948,6 @@
 
 
     <!-- =====================================================
-         CURTAIN
-    ===================================================== -->
-
-    <div class="curtain-wrapper" id="curtain">
-
-        <div class="curtain-left"></div>
-
-        <div class="curtain-right"></div>
-
-    </div>
-
-
-    <!-- =====================================================
-         COVER
-    ===================================================== -->
-
-    <section class="cover" id="cover">
-
-        <div class="content">
-
-            <div
-                class="guest-name"
-                id="guestName"
-            >
-                Hi Tamu Undangan
-            </div>
-
-
-            <div class="invited-text">
-                YOU'RE INVITED TO
-            </div>
-
-
-            <div class="small-text">
-                THE WEDDING OF
-            </div>
-
-
-            <div class="line"></div>
-
-
-            <h1>
-                Hida
-            </h1>
-
-
-            <div class="ampersand">
-                &
-            </div>
-
-
-            <h1>
-                Fauzi
-            </h1>
-
-
-            <div
-                class="envelope-button"
-                onclick="bukaUndangan()"
-                role="button"
-                aria-label="Buka Undangan"
-            >
-
-                <div class="envelope-body">
-
-                    <div class="envelope-label">
-                        BUKA UNDANGAN
-                    </div>
-
-                </div>
-
-                <div class="envelope-flap"></div>
-
-                <div class="envelope-heart">
-                    ♥
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- POPPY TETAP FULL -->
-        <img
-            src="poppy.png"
-            class="cover-poppy"
-            alt=""
-        >
-
-    </section>
-
-
-    <!-- =====================================================
          MAIN CONTENT
     ===================================================== -->
 
@@ -2031,11 +1957,10 @@
     >
 
 
-        <!-- OPENING -->
-
         <div class="opening-section">
 
             <div class="opening reveal">
+
 
                 <div class="opening-small">
                     THE WEDDING OF
@@ -2047,7 +1972,6 @@
                     <span class="frame-decoration one"></span>
 
                     <span class="frame-decoration two"></span>
-
 
                     <img
                         src="pengantin.png"
@@ -2102,16 +2026,19 @@
 
                 </p>
 
+
             </div>
 
         </div>
 
 
-        <!-- COUNTDOWN -->
+        <!-- DETAILS -->
 
         <div class="details-section">
 
+
             <div class="countdown-section">
+
 
                 <h2 class="section-title reveal">
                     Menuju Hari Bahagia
@@ -2120,11 +2047,10 @@
 
                 <div class="countdown">
 
+
                     <div class="count-box reveal delay-1">
 
-                        <span class="count-number" id="days">
-                            00
-                        </span>
+                        <span class="count-number" id="days">00</span>
 
                         <span class="count-label">
                             HARI
@@ -2135,9 +2061,7 @@
 
                     <div class="count-box reveal delay-2">
 
-                        <span class="count-number" id="hours">
-                            00
-                        </span>
+                        <span class="count-number" id="hours">00</span>
 
                         <span class="count-label">
                             JAM
@@ -2148,9 +2072,7 @@
 
                     <div class="count-box reveal delay-3">
 
-                        <span class="count-number" id="minutes">
-                            00
-                        </span>
+                        <span class="count-number" id="minutes">00</span>
 
                         <span class="count-label">
                             MENIT
@@ -2161,9 +2083,7 @@
 
                     <div class="count-box reveal delay-4">
 
-                        <span class="count-number" id="seconds">
-                            00
-                        </span>
+                        <span class="count-number" id="seconds">00</span>
 
                         <span class="count-label">
                             DETIK
@@ -2171,14 +2091,15 @@
 
                     </div>
 
+
                 </div>
+
 
             </div>
 
 
-            <!-- EVENT -->
-
             <div class="event-section">
+
 
                 <div class="event-card reveal">
 
@@ -2217,7 +2138,6 @@
 
                     </div>
 
-
                     <a
                         href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
                         target="_blank"
@@ -2227,6 +2147,7 @@
                     </a>
 
                 </div>
+
 
             </div>
 
@@ -2284,7 +2205,6 @@
                     <input
                         type="text"
                         id="nama"
-                        name="nama"
                         placeholder="Nama"
                         required
                     >
@@ -2292,7 +2212,6 @@
 
                     <select
                         id="kehadiran"
-                        name="kehadiran"
                         required
                     >
 
@@ -2313,7 +2232,6 @@
 
                     <textarea
                         id="pesan"
-                        name="pesan"
                         placeholder="Ucapan / doa untuk Hida & Fauzi"
                     ></textarea>
 
@@ -2357,12 +2275,110 @@
 
         </div>
 
+
     </section>
 
 
+
     <!-- =====================================================
-         MUSIC
+         COVER
     ===================================================== -->
+
+    <section
+        class="cover"
+        id="cover"
+    >
+
+        <div class="curtain curtain-left"></div>
+
+        <div class="curtain curtain-right"></div>
+
+
+        <div class="cover-content">
+
+            <div class="content">
+
+
+                <!-- NAMA TAMU -->
+
+                <div
+                    class="guest-name"
+                    id="guestName"
+                >
+                    Hi, Guest
+                </div>
+
+
+                <div class="guest-invite">
+                    YOU'RE INVITED TO
+                </div>
+
+
+                <div class="small-text">
+                    THE WEDDING OF
+                </div>
+
+
+                <div class="line"></div>
+
+
+                <h1>
+                    Hida
+                </h1>
+
+
+                <div class="ampersand">
+                    &
+                </div>
+
+
+                <h1>
+                    Fauzi
+                </h1>
+
+
+                <div
+                    class="envelope-button"
+                    onclick="bukaUndangan()"
+                    role="button"
+                >
+
+                    <div class="envelope-body">
+
+                        <div class="envelope-label">
+                            BUKA UNDANGAN
+                        </div>
+
+                    </div>
+
+
+                    <div class="envelope-flap"></div>
+
+
+                    <div class="envelope-heart">
+                        ♥
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <img
+            src="poppy.png"
+            class="cover-poppy"
+            alt=""
+        >
+
+
+    </section>
+
+
+
+    <!-- MUSIC -->
 
     <audio
         id="backgroundMusic"
@@ -2387,35 +2403,43 @@
     </button>
 
 
+
     <script>
 
         /* =====================================================
            NAMA TAMU DARI URL
+
+           Contoh:
+           ?to=Andi
+
+           Maka akan tampil:
+           Hi, Andi
         ===================================================== */
 
-        const urlParams =
+        const params =
             new URLSearchParams(
                 window.location.search
             );
 
 
-        const namaTamu =
-            urlParams.get("to");
+        const guest =
+            params.get("to");
 
 
-        if (namaTamu) {
+        if (guest) {
 
             document.getElementById(
                 "guestName"
             ).innerHTML =
-                "Hi " +
-                decodeURIComponent(namaTamu);
+                "Hi, " +
+                decodeURIComponent(guest);
 
         }
 
 
+
         /* =====================================================
-           BUKA UNDANGAN + CURTAIN
+           BUKA UNDANGAN - TIRAI
         ===================================================== */
 
         function bukaUndangan() {
@@ -2426,9 +2450,6 @@
             const main =
                 document.getElementById("mainContent");
 
-            const curtain =
-                document.getElementById("curtain");
-
             const musicButton =
                 document.getElementById("musicButton");
 
@@ -2438,26 +2459,17 @@
                 );
 
 
-            /* TAMPILKAN ISI UNDANGAN DI BELAKANG TIRAI */
+            /* Isi undangan muncul perlahan */
 
-            main.style.display =
-                "block";
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "auto"
-            });
+            main.classList.add("opened");
 
 
-            /* TAMPILKAN TIRAI */
+            /* Tirai membuka */
 
-            curtain.classList.add(
-                "active"
-            );
+            cover.classList.add("open");
 
 
-            /* PUTAR MUSIK */
+            /* Musik */
 
             music.play()
                 .then(function() {
@@ -2476,36 +2488,19 @@
                 });
 
 
-            /*
-               TUNGGU SEBENTAR
-               LALU TIRAI BUKA
-               KIRI & KANAN
-            */
+            /* Tombol musik muncul */
 
             setTimeout(function() {
-
-                curtain.classList.add(
-                    "open"
-                );
-
-            }, 50);
-
-
-            /* SETELAH TIRAI SELESAI */
-
-            setTimeout(function() {
-
-                cover.style.display =
-                    "none";
-
-
-                curtain.style.display =
-                    "none";
-
 
                 musicButton.style.display =
                     "block";
 
+            }, 800);
+
+
+            /* Reveal opening */
+
+            setTimeout(function() {
 
                 document
                     .querySelectorAll(
@@ -2519,9 +2514,20 @@
 
                     });
 
-            }, 1600);
+            }, 500);
+
+
+            /* Hapus cover setelah animasi */
+
+            setTimeout(function() {
+
+                cover.style.display =
+                    "none";
+
+            }, 1550);
 
         }
+
 
 
         /* =====================================================
@@ -2562,6 +2568,7 @@
         }
 
 
+
         /* =====================================================
            COUNTDOWN
         ===================================================== */
@@ -2583,19 +2590,13 @@
 
             if (distance <= 0) {
 
-                document.getElementById("days").innerHTML =
-                    "00";
-
-                document.getElementById("hours").innerHTML =
-                    "00";
-
-                document.getElementById("minutes").innerHTML =
-                    "00";
-
-                document.getElementById("seconds").innerHTML =
-                    "00";
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
 
                 return;
+
             }
 
 
@@ -2656,18 +2657,24 @@
 
         updateCountdown();
 
-
         setInterval(
             updateCountdown,
             1000
         );
 
 
+
         /* =====================================================
-           REVEAL ON SCROLL
+           SCROLL REVEAL
         ===================================================== */
 
-        const initialReveal =
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const observer =
             new IntersectionObserver(
 
                 function(entries) {
@@ -2697,15 +2704,14 @@
             );
 
 
-        document
-            .querySelectorAll(".reveal")
-            .forEach(function(element) {
+        revealElements.forEach(
+            function(element) {
 
-                initialReveal.observe(
-                    element
-                );
+                observer.observe(element);
 
-            });
+            }
+        );
+
 
 
         /* =====================================================
@@ -2787,44 +2793,41 @@
                         }
                     )
 
-                    .then(
-                        function() {
+                    .then(function() {
 
-                            message.innerHTML =
-                                "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
+                        message.innerHTML =
+                            "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
 
-                            form.reset();
+                        form.reset();
 
-                            button.disabled =
-                                false;
+                        button.disabled =
+                            false;
 
-                            button.innerHTML =
-                                "Kirim RSVP";
+                        button.innerHTML =
+                            "Kirim RSVP";
 
-                        }
-                    )
+                    })
 
-                    .catch(
-                        function(error) {
+                    .catch(function(error) {
 
-                            console.error(error);
+                        console.error(error);
 
-                            message.innerHTML =
-                                "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
+                        message.innerHTML =
+                            "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
 
-                            button.disabled =
-                                false;
+                        button.disabled =
+                            false;
 
-                            button.innerHTML =
-                                "Kirim RSVP";
+                        button.innerHTML =
+                            "Kirim RSVP";
 
-                        }
-                    );
+                    });
 
                 }
             );
 
     </script>
+
 
 </body>
 
