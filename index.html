@@ -24,45 +24,31 @@
             padding: 0;
             font-family: Georgia, serif;
             color: #654f4f;
-            background: #fffafb;
+            background: #ffffff;
             overflow-x: hidden;
         }
-
 
         /* =========================================
            COVER
         ========================================= */
 
         .cover {
+            min-height: 100svh;
+            height: 100svh;
 
             position: fixed;
             inset: 0;
 
-            width: 100%;
-            height: 100svh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 30px;
 
             z-index: 100;
-
-            overflow: hidden;
-
-        }
-
-
-        /* =========================================
-           COVER BACKGROUND
-        ========================================= */
-
-        .cover-panel {
-
-            position: absolute;
-
-            top: 0;
-
-            width: 50%;
-
-            height: 100%;
-
-            overflow: hidden;
 
             background:
                 radial-gradient(
@@ -72,32 +58,22 @@
                     #fff4f7 100%
                 );
 
+            transform: translateY(0);
+
             transition:
-                transform 1.8s cubic-bezier(.77,0,.18,1);
+                transform 1.6s cubic-bezier(.77, 0, .18, 1);
 
             will-change: transform;
+        }
 
+        /* COVER NAIK KE ATAS */
+
+        .cover.open {
+            transform: translateY(-100%);
         }
 
 
-        .cover-left {
-
-            left: 0;
-
-        }
-
-
-        .cover-right {
-
-            right: 0;
-
-        }
-
-
-        /* background kiri */
-
-        .cover-left::before {
-
+        .cover::before {
             content: "";
 
             position: absolute;
@@ -117,13 +93,10 @@
             top: -150px;
             left: -150px;
 
+            pointer-events: none;
         }
 
-
-        /* background kanan */
-
-        .cover-right::after {
-
+        .cover::after {
             content: "";
 
             position: absolute;
@@ -143,35 +116,15 @@
             bottom: -150px;
             right: -120px;
 
+            pointer-events: none;
         }
 
-
-        /* =========================================
-           ISI COVER
-        ========================================= */
-
         .cover-content {
-
-            position: absolute;
-
-            top: 50%;
-            left: 50%;
-
             width: 100%;
             max-width: 500px;
 
-            transform:
-                translate(-50%, -50%);
-
-            text-align: center;
-
-            padding: 30px;
-
-            z-index: 20;
-
-            transition:
-                opacity .35s ease;
-
+            position: relative;
+            z-index: 10;
         }
 
 
@@ -193,7 +146,6 @@
 
         }
 
-
         .guest-invited {
 
             font-family: Arial, sans-serif;
@@ -210,7 +162,6 @@
 
         }
 
-
         .small-text {
 
             font-family: Arial, sans-serif;
@@ -225,7 +176,6 @@
 
         }
 
-
         .line {
 
             width: 70px;
@@ -236,7 +186,6 @@
             margin: 0 auto 25px;
 
         }
-
 
         .cover h1 {
 
@@ -251,7 +200,6 @@
             color: #b8667e;
 
         }
-
 
         .ampersand {
 
@@ -283,7 +231,6 @@
 
         }
 
-
         .envelope-body {
 
             position: absolute;
@@ -313,7 +260,6 @@
 
         }
 
-
         .envelope-body::before {
 
             content: "";
@@ -334,7 +280,6 @@
 
         }
 
-
         .envelope-flap {
 
             position: absolute;
@@ -353,7 +298,6 @@
             z-index: 3;
 
         }
-
 
         .envelope-label {
 
@@ -378,7 +322,6 @@
 
         }
 
-
         .envelope-heart {
 
             position: absolute;
@@ -395,7 +338,6 @@
             font-size: 19px;
 
         }
-
 
         .envelope-button:hover .envelope-body {
 
@@ -417,60 +359,17 @@
             left: 50%;
             bottom: 0;
 
-            transform:
-                translateX(-50%);
+            transform: translateX(-50%);
 
-            width: 100vw;
+            width: 100%;
 
             min-width: 100vw;
 
             height: auto;
 
-            z-index: 10;
+            z-index: 2;
 
             pointer-events: none;
-
-            transition:
-                opacity .4s ease;
-
-        }
-
-
-        /* =========================================
-           ANIMASI COVER MEMBUKA
-        ========================================= */
-
-        .cover.opening .cover-left {
-
-            transform:
-                translateX(-100%);
-
-        }
-
-
-        .cover.opening .cover-right {
-
-            transform:
-                translateX(100%);
-
-        }
-
-
-        /* isi cover ikut menghilang halus */
-
-        .cover.opening .cover-content {
-
-            opacity: 0;
-
-            transition:
-                opacity .35s ease;
-
-        }
-
-
-        .cover.opening .cover-poppy {
-
-            opacity: 0;
 
         }
 
@@ -547,7 +446,6 @@
 
         }
 
-
         .flower-1 {
 
             top: 70px;
@@ -556,7 +454,6 @@
             transform: rotate(-12deg);
 
         }
-
 
         .flower-2 {
 
@@ -567,7 +464,6 @@
 
         }
 
-
         .flower-3 {
 
             top: 1450px;
@@ -576,7 +472,6 @@
             transform: rotate(-10deg);
 
         }
-
 
         .flower-4 {
 
@@ -603,7 +498,6 @@
 
         }
 
-
         .details-section {
 
             position: relative;
@@ -614,7 +508,6 @@
             z-index: 5;
 
         }
-
 
         .gift-page-section,
         .rsvp-page-section,
@@ -637,8 +530,7 @@
 
             opacity: 0;
 
-            transform:
-                translateY(30px);
+            transform: translateY(30px);
 
             transition:
                 opacity 1s ease,
@@ -646,13 +538,11 @@
 
         }
 
-
         .reveal.active {
 
             opacity: 1;
 
-            transform:
-                translateY(0);
+            transform: translateY(0);
 
         }
 
@@ -674,7 +564,6 @@
             z-index: 5;
 
         }
-
 
         .opening-small {
 
@@ -714,7 +603,6 @@
 
         }
 
-
         .couple-frame::before {
 
             content: "";
@@ -742,7 +630,6 @@
 
         }
 
-
         .couple-frame::after {
 
             content: "";
@@ -760,7 +647,6 @@
                 rgba(194,127,147,.55);
 
         }
-
 
         .pengantin {
 
@@ -780,7 +666,6 @@
 
         }
 
-
         .opening h2 {
 
             margin: 5px 0;
@@ -793,7 +678,6 @@
 
         }
 
-
         .and {
 
             font-size: 28px;
@@ -803,7 +687,6 @@
             color: #d08a9d;
 
         }
-
 
         .opening-text {
 
@@ -844,7 +727,6 @@
 
         }
 
-
         .quran-verse::before {
 
             content: "";
@@ -859,8 +741,9 @@
                 1.5px solid
                 rgba(217,154,171,.65);
 
-        }
+            pointer-events: none;
 
+        }
 
         .quran-arabic {
 
@@ -874,7 +757,6 @@
 
         }
 
-
         .quran-translation {
 
             font-size: 13px;
@@ -886,7 +768,6 @@
             margin: 0;
 
         }
-
 
         .quran-reference {
 
@@ -915,7 +796,6 @@
 
         }
 
-
         .section-title::before,
         .section-title::after {
 
@@ -942,7 +822,6 @@
 
         }
 
-
         .countdown {
 
             display: flex;
@@ -954,7 +833,6 @@
             flex-wrap: wrap;
 
         }
-
 
         .count-box {
 
@@ -977,7 +855,6 @@
 
         }
 
-
         .count-number {
 
             display: block;
@@ -987,7 +864,6 @@
             color: white;
 
         }
-
 
         .count-label {
 
@@ -1018,7 +894,6 @@
 
         }
 
-
         .event-card {
 
             padding: 25px 20px;
@@ -1040,7 +915,6 @@
 
         }
 
-
         .event-title {
 
             font-size: 21px;
@@ -1050,7 +924,6 @@
             margin-bottom: 15px;
 
         }
-
 
         .event-time {
 
@@ -1064,7 +937,6 @@
 
         }
 
-
         .event-place {
 
             margin-top: 18px;
@@ -1076,7 +948,6 @@
             color: white;
 
         }
-
 
         .maps-button {
 
@@ -1129,7 +1000,6 @@
 
         }
 
-
         .gift-icon {
 
             font-size: 42px;
@@ -1137,7 +1007,6 @@
             margin-bottom: 15px;
 
         }
-
 
         .gift-section h2,
         .rsvp-section h2 {
@@ -1152,7 +1021,6 @@
 
         }
 
-
         .gift-section p,
         .rsvp-section p {
 
@@ -1166,7 +1034,7 @@
 
 
         /* =========================================
-           RSVP
+           RSVP FORM
         ========================================= */
 
         .rsvp-form {
@@ -1174,7 +1042,6 @@
             margin-top: 25px;
 
         }
-
 
         .rsvp-form input,
         .rsvp-form select,
@@ -1202,7 +1069,6 @@
 
         }
 
-
         .rsvp-form textarea {
 
             min-height: 100px;
@@ -1210,7 +1076,6 @@
             resize: vertical;
 
         }
-
 
         .rsvp-form button {
 
@@ -1239,7 +1104,6 @@
 
         }
 
-
         #rsvpMessage {
 
             margin-top: 15px;
@@ -1266,7 +1130,6 @@
             padding: 20px 25px;
 
         }
-
 
         .closing p {
 
@@ -1327,7 +1190,7 @@
 
         @media (max-width: 600px) {
 
-            .cover-content {
+            .cover {
                 padding: 20px 18px;
             }
 
@@ -1345,8 +1208,9 @@
             }
 
             .cover-poppy {
-                width: 100vw;
+                width: auto;
                 min-width: 100vw;
+                height: auto;
             }
 
             .main-content {
@@ -1429,6 +1293,68 @@
 
 
     <!-- =========================================
+         COVER
+    ========================================= -->
+
+    <section class="cover" id="cover">
+
+        <div class="cover-content">
+
+            <div class="guest-name" id="guestName">
+                Hi, Guest
+            </div>
+
+            <div class="guest-invited">
+                You're invited to
+            </div>
+
+            <div class="small-text">
+                THE WEDDING OF
+            </div>
+
+            <div class="line"></div>
+
+            <h1>Hida</h1>
+
+            <div class="ampersand">&</div>
+
+            <h1>Fauzi</h1>
+
+
+            <div
+                class="envelope-button"
+                onclick="bukaUndangan()"
+            >
+
+                <div class="envelope-body">
+
+                    <div class="envelope-label">
+                        BUKA UNDANGAN
+                    </div>
+
+                </div>
+
+                <div class="envelope-flap"></div>
+
+                <div class="envelope-heart">
+                    ♥
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <img
+            src="poppy.png"
+            class="cover-poppy"
+            alt=""
+        >
+
+    </section>
+
+
+    <!-- =========================================
          MAIN CONTENT
     ========================================= -->
 
@@ -1436,6 +1362,9 @@
         class="main-content"
         id="mainContent"
     >
+
+
+        <!-- BUNGA HIAS -->
 
         <img
             src="bunga hias.png"
@@ -1484,11 +1413,17 @@
                 </div>
 
 
-                <h2>Ahmad Fauzi</h2>
+                <h2>
+                    Ahmad Fauzi
+                </h2>
 
-                <div class="and">&</div>
+                <div class="and">
+                    &
+                </div>
 
-                <h2>Nur Hidayah</h2>
+                <h2>
+                    Nur Hidayah
+                </h2>
 
 
                 <div class="quran-verse">
@@ -1529,6 +1464,7 @@
 
         <div class="details-section">
 
+
             <div class="countdown-section">
 
                 <h2 class="section-title reveal">
@@ -1538,24 +1474,60 @@
 
                 <div class="countdown">
 
-                    <div class="count-box">
-                        <span class="count-number" id="days">00</span>
-                        <span class="count-label">HARI</span>
-                    </div>
 
                     <div class="count-box">
-                        <span class="count-number" id="hours">00</span>
-                        <span class="count-label">JAM</span>
+
+                        <span
+                            class="count-number"
+                            id="days"
+                        >00</span>
+
+                        <span class="count-label">
+                            HARI
+                        </span>
+
                     </div>
 
-                    <div class="count-box">
-                        <span class="count-number" id="minutes">00</span>
-                        <span class="count-label">MENIT</span>
-                    </div>
 
                     <div class="count-box">
-                        <span class="count-number" id="seconds">00</span>
-                        <span class="count-label">DETIK</span>
+
+                        <span
+                            class="count-number"
+                            id="hours"
+                        >00</span>
+
+                        <span class="count-label">
+                            JAM
+                        </span>
+
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span
+                            class="count-number"
+                            id="minutes"
+                        >00</span>
+
+                        <span class="count-label">
+                            MENIT
+                        </span>
+
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span
+                            class="count-number"
+                            id="seconds"
+                        >00</span>
+
+                        <span class="count-label">
+                            DETIK
+                        </span>
+
                     </div>
 
                 </div>
@@ -1564,6 +1536,7 @@
 
 
             <div class="event-section">
+
 
                 <div class="event-card reveal">
 
@@ -1612,6 +1585,7 @@
 
                 </div>
 
+
             </div>
 
         </div>
@@ -1623,9 +1597,13 @@
 
             <div class="gift-section reveal">
 
-                <div class="gift-icon">🎁</div>
+                <div class="gift-icon">
+                    🎁
+                </div>
 
-                <h2>Hadiah</h2>
+                <h2>
+                    Hadiah
+                </h2>
 
                 <p>
 
@@ -1651,8 +1629,10 @@
                 </h2>
 
                 <p>
+
                     Mohon konfirmasi kehadiran Anda
                     melalui formulir berikut.
+
                 </p>
 
 
@@ -1667,6 +1647,7 @@
                         placeholder="Nama"
                         required
                     >
+
 
                     <select
                         id="kehadiran"
@@ -1733,95 +1714,6 @@
 
         </div>
 
-    </section>
-
-
-    <!-- =========================================
-         COVER
-    ========================================= -->
-
-    <section
-        class="cover"
-        id="cover"
-    >
-
-        <!-- PANEL KIRI -->
-
-        <div
-            class="cover-panel cover-left"
-        ></div>
-
-
-        <!-- PANEL KANAN -->
-
-        <div
-            class="cover-panel cover-right"
-        ></div>
-
-
-        <!-- ISI COVER -->
-
-        <div class="cover-content">
-
-            <div
-                class="guest-name"
-                id="guestName"
-            >
-                Hi, Guest
-            </div>
-
-
-            <div class="guest-invited">
-                You're invited to
-            </div>
-
-
-            <div class="small-text">
-                THE WEDDING OF
-            </div>
-
-
-            <div class="line"></div>
-
-
-            <h1>Hida</h1>
-
-            <div class="ampersand">&</div>
-
-            <h1>Fauzi</h1>
-
-
-            <div
-                class="envelope-button"
-                onclick="bukaUndangan()"
-            >
-
-                <div class="envelope-body">
-
-                    <div class="envelope-label">
-                        BUKA UNDANGAN
-                    </div>
-
-                </div>
-
-
-                <div class="envelope-flap"></div>
-
-
-                <div class="envelope-heart">
-                    ♥
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <img
-            src="poppy.png"
-            class="cover-poppy"
-            alt=""
-        >
 
     </section>
 
@@ -1872,7 +1764,8 @@
             document.getElementById(
                 "guestName"
             ).innerHTML =
-                "Hi, " + guest;
+                "Hi, " +
+                guest;
 
         }
 
@@ -1887,22 +1780,21 @@
                 document.getElementById("cover");
 
             const music =
-                document.getElementById(
-                    "backgroundMusic"
-                );
+                document.getElementById("backgroundMusic");
 
             const musicButton =
-                document.getElementById(
-                    "musicButton"
-                );
+                document.getElementById("musicButton");
 
 
-            /* COVER LANGSUNG TERBELAH */
-
-            cover.classList.add("opening");
+            /* MAIN LANGSUNG SUDAH ADA DI BELAKANG COVER */
 
 
-            /* MULAI MUSIK */
+            /* COVER NAIK KE ATAS */
+
+            cover.classList.add("open");
+
+
+            /* MUSIK */
 
             music.play()
                 .catch(function(error) {
@@ -1922,19 +1814,18 @@
                 musicButton.style.display =
                     "block";
 
-            }, 500);
+            }, 600);
 
 
-            /* HAPUS COVER SETELAH SELESAI */
+            /* HAPUS COVER SETELAH ANIMASI SELESAI */
 
             setTimeout(function() {
 
-                cover.style.display =
-                    "none";
+                cover.style.display = "none";
 
                 window.scrollTo(0, 0);
 
-            }, 1850);
+            }, 1700);
 
         }
 
@@ -2206,6 +2097,7 @@
 
 
     </script>
+
 
 </body>
 
