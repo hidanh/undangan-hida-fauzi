@@ -33,22 +33,15 @@
         ========================================= */
 
         .cover {
-            min-height: 100svh;
-            height: 100svh;
-
             position: fixed;
             inset: 0;
 
-            overflow: hidden;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-            padding: 30px;
+            width: 100%;
+            height: 100svh;
 
             z-index: 100;
+
+            overflow: hidden;
 
             background:
                 radial-gradient(
@@ -57,11 +50,12 @@
                     #ffffff 48%,
                     #fff4f7 100%
                 );
-
-            transition: opacity .7s ease;
         }
 
+        /* BACKGROUND COVER */
+
         .cover::before {
+
             content: "";
 
             position: absolute;
@@ -82,9 +76,11 @@
             left: -150px;
 
             pointer-events: none;
+
         }
 
         .cover::after {
+
             content: "";
 
             position: absolute;
@@ -105,66 +101,240 @@
             right: -120px;
 
             pointer-events: none;
+
         }
 
+
+        /* =========================================
+           COVER PANEL
+        ========================================= */
+
+        .cover-panel {
+
+            position: absolute;
+
+            top: 0;
+            bottom: 0;
+
+            width: 50%;
+
+            overflow: hidden;
+
+            z-index: 5;
+
+            transition:
+                transform 2s cubic-bezier(.77, 0, .18, 1);
+
+            will-change: transform;
+
+        }
+
+        .cover-left {
+
+            left: 0;
+
+        }
+
+        .cover-right {
+
+            right: 0;
+
+        }
+
+
+        /* BACKGROUND MASING-MASING PANEL */
+
+        .cover-panel::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #fff8fa 0%,
+                    #ffffff 48%,
+                    #fff4f7 100%
+                );
+
+            z-index: -1;
+
+        }
+
+
+        /* BAGIAN KIRI BACKGROUND */
+
+        .cover-left::before {
+
+            width: 200%;
+
+            left: 0;
+
+        }
+
+
+        /* BAGIAN KANAN BACKGROUND */
+
+        .cover-right::before {
+
+            width: 200%;
+
+            right: 0;
+            left: auto;
+
+        }
+
+
+        /* =========================================
+           SAAT COVER DIBUKA
+        ========================================= */
+
+        .cover.open .cover-left {
+
+            transform: translateX(-100%);
+
+        }
+
+        .cover.open .cover-right {
+
+            transform: translateX(100%);
+
+        }
+
+
+        /* =========================================
+           CONTENT COVER
+        ========================================= */
+
         .cover-content {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 20;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            pointer-events: none;
+
+            transition:
+                opacity .8s ease;
+
+        }
+
+        .cover-content.opening {
+
+            opacity: 0;
+
+        }
+
+
+        .cover-center {
+
             width: 100%;
             max-width: 500px;
 
-            position: relative;
-            z-index: 10;
+            pointer-events: auto;
+
         }
+
 
         /* =========================================
            NAMA TAMU
         ========================================= */
 
         .guest-name {
+
             font-family: Arial, sans-serif;
+
             font-size: 15px;
+
             color: #b8667e;
+
             margin-bottom: 10px;
+
             letter-spacing: .5px;
+
         }
 
         .guest-invited {
+
             font-family: Arial, sans-serif;
+
             font-size: 11px;
+
             letter-spacing: 3px;
+
             color: #c27f93;
+
             margin-bottom: 30px;
+
             text-transform: uppercase;
+
         }
 
         .small-text {
+
             font-family: Arial, sans-serif;
+
             font-size: 12px;
+
             letter-spacing: 4px;
+
             color: #c27f93;
+
             margin-bottom: 20px;
+
         }
 
         .line {
+
             width: 70px;
             height: 1px;
+
             background: #d99aab;
+
             margin: 0 auto 25px;
+
         }
 
         .cover h1 {
+
             font-size: 58px;
+
             font-weight: normal;
+
             line-height: 1.15;
+
             margin: 0;
+
             color: #b8667e;
+
         }
 
         .ampersand {
+
             font-size: 30px;
+
             font-style: italic;
+
             color: #d08a9d;
+
             margin: 8px 0;
+
         }
+
 
         /* =========================================
            AMPLOP
@@ -180,6 +350,7 @@
             position: relative;
 
             cursor: pointer;
+
         }
 
         .envelope-body {
@@ -208,6 +379,7 @@
             overflow: hidden;
 
             transition: .4s ease;
+
         }
 
         .envelope-body::before {
@@ -227,6 +399,7 @@
 
             border-bottom:
                 55px solid rgba(255,255,255,.16);
+
         }
 
         .envelope-flap {
@@ -245,6 +418,7 @@
             border-top: 53px solid #f0bdc9;
 
             z-index: 3;
+
         }
 
         .envelope-label {
@@ -267,6 +441,7 @@
             letter-spacing: 1.5px;
 
             white-space: nowrap;
+
         }
 
         .envelope-heart {
@@ -283,6 +458,7 @@
             color: white;
 
             font-size: 19px;
+
         }
 
         .envelope-button:hover .envelope-body {
@@ -290,7 +466,9 @@
             transform:
                 translateY(-5px)
                 scale(1.04);
+
         }
+
 
         /* =========================================
            POPPY COVER
@@ -311,101 +489,24 @@
 
             height: auto;
 
-            z-index: 2;
-
-            pointer-events: none;
-        }
-
-        /* =========================================
-           TIRAI
-        ========================================= */
-
-        .curtain {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 200;
-
-            display: flex;
+            z-index: 10;
 
             pointer-events: none;
 
-            visibility: hidden;
-
-            overflow: hidden;
-        }
-
-        .curtain.active {
-            visibility: visible;
-        }
-
-        .curtain-left,
-        .curtain-right {
-
-            position: absolute;
-
-            top: 0;
-
-            width: 50.5%;
-
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff8fa,
-                    #f9e8ed
-                );
-
-            will-change: transform;
-        }
-
-        .curtain-left {
-
-            left: 0;
-
-            transform: translateX(0);
-
-            border-right:
-                1px solid
-                rgba(217,154,171,.18);
-        }
-
-        .curtain-right {
-
-            right: 0;
-
-            transform: translateX(0);
-
-            border-left:
-                1px solid
-                rgba(217,154,171,.18);
-        }
-
-        .curtain.open .curtain-left {
-
-            transform:
-                translateX(-100%);
-
             transition:
-                transform 2.2s
-                cubic-bezier(.65,0,.35,1);
+                opacity .6s ease;
+
         }
 
-        .curtain.open .curtain-right {
+        .cover.open .cover-poppy {
 
-            transform:
-                translateX(100%);
+            opacity: 0;
 
-            transition:
-                transform 2.2s
-                cubic-bezier(.65,0,.35,1);
         }
+
 
         /* =========================================
-           MAIN
+           MAIN CONTENT
         ========================================= */
 
         .main-content {
@@ -422,11 +523,8 @@
 
             opacity: 0;
 
-            transform: scale(1.015);
-
             transition:
-                opacity 2.2s ease,
-                transform 2.2s ease;
+                opacity 1.8s ease;
 
             background:
 
@@ -454,14 +552,15 @@
                     #fff4f7 45%,
                     #fffafb 100%
                 );
+
         }
 
         .main-content.show {
 
             opacity: 1;
 
-            transform: scale(1);
         }
+
 
         /* =========================================
            BUNGA HIAS DALAM
@@ -486,6 +585,7 @@
                     0 8px 18px
                     rgba(190,110,135,.12)
                 );
+
         }
 
         .flower-1 {
@@ -494,6 +594,7 @@
             left: -100px;
 
             transform: rotate(-12deg);
+
         }
 
         .flower-2 {
@@ -502,6 +603,7 @@
             right: -110px;
 
             transform: rotate(15deg);
+
         }
 
         .flower-3 {
@@ -510,6 +612,7 @@
             left: -110px;
 
             transform: rotate(-10deg);
+
         }
 
         .flower-4 {
@@ -518,7 +621,9 @@
             right: -110px;
 
             transform: rotate(12deg);
+
         }
+
 
         /* =========================================
            SECTION
@@ -532,6 +637,7 @@
                 70px 0 35px;
 
             z-index: 5;
+
         }
 
         .details-section {
@@ -542,6 +648,7 @@
                 25px 0 55px;
 
             z-index: 5;
+
         }
 
         .gift-page-section,
@@ -553,7 +660,9 @@
             padding: 45px 0;
 
             z-index: 5;
+
         }
+
 
         /* =========================================
            REVEAL
@@ -568,6 +677,7 @@
             transition:
                 opacity 1s ease,
                 transform 1s ease;
+
         }
 
         .reveal.active {
@@ -575,7 +685,9 @@
             opacity: 1;
 
             transform: translateY(0);
+
         }
+
 
         /* =========================================
            OPENING
@@ -592,6 +704,7 @@
             position: relative;
 
             z-index: 5;
+
         }
 
         .opening-small {
@@ -605,11 +718,11 @@
             color: #c27f93;
 
             margin-bottom: 15px;
+
         }
 
-        /* =========================================
-           FOTO
-        ========================================= */
+
+        /* FOTO */
 
         .couple-frame {
 
@@ -627,6 +740,7 @@
 
             justify-content: center;
             align-items: center;
+
         }
 
         .couple-frame::before {
@@ -653,6 +767,7 @@
             box-shadow:
                 0 10px 35px
                 rgba(190,110,135,.18);
+
         }
 
         .couple-frame::after {
@@ -670,6 +785,7 @@
             border:
                 1px solid
                 rgba(194,127,147,.55);
+
         }
 
         .pengantin {
@@ -687,6 +803,7 @@
                     0 12px 12px
                     rgba(125,76,88,.14)
                 );
+
         }
 
         .opening h2 {
@@ -698,6 +815,7 @@
             font-weight: normal;
 
             color: #b8667e;
+
         }
 
         .and {
@@ -707,6 +825,7 @@
             font-style: italic;
 
             color: #d08a9d;
+
         }
 
         .opening-text {
@@ -718,7 +837,9 @@
             color: #654f4f;
 
             margin-top: 30px;
+
         }
+
 
         /* =========================================
            QURAN
@@ -743,6 +864,7 @@
             box-shadow:
                 0 5px 18px
                 rgba(190,110,135,.10);
+
         }
 
         .quran-verse::before {
@@ -760,6 +882,7 @@
                 rgba(217,154,171,.65);
 
             pointer-events: none;
+
         }
 
         .quran-arabic {
@@ -771,6 +894,7 @@
             color: #b8667e;
 
             margin: 0 0 10px;
+
         }
 
         .quran-translation {
@@ -782,6 +906,7 @@
             color: #654f4f;
 
             margin: 0;
+
         }
 
         .quran-reference {
@@ -791,7 +916,9 @@
             color: #b8667e;
 
             margin-top: 8px;
+
         }
+
 
         /* =========================================
            TITLE
@@ -806,6 +933,7 @@
             color: #b8667e;
 
             margin: 0 0 25px;
+
         }
 
         .section-title::before,
@@ -818,7 +946,9 @@
             color: #d99aab;
 
             font-size: 15px;
+
         }
+
 
         /* =========================================
            COUNTDOWN
@@ -829,6 +959,7 @@
             max-width: 600px;
 
             margin: auto;
+
         }
 
         .countdown {
@@ -840,6 +971,7 @@
             gap: 12px;
 
             flex-wrap: wrap;
+
         }
 
         .count-box {
@@ -860,6 +992,7 @@
             box-shadow:
                 0 8px 22px
                 rgba(190,110,135,.20);
+
         }
 
         .count-number {
@@ -869,6 +1002,7 @@
             font-size: 25px;
 
             color: white;
+
         }
 
         .count-label {
@@ -884,7 +1018,9 @@
             color: white;
 
             margin-top: 5px;
+
         }
+
 
         /* =========================================
            EVENT
@@ -895,6 +1031,7 @@
             max-width: 600px;
 
             margin: 40px auto 0;
+
         }
 
         .event-card {
@@ -915,6 +1052,7 @@
             box-shadow:
                 0 8px 25px
                 rgba(190,110,135,.20);
+
         }
 
         .event-title {
@@ -924,6 +1062,7 @@
             color: white;
 
             margin-bottom: 15px;
+
         }
 
         .event-time {
@@ -935,6 +1074,7 @@
             line-height: 1.8;
 
             color: white;
+
         }
 
         .event-place {
@@ -946,6 +1086,7 @@
             line-height: 1.7;
 
             color: white;
+
         }
 
         .maps-button {
@@ -967,7 +1108,9 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
+
         }
+
 
         /* =========================================
            GIFT & RSVP
@@ -994,6 +1137,7 @@
             box-shadow:
                 0 8px 25px
                 rgba(190,110,135,.20);
+
         }
 
         .gift-icon {
@@ -1001,6 +1145,7 @@
             font-size: 42px;
 
             margin-bottom: 15px;
+
         }
 
         .gift-section h2,
@@ -1013,6 +1158,7 @@
             color: white;
 
             margin: 5px 0 20px;
+
         }
 
         .gift-section p,
@@ -1023,7 +1169,9 @@
             line-height: 1.8;
 
             color: white;
+
         }
+
 
         /* =========================================
            RSVP FORM
@@ -1032,6 +1180,7 @@
         .rsvp-form {
 
             margin-top: 25px;
+
         }
 
         .rsvp-form input,
@@ -1057,6 +1206,7 @@
             color: #654f4f;
 
             outline: none;
+
         }
 
         .rsvp-form textarea {
@@ -1064,6 +1214,7 @@
             min-height: 100px;
 
             resize: vertical;
+
         }
 
         .rsvp-form button {
@@ -1090,6 +1241,7 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
+
         }
 
         #rsvpMessage {
@@ -1101,7 +1253,9 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
+
         }
+
 
         /* =========================================
            CLOSING
@@ -1114,6 +1268,7 @@
             margin: auto;
 
             padding: 20px 25px;
+
         }
 
         .closing p {
@@ -1123,7 +1278,9 @@
             line-height: 1.8;
 
             color: #654f4f;
+
         }
+
 
         /* =========================================
            MUSIC
@@ -1163,7 +1320,9 @@
             box-shadow:
                 0 5px 15px
                 rgba(190,110,135,.25);
+
         }
+
 
         /* =========================================
            MOBILE
@@ -1171,97 +1330,148 @@
 
         @media (max-width: 600px) {
 
-            .cover {
+            .cover-content {
+
                 padding: 20px 18px;
+
             }
 
             .cover h1 {
+
                 font-size: 48px;
+
             }
 
             .guest-name {
+
                 font-size: 14px;
+
             }
 
             .guest-invited {
+
                 font-size: 9px;
+
                 letter-spacing: 2.5px;
+
             }
 
             .cover-poppy {
+
                 width: auto;
+
                 min-width: 100vw;
+
                 height: auto;
+
             }
 
             .main-content {
+
                 padding: 0 18px 60px;
+
             }
 
             .flower-decoration {
+
                 width: 210px;
+
                 opacity: .62;
+
             }
 
             .flower-1 {
+
                 left: -110px;
+
             }
 
             .flower-2 {
+
                 right: -120px;
+
             }
 
             .flower-3 {
+
                 left: -120px;
+
             }
 
             .flower-4 {
+
                 right: -120px;
+
             }
 
             .couple-frame {
+
                 width: 310px;
+
                 max-width: 95%;
+
                 height: 405px;
+
             }
 
             .couple-frame::before {
+
                 width: 255px;
+
                 height: 360px;
+
             }
 
             .couple-frame::after {
+
                 width: 272px;
+
                 height: 377px;
+
             }
 
             .pengantin {
+
                 width: 265px;
+
             }
 
             .opening h2 {
+
                 font-size: 28px;
+
             }
 
             .quran-verse {
+
                 padding: 18px;
+
             }
 
             .quran-arabic {
+
                 font-size: 19px;
+
             }
 
             .section-title {
+
                 font-size: 24px;
+
             }
 
             .countdown {
+
                 gap: 8px;
+
             }
 
             .count-box {
+
                 width: 67px;
+
             }
+
         }
 
     </style>
@@ -1272,93 +1482,38 @@
 <body>
 
 
-    <!-- COVER -->
-
-    <section class="cover" id="cover">
-
-        <div class="cover-content">
-
-            <div class="guest-name" id="guestName">
-                Hi, Guest
-            </div>
-
-            <div class="guest-invited">
-                You're invited to
-            </div>
-
-            <div class="small-text">
-                THE WEDDING OF
-            </div>
-
-            <div class="line"></div>
-
-            <h1>Hida</h1>
-
-            <div class="ampersand">&</div>
-
-            <h1>Fauzi</h1>
-
-
-            <div
-                class="envelope-button"
-                onclick="bukaUndangan()"
-            >
-
-                <div class="envelope-body">
-
-                    <div class="envelope-label">
-                        BUKA UNDANGAN
-                    </div>
-
-                </div>
-
-                <div class="envelope-flap"></div>
-
-                <div class="envelope-heart">
-                    ♥
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <img
-            src="poppy.png"
-            class="cover-poppy"
-            alt=""
-        >
-
-    </section>
-
-
-    <!-- TIRAI -->
-
-    <div class="curtain" id="curtain">
-
-        <div class="curtain-left"></div>
-
-        <div class="curtain-right"></div>
-
-    </div>
-
-
-    <!-- MAIN CONTENT -->
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
 
     <section
         class="main-content"
         id="mainContent"
     >
 
-        <!-- BUNGA HIAS -->
+        <img
+            src="bunga hias.png"
+            class="flower-decoration flower-1"
+            alt=""
+        >
 
-        <img src="bunga hias.png" class="flower-decoration flower-1" alt="">
+        <img
+            src="bunga hias.png"
+            class="flower-decoration flower-2"
+            alt=""
+        >
 
-        <img src="bunga hias.png" class="flower-decoration flower-2" alt="">
+        <img
+            src="bunga hias.png"
+            class="flower-decoration flower-3"
+            alt=""
+        >
 
-        <img src="bunga hias.png" class="flower-decoration flower-3" alt="">
-
-        <img src="bunga hias.png" class="flower-decoration flower-4" alt="">
+        <img
+            src="bunga hias.png"
+            class="flower-decoration flower-4"
+            alt=""
+        >
 
 
         <!-- OPENING -->
@@ -1397,11 +1552,8 @@
                     </p>
 
                     <p class="quran-translation">
-
-                        “Dan segala sesuatu kami jadikan
-                        berpasang-pasangan, supaya kamu
-                        mengingat kebesaran Allah.”
-
+                        “Dan segala sesuatu kami jadikan berpasang-pasangan,
+                        supaya kamu mengingat kebesaran Allah.”
                     </p>
 
                     <div class="quran-reference">
@@ -1412,11 +1564,9 @@
 
 
                 <p class="opening-text">
-
                     Dengan memohon rahmat dan ridho Allah SWT,
                     kami bermaksud mengundang Bapak/Ibu/Saudara/i
                     untuk hadir dalam acara pernikahan kami.
-
                 </p>
 
             </div>
@@ -1428,7 +1578,6 @@
 
         <div class="details-section">
 
-
             <div class="countdown-section">
 
                 <h2 class="section-title reveal">
@@ -1439,46 +1588,23 @@
                 <div class="countdown">
 
                     <div class="count-box">
-
                         <span class="count-number" id="days">00</span>
-
-                        <span class="count-label">
-                            HARI
-                        </span>
-
+                        <span class="count-label">HARI</span>
                     </div>
 
-
                     <div class="count-box">
-
                         <span class="count-number" id="hours">00</span>
-
-                        <span class="count-label">
-                            JAM
-                        </span>
-
+                        <span class="count-label">JAM</span>
                     </div>
 
-
                     <div class="count-box">
-
                         <span class="count-number" id="minutes">00</span>
-
-                        <span class="count-label">
-                            MENIT
-                        </span>
-
+                        <span class="count-label">MENIT</span>
                     </div>
 
-
                     <div class="count-box">
-
                         <span class="count-number" id="seconds">00</span>
-
-                        <span class="count-label">
-                            DETIK
-                        </span>
-
+                        <span class="count-label">DETIK</span>
                     </div>
 
                 </div>
@@ -1487,7 +1613,6 @@
 
 
             <div class="event-section">
-
 
                 <div class="event-card reveal">
 
@@ -1500,10 +1625,8 @@
                     </div>
 
                     <div class="event-place">
-
                         Masjid Akbar Moedhar Arifin<br>
                         Kec. Sidayu, Gresik
-
                     </div>
 
                 </div>
@@ -1520,10 +1643,8 @@
                     </div>
 
                     <div class="event-place">
-
                         Masjid Akbar Moedhar Arifin<br>
                         Kec. Sidayu, Gresik
-
                     </div>
 
                     <a
@@ -1547,18 +1668,14 @@
 
             <div class="gift-section reveal">
 
-                <div class="gift-icon">
-                    🎁
-                </div>
+                <div class="gift-icon">🎁</div>
 
                 <h2>Hadiah</h2>
 
                 <p>
-
                     Hadiah paling berharga bagi kami adalah
                     kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
                     untuk kebahagiaan pernikahan kami.
-
                 </p>
 
             </div>
@@ -1572,22 +1689,15 @@
 
             <div class="rsvp-section reveal">
 
-                <h2>
-                    Konfirmasi Kehadiran
-                </h2>
+                <h2>Konfirmasi Kehadiran</h2>
 
                 <p>
-
                     Mohon konfirmasi kehadiran Anda
                     melalui formulir berikut.
-
                 </p>
 
 
-                <form
-                    class="rsvp-form"
-                    id="rsvpForm"
-                >
+                <form class="rsvp-form" id="rsvpForm">
 
                     <input
                         type="text"
@@ -1596,11 +1706,7 @@
                         required
                     >
 
-
-                    <select
-                        id="kehadiran"
-                        required
-                    >
+                    <select id="kehadiran" required>
 
                         <option value="">
                             Konfirmasi Kehadiran
@@ -1629,7 +1735,6 @@
 
                 </form>
 
-
                 <div id="rsvpMessage"></div>
 
             </div>
@@ -1644,26 +1749,100 @@
             <div class="closing reveal">
 
                 <p>
-
                     Merupakan suatu kebahagiaan bagi kami
                     apabila Bapak/Ibu/Saudara/i berkenan
                     hadir dan memberikan doa restu.
-
                 </p>
 
                 <p>
-
                     Terima kasih atas doa, perhatian,
                     dan kasih sayang yang diberikan kepada kami.
-
                 </p>
 
             </div>
 
         </div>
 
+    </section>
+
+
+
+    <!-- =========================================
+         COVER
+    ========================================= -->
+
+    <section class="cover" id="cover">
+
+        <!-- PANEL KIRI -->
+
+        <div class="cover-panel cover-left"></div>
+
+        <!-- PANEL KANAN -->
+
+        <div class="cover-panel cover-right"></div>
+
+
+        <!-- CONTENT TENGAH -->
+
+        <div class="cover-content" id="coverContent">
+
+            <div class="cover-center">
+
+                <div class="guest-name" id="guestName">
+                    Hi, Guest
+                </div>
+
+                <div class="guest-invited">
+                    You're invited to
+                </div>
+
+                <div class="small-text">
+                    THE WEDDING OF
+                </div>
+
+                <div class="line"></div>
+
+                <h1>Hida</h1>
+
+                <div class="ampersand">&</div>
+
+                <h1>Fauzi</h1>
+
+
+                <div
+                    class="envelope-button"
+                    onclick="bukaUndangan()"
+                >
+
+                    <div class="envelope-body">
+
+                        <div class="envelope-label">
+                            BUKA UNDANGAN
+                        </div>
+
+                    </div>
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-heart">
+                        ♥
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <img
+            src="poppy.png"
+            class="cover-poppy"
+            alt=""
+        >
 
     </section>
+
 
 
     <!-- MUSIC -->
@@ -1691,8 +1870,8 @@
     </button>
 
 
-    <script>
 
+    <script>
 
         /* =========================================
            NAMA TAMU DARI URL
@@ -1709,9 +1888,7 @@
 
         if (guest) {
 
-            document.getElementById(
-                "guestName"
-            ).innerHTML =
+            document.getElementById("guestName").innerHTML =
                 "Hi, " + guest;
 
         }
@@ -1726,8 +1903,8 @@
             const cover =
                 document.getElementById("cover");
 
-            const curtain =
-                document.getElementById("curtain");
+            const coverContent =
+                document.getElementById("coverContent");
 
             const main =
                 document.getElementById("mainContent");
@@ -1739,57 +1916,39 @@
                 document.getElementById("musicButton");
 
 
-            /* TIRAI SIAP */
+            /* Isi undangan mulai terlihat */
 
-            curtain.classList.add("active");
-
-
-            /* COVER MEMUDAR */
-
-            cover.style.opacity = "0";
+            main.classList.add("show");
 
 
-            /* ISI UNDANGAN MUNCUL PELAN */
+            /* Sedikit delay supaya isi muncul halus */
 
             setTimeout(function() {
 
-                main.classList.add("show");
+                cover.classList.add("open");
+
+                coverContent.classList.add("opening");
 
             }, 150);
 
 
-            /* TIRAI MEMBUKA */
-
-            setTimeout(function() {
-
-                curtain.classList.add("open");
-
-            }, 250);
-
-
-            /* HAPUS COVER */
+            /* Setelah animasi selesai */
 
             setTimeout(function() {
 
                 cover.style.display = "none";
 
-                window.scrollTo(0, 0);
-
-            }, 800);
-
-
-            /* HAPUS TIRAI */
-
-            setTimeout(function() {
-
-                curtain.style.display = "none";
-
                 musicButton.style.display = "block";
 
-            }, 2500);
+                window.scrollTo({
+                    top: 0,
+                    behavior: "instant"
+                });
+
+            }, 2200);
 
 
-            /* MUSIK */
+            /* Musik */
 
             music.play()
                 .catch(function(error) {
@@ -1825,8 +1984,7 @@
 
                 music.play();
 
-                button.innerHTML =
-                    "🔊";
+                button.innerHTML = "🔊";
 
             }
 
@@ -1834,8 +1992,7 @@
 
                 music.pause();
 
-                button.innerHTML =
-                    "🔇";
+                button.innerHTML = "🔇";
 
             }
 
@@ -1879,30 +2036,24 @@
                     (1000 * 60 * 60 * 24)
                 );
 
-
             const hours =
                 Math.floor(
                     (distance %
-                    (1000 * 60 * 60 * 24))
-                    /
+                    (1000 * 60 * 60 * 24)) /
                     (1000 * 60 * 60)
                 );
-
 
             const minutes =
                 Math.floor(
                     (distance %
-                    (1000 * 60 * 60))
-                    /
+                    (1000 * 60 * 60)) /
                     (1000 * 60)
                 );
-
 
             const seconds =
                 Math.floor(
                     (distance %
-                    (1000 * 60))
-                    /
+                    (1000 * 60)) /
                     1000
                 );
 
@@ -2069,9 +2220,7 @@
                 }
             );
 
-
     </script>
-
 
 </body>
 
