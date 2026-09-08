@@ -104,8 +104,8 @@
             transform: scale(.985);
 
             transition:
-                opacity 1.5s ease,
-                transform 1.5s ease;
+                opacity 2.2s cubic-bezier(.22,1,.36,1),
+                transform 2.2s cubic-bezier(.22,1,.36,1);
 
             background:
 
@@ -193,7 +193,7 @@
                 );
 
             transition:
-                transform 1.45s cubic-bezier(.77, 0, .18, 1);
+                transform 1.85s cubic-bezier(.65, 0, .18, 1);
 
             will-change: transform;
 
@@ -306,8 +306,8 @@
             padding: 30px;
 
             transition:
-                opacity .55s ease,
-                transform .7s ease;
+                opacity .7s cubic-bezier(.22,1,.36,1),
+                transform .9s cubic-bezier(.22,1,.36,1);
 
         }
 
@@ -650,6 +650,76 @@
 
         }
 
+
+
+        /* =====================================================
+           HIASAN HALAMAN DALAM
+        ===================================================== */
+
+        .main-content::before,
+        .main-content::after {
+
+            content: "✿";
+
+            position: absolute;
+
+            font-size: 120px;
+
+            color: rgba(217,154,171,.16);
+
+            line-height: 1;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            animation:
+                innerDecorationFloat 8s ease-in-out infinite;
+
+        }
+
+        .main-content::before {
+
+            top: 180px;
+            left: -35px;
+
+        }
+
+        .main-content::after {
+
+            top: 760px;
+            right: -35px;
+
+            animation-delay: -4s;
+
+        }
+
+        .opening,
+        .countdown-section,
+        .event-section,
+        .gift-section,
+        .rsvp-section,
+        .closing {
+
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .ornamen {
+
+            margin: 34px auto 28px;
+
+            color: #d08a9d;
+
+            font-size: 22px;
+
+            letter-spacing: 9px;
+
+            animation:
+                ornamentFloat 5s ease-in-out infinite;
+
+        }
 
         /* =====================================================
            SECTIONS
@@ -2158,6 +2228,10 @@
 
         <div class="gift-page-section">
 
+            <div class="ornamen reveal">
+                ❀ ✦ ❀
+            </div>
+
             <div class="gift-section reveal">
 
                 <div class="gift-icon">
@@ -2184,6 +2258,10 @@
         <!-- RSVP -->
 
         <div class="rsvp-page-section">
+
+            <div class="ornamen reveal">
+                ✦ ❀ ✦
+            </div>
 
             <div class="rsvp-section reveal">
 
