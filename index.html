@@ -58,7 +58,7 @@
                     #fff4f7 100%
                 );
 
-            transition: opacity 1s ease;
+            transition: opacity .7s ease;
         }
 
         .cover::before {
@@ -120,84 +120,50 @@
         ========================================= */
 
         .guest-name {
-
             font-family: Arial, sans-serif;
-
             font-size: 15px;
-
             color: #b8667e;
-
             margin-bottom: 10px;
-
             letter-spacing: .5px;
-
         }
 
         .guest-invited {
-
             font-family: Arial, sans-serif;
-
             font-size: 11px;
-
             letter-spacing: 3px;
-
             color: #c27f93;
-
             margin-bottom: 30px;
-
             text-transform: uppercase;
-
         }
 
         .small-text {
-
             font-family: Arial, sans-serif;
-
             font-size: 12px;
-
             letter-spacing: 4px;
-
             color: #c27f93;
-
             margin-bottom: 20px;
-
         }
 
         .line {
-
             width: 70px;
             height: 1px;
-
             background: #d99aab;
-
             margin: 0 auto 25px;
-
         }
 
         .cover h1 {
-
             font-size: 58px;
-
             font-weight: normal;
-
             line-height: 1.15;
-
             margin: 0;
-
             color: #b8667e;
-
         }
 
         .ampersand {
-
             font-size: 30px;
-
             font-style: italic;
-
             color: #d08a9d;
-
             margin: 8px 0;
-
         }
 
         /* =========================================
@@ -214,7 +180,6 @@
             position: relative;
 
             cursor: pointer;
-
         }
 
         .envelope-body {
@@ -243,7 +208,6 @@
             overflow: hidden;
 
             transition: .4s ease;
-
         }
 
         .envelope-body::before {
@@ -263,7 +227,6 @@
 
             border-bottom:
                 55px solid rgba(255,255,255,.16);
-
         }
 
         .envelope-flap {
@@ -282,7 +245,6 @@
             border-top: 53px solid #f0bdc9;
 
             z-index: 3;
-
         }
 
         .envelope-label {
@@ -305,7 +267,6 @@
             letter-spacing: 1.5px;
 
             white-space: nowrap;
-
         }
 
         .envelope-heart {
@@ -322,7 +283,6 @@
             color: white;
 
             font-size: 19px;
-
         }
 
         .envelope-button:hover .envelope-body {
@@ -330,7 +290,6 @@
             transform:
                 translateY(-5px)
                 scale(1.04);
-
         }
 
         /* =========================================
@@ -355,7 +314,6 @@
             z-index: 2;
 
             pointer-events: none;
-
         }
 
         /* =========================================
@@ -370,83 +328,80 @@
 
             z-index: 200;
 
-            display: none;
+            display: flex;
 
             pointer-events: none;
 
+            visibility: hidden;
+
+            overflow: hidden;
         }
 
         .curtain.active {
-            display: flex;
+            visibility: visible;
         }
 
         .curtain-left,
         .curtain-right {
 
-            width: 50%;
+            position: absolute;
+
+            top: 0;
+
+            width: 50.5%;
+
             height: 100%;
 
             background:
                 linear-gradient(
                     135deg,
-                    #e6a9b8,
-                    #cc7f95
+                    #fff8fa,
+                    #f9e8ed
                 );
 
-            box-shadow:
-                inset 0 0 50px
-                rgba(255,255,255,.15);
-
+            will-change: transform;
         }
 
         .curtain-left {
+
+            left: 0;
+
             transform: translateX(0);
+
+            border-right:
+                1px solid
+                rgba(217,154,171,.18);
         }
 
         .curtain-right {
+
+            right: 0;
+
             transform: translateX(0);
+
+            border-left:
+                1px solid
+                rgba(217,154,171,.18);
         }
 
         .curtain.open .curtain-left {
 
-            animation:
-                curtainLeft 1.7s
-                cubic-bezier(.77,0,.18,1)
-                forwards;
+            transform:
+                translateX(-100%);
 
+            transition:
+                transform 2.2s
+                cubic-bezier(.65,0,.35,1);
         }
 
         .curtain.open .curtain-right {
 
-            animation:
-                curtainRight 1.7s
-                cubic-bezier(.77,0,.18,1)
-                forwards;
+            transform:
+                translateX(100%);
 
-        }
-
-        @keyframes curtainLeft {
-
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-100%);
-            }
-
-        }
-
-        @keyframes curtainRight {
-
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(100%);
-            }
-
+            transition:
+                transform 2.2s
+                cubic-bezier(.65,0,.35,1);
         }
 
         /* =========================================
@@ -467,8 +422,11 @@
 
             opacity: 0;
 
+            transform: scale(1.015);
+
             transition:
-                opacity 1.5s ease;
+                opacity 2.2s ease,
+                transform 2.2s ease;
 
             background:
 
@@ -496,11 +454,13 @@
                     #fff4f7 45%,
                     #fffafb 100%
                 );
-
         }
 
         .main-content.show {
+
             opacity: 1;
+
+            transform: scale(1);
         }
 
         /* =========================================
@@ -526,7 +486,6 @@
                     0 8px 18px
                     rgba(190,110,135,.12)
                 );
-
         }
 
         .flower-1 {
@@ -535,7 +494,6 @@
             left: -100px;
 
             transform: rotate(-12deg);
-
         }
 
         .flower-2 {
@@ -544,7 +502,6 @@
             right: -110px;
 
             transform: rotate(15deg);
-
         }
 
         .flower-3 {
@@ -553,7 +510,6 @@
             left: -110px;
 
             transform: rotate(-10deg);
-
         }
 
         .flower-4 {
@@ -562,7 +518,6 @@
             right: -110px;
 
             transform: rotate(12deg);
-
         }
 
         /* =========================================
@@ -577,7 +532,6 @@
                 70px 0 35px;
 
             z-index: 5;
-
         }
 
         .details-section {
@@ -588,7 +542,6 @@
                 25px 0 55px;
 
             z-index: 5;
-
         }
 
         .gift-page-section,
@@ -600,7 +553,6 @@
             padding: 45px 0;
 
             z-index: 5;
-
         }
 
         /* =========================================
@@ -616,7 +568,6 @@
             transition:
                 opacity 1s ease,
                 transform 1s ease;
-
         }
 
         .reveal.active {
@@ -624,23 +575,6 @@
             opacity: 1;
 
             transform: translateY(0);
-
-        }
-
-        .delay-1 {
-            transition-delay: .1s;
-        }
-
-        .delay-2 {
-            transition-delay: .2s;
-        }
-
-        .delay-3 {
-            transition-delay: .3s;
-        }
-
-        .delay-4 {
-            transition-delay: .4s;
         }
 
         /* =========================================
@@ -658,7 +592,6 @@
             position: relative;
 
             z-index: 5;
-
         }
 
         .opening-small {
@@ -672,7 +605,6 @@
             color: #c27f93;
 
             margin-bottom: 15px;
-
         }
 
         /* =========================================
@@ -695,7 +627,6 @@
 
             justify-content: center;
             align-items: center;
-
         }
 
         .couple-frame::before {
@@ -722,7 +653,6 @@
             box-shadow:
                 0 10px 35px
                 rgba(190,110,135,.18);
-
         }
 
         .couple-frame::after {
@@ -740,7 +670,6 @@
             border:
                 1px solid
                 rgba(194,127,147,.55);
-
         }
 
         .pengantin {
@@ -758,7 +687,6 @@
                     0 12px 12px
                     rgba(125,76,88,.14)
                 );
-
         }
 
         .opening h2 {
@@ -770,7 +698,6 @@
             font-weight: normal;
 
             color: #b8667e;
-
         }
 
         .and {
@@ -780,7 +707,6 @@
             font-style: italic;
 
             color: #d08a9d;
-
         }
 
         .opening-text {
@@ -792,7 +718,6 @@
             color: #654f4f;
 
             margin-top: 30px;
-
         }
 
         /* =========================================
@@ -818,7 +743,6 @@
             box-shadow:
                 0 5px 18px
                 rgba(190,110,135,.10);
-
         }
 
         .quran-verse::before {
@@ -836,7 +760,6 @@
                 rgba(217,154,171,.65);
 
             pointer-events: none;
-
         }
 
         .quran-arabic {
@@ -848,7 +771,6 @@
             color: #b8667e;
 
             margin: 0 0 10px;
-
         }
 
         .quran-translation {
@@ -860,7 +782,6 @@
             color: #654f4f;
 
             margin: 0;
-
         }
 
         .quran-reference {
@@ -870,7 +791,6 @@
             color: #b8667e;
 
             margin-top: 8px;
-
         }
 
         /* =========================================
@@ -886,7 +806,6 @@
             color: #b8667e;
 
             margin: 0 0 25px;
-
         }
 
         .section-title::before,
@@ -899,7 +818,6 @@
             color: #d99aab;
 
             font-size: 15px;
-
         }
 
         /* =========================================
@@ -911,7 +829,6 @@
             max-width: 600px;
 
             margin: auto;
-
         }
 
         .countdown {
@@ -923,7 +840,6 @@
             gap: 12px;
 
             flex-wrap: wrap;
-
         }
 
         .count-box {
@@ -944,7 +860,6 @@
             box-shadow:
                 0 8px 22px
                 rgba(190,110,135,.20);
-
         }
 
         .count-number {
@@ -954,7 +869,6 @@
             font-size: 25px;
 
             color: white;
-
         }
 
         .count-label {
@@ -970,7 +884,6 @@
             color: white;
 
             margin-top: 5px;
-
         }
 
         /* =========================================
@@ -982,7 +895,6 @@
             max-width: 600px;
 
             margin: 40px auto 0;
-
         }
 
         .event-card {
@@ -1003,7 +915,6 @@
             box-shadow:
                 0 8px 25px
                 rgba(190,110,135,.20);
-
         }
 
         .event-title {
@@ -1013,7 +924,6 @@
             color: white;
 
             margin-bottom: 15px;
-
         }
 
         .event-time {
@@ -1025,7 +935,6 @@
             line-height: 1.8;
 
             color: white;
-
         }
 
         .event-place {
@@ -1037,7 +946,6 @@
             line-height: 1.7;
 
             color: white;
-
         }
 
         .maps-button {
@@ -1059,7 +967,6 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
-
         }
 
         /* =========================================
@@ -1087,7 +994,6 @@
             box-shadow:
                 0 8px 25px
                 rgba(190,110,135,.20);
-
         }
 
         .gift-icon {
@@ -1095,7 +1001,6 @@
             font-size: 42px;
 
             margin-bottom: 15px;
-
         }
 
         .gift-section h2,
@@ -1108,7 +1013,6 @@
             color: white;
 
             margin: 5px 0 20px;
-
         }
 
         .gift-section p,
@@ -1119,7 +1023,6 @@
             line-height: 1.8;
 
             color: white;
-
         }
 
         /* =========================================
@@ -1129,7 +1032,6 @@
         .rsvp-form {
 
             margin-top: 25px;
-
         }
 
         .rsvp-form input,
@@ -1155,7 +1057,6 @@
             color: #654f4f;
 
             outline: none;
-
         }
 
         .rsvp-form textarea {
@@ -1163,7 +1064,6 @@
             min-height: 100px;
 
             resize: vertical;
-
         }
 
         .rsvp-form button {
@@ -1190,7 +1090,6 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
-
         }
 
         #rsvpMessage {
@@ -1202,7 +1101,6 @@
             font-family: Arial, sans-serif;
 
             font-size: 14px;
-
         }
 
         /* =========================================
@@ -1216,7 +1114,6 @@
             margin: auto;
 
             padding: 20px 25px;
-
         }
 
         .closing p {
@@ -1226,7 +1123,6 @@
             line-height: 1.8;
 
             color: #654f4f;
-
         }
 
         /* =========================================
@@ -1267,7 +1163,6 @@
             box-shadow:
                 0 5px 15px
                 rgba(190,110,135,.25);
-
         }
 
         /* =========================================
@@ -1367,7 +1262,6 @@
             .count-box {
                 width: 67px;
             }
-
         }
 
     </style>
@@ -1378,9 +1272,7 @@
 <body>
 
 
-    <!-- =========================================
-         COVER
-    ========================================= -->
+    <!-- COVER -->
 
     <section class="cover" id="cover">
 
@@ -1440,9 +1332,7 @@
     </section>
 
 
-    <!-- =========================================
-         TIRAI
-    ========================================= -->
+    <!-- TIRAI -->
 
     <div class="curtain" id="curtain">
 
@@ -1453,41 +1343,22 @@
     </div>
 
 
-    <!-- =========================================
-         MAIN CONTENT
-    ========================================= -->
+    <!-- MAIN CONTENT -->
 
     <section
         class="main-content"
         id="mainContent"
     >
 
-
         <!-- BUNGA HIAS -->
 
-        <img
-            src="bunga hias.png"
-            class="flower-decoration flower-1"
-            alt=""
-        >
+        <img src="bunga hias.png" class="flower-decoration flower-1" alt="">
 
-        <img
-            src="bunga hias.png"
-            class="flower-decoration flower-2"
-            alt=""
-        >
+        <img src="bunga hias.png" class="flower-decoration flower-2" alt="">
 
-        <img
-            src="bunga hias.png"
-            class="flower-decoration flower-3"
-            alt=""
-        >
+        <img src="bunga hias.png" class="flower-decoration flower-3" alt="">
 
-        <img
-            src="bunga hias.png"
-            class="flower-decoration flower-4"
-            alt=""
-        >
+        <img src="bunga hias.png" class="flower-decoration flower-4" alt="">
 
 
         <!-- OPENING -->
@@ -1512,17 +1383,11 @@
                 </div>
 
 
-                <h2>
-                    Ahmad Fauzi
-                </h2>
+                <h2>Ahmad Fauzi</h2>
 
-                <div class="and">
-                    &
-                </div>
+                <div class="and">&</div>
 
-                <h2>
-                    Nur Hidayah
-                </h2>
+                <h2>Nur Hidayah</h2>
 
 
                 <div class="quran-verse">
@@ -1573,13 +1438,9 @@
 
                 <div class="countdown">
 
-
                     <div class="count-box">
 
-                        <span
-                            class="count-number"
-                            id="days"
-                        >00</span>
+                        <span class="count-number" id="days">00</span>
 
                         <span class="count-label">
                             HARI
@@ -1590,10 +1451,7 @@
 
                     <div class="count-box">
 
-                        <span
-                            class="count-number"
-                            id="hours"
-                        >00</span>
+                        <span class="count-number" id="hours">00</span>
 
                         <span class="count-label">
                             JAM
@@ -1604,10 +1462,7 @@
 
                     <div class="count-box">
 
-                        <span
-                            class="count-number"
-                            id="minutes"
-                        >00</span>
+                        <span class="count-number" id="minutes">00</span>
 
                         <span class="count-label">
                             MENIT
@@ -1618,10 +1473,7 @@
 
                     <div class="count-box">
 
-                        <span
-                            class="count-number"
-                            id="seconds"
-                        >00</span>
+                        <span class="count-number" id="seconds">00</span>
 
                         <span class="count-label">
                             DETIK
@@ -1684,7 +1536,6 @@
 
                 </div>
 
-
             </div>
 
         </div>
@@ -1700,9 +1551,7 @@
                     🎁
                 </div>
 
-                <h2>
-                    Hadiah
-                </h2>
+                <h2>Hadiah</h2>
 
                 <p>
 
@@ -1847,10 +1696,6 @@
 
         /* =========================================
            NAMA TAMU DARI URL
-
-           Contoh:
-           ?to=Si%20A
-
         ========================================= */
 
         const params =
@@ -1867,8 +1712,7 @@
             document.getElementById(
                 "guestName"
             ).innerHTML =
-                "Hi, " +
-                guest;
+                "Hi, " + guest;
 
         }
 
@@ -1895,50 +1739,57 @@
                 document.getElementById("musicButton");
 
 
-            /* tampilkan isi undangan dulu */
-
-            main.classList.add("show");
-
-
-            /* tirai muncul */
+            /* TIRAI SIAP */
 
             curtain.classList.add("active");
 
 
-            /* cover hilang di belakang tirai */
+            /* COVER MEMUDAR */
+
+            cover.style.opacity = "0";
+
+
+            /* ISI UNDANGAN MUNCUL PELAN */
 
             setTimeout(function() {
 
-                cover.style.opacity = "0";
+                main.classList.add("show");
 
-            }, 100);
+            }, 150);
 
 
-            /* tirai membuka */
+            /* TIRAI MEMBUKA */
 
             setTimeout(function() {
 
                 curtain.classList.add("open");
 
-            }, 300);
+            }, 250);
 
 
-            /* hapus cover */
+            /* HAPUS COVER */
 
             setTimeout(function() {
 
                 cover.style.display = "none";
 
+                window.scrollTo(0, 0);
+
+            }, 800);
+
+
+            /* HAPUS TIRAI */
+
+            setTimeout(function() {
+
                 curtain.style.display = "none";
 
                 musicButton.style.display = "block";
 
-                window.scrollTo(0, 0);
-
-            }, 2100);
+            }, 2500);
 
 
-            /* musik */
+            /* MUSIK */
 
             music.play()
                 .catch(function(error) {
