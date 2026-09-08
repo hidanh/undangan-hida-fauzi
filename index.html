@@ -167,35 +167,19 @@
         ===================================================== */
 
         .guest-name {
-            font-family: Georgia, serif;
-
-            font-size: 18px;
-
-            font-weight: normal;
-
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
             color: #b8667e;
-
-            margin-bottom: 7px;
-
-            letter-spacing: .3px;
-
-            animation:
-                fadeDown 1.2s ease both;
+            margin-bottom: 10px;
         }
 
-        .guest-invitation {
-            font-family: Georgia, serif;
-
-            font-size: 14px;
-
-            font-style: italic;
-
-            color: #9b777f;
-
-            margin-bottom: 23px;
-
-            animation:
-                fadeDown 1.2s ease .15s both;
+        .invited-text {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #c27f93;
+            margin-bottom: 22px;
         }
 
         .small-text {
@@ -330,12 +314,6 @@
                 53px solid #f0bdc9;
 
             z-index: 3;
-
-            filter:
-                drop-shadow(
-                    0 2px 2px
-                    rgba(150,70,90,.10)
-                );
         }
 
         .envelope-label {
@@ -372,10 +350,6 @@
             color: #ffffff;
 
             font-size: 19px;
-
-            text-shadow:
-                0 2px 4px
-                rgba(100,50,60,.15);
         }
 
         .envelope-button:hover
@@ -383,14 +357,10 @@
             transform:
                 translateY(-5px)
                 scale(1.04);
-
-            box-shadow:
-                0 18px 32px
-                rgba(190,110,135,.32);
         }
 
         /* =====================================================
-           BUNGA POPPY
+           BUNGA COVER
         ===================================================== */
 
         .cover-poppy {
@@ -403,7 +373,6 @@
             max-width: none;
 
             height: auto;
-            max-height: none;
 
             object-fit: contain;
             object-position: bottom;
@@ -432,32 +401,124 @@
 
             text-align: center;
 
+            overflow: hidden;
+
             background:
 
                 radial-gradient(
-                    circle at 15% 10%,
-                    rgba(255,220,229,.55),
-                    transparent 28%
+                    circle at 10% 8%,
+                    rgba(255,204,220,.55),
+                    transparent 22%
                 ),
 
                 radial-gradient(
-                    circle at 85% 25%,
-                    rgba(255,226,234,.50),
-                    transparent 28%
+                    circle at 90% 25%,
+                    rgba(255,214,228,.55),
+                    transparent 25%
                 ),
 
                 radial-gradient(
-                    circle at 50% 70%,
-                    rgba(255,235,240,.70),
-                    transparent 40%
+                    circle at 15% 60%,
+                    rgba(255,225,235,.65),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(255,210,225,.50),
+                    transparent 30%
                 ),
 
                 linear-gradient(
                     180deg,
                     #fffafb 0%,
-                    #fff4f7 45%,
+                    #fff2f6 50%,
                     #fffafb 100%
                 );
+        }
+
+        /* =====================================================
+           BACKGROUND FLOWERS
+        ===================================================== */
+
+        .bg-flower {
+            position: absolute;
+            pointer-events: none;
+            opacity: .09;
+            z-index: 0;
+            width: 330px;
+        }
+
+        .bg-flower.one {
+            top: 450px;
+            left: -170px;
+            transform: rotate(20deg);
+        }
+
+        .bg-flower.two {
+            top: 1350px;
+            right: -180px;
+            transform: rotate(-25deg);
+        }
+
+        .bg-flower.three {
+            top: 2400px;
+            left: -180px;
+            transform: rotate(15deg);
+        }
+
+        .bg-flower.four {
+            bottom: 150px;
+            right: -180px;
+            transform: rotate(-15deg);
+        }
+
+        .main-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =====================================================
+           SECTION DIVIDER
+        ===================================================== */
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+
+            margin: 10px auto 30px;
+
+            color: #d99aab;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            width: 65px;
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #d99aab
+                );
+        }
+
+        .section-divider::after {
+            background:
+                linear-gradient(
+                    90deg,
+                    #d99aab,
+                    transparent
+                );
+        }
+
+        .divider-flower {
+            font-size: 20px;
+            animation:
+                gentlePulse 3s ease-in-out infinite;
         }
 
         /* =====================================================
@@ -465,8 +526,6 @@
         ===================================================== */
 
         .opening-section {
-            min-height: auto;
-
             padding:
                 60px 0 20px;
 
@@ -479,22 +538,13 @@
         .details-section {
             padding:
                 25px 0 55px;
-
-            display: flex;
-
-            flex-direction: column;
-            justify-content: center;
         }
 
         .gift-page-section,
         .rsvp-page-section,
         .closing-section {
-            min-height: auto;
-
-            height: auto;
-
             padding:
-                45px 0;
+                35px 0;
         }
 
         /* =====================================================
@@ -510,18 +560,13 @@
             text-align: center;
 
             position: relative;
-            z-index: 10;
         }
 
         .opening-small {
             font-family: Arial, sans-serif;
-
             font-size: 12px;
-
             letter-spacing: 4px;
-
             color: #c27f93;
-
             margin-bottom: 15px;
         }
 
@@ -578,12 +623,8 @@
                 );
 
             box-shadow:
-
                 0 10px 35px
-                rgba(190,110,135,.18),
-
-                inset 0 0 0 8px
-                rgba(255,255,255,.65);
+                rgba(190,110,135,.18);
 
             z-index: 0;
         }
@@ -610,9 +651,7 @@
 
             animation:
                 framePulse
-                4s
-                ease-in-out
-                infinite;
+                4s ease-in-out infinite;
         }
 
         .pengantin {
@@ -681,78 +720,27 @@
 
         .opening h2 {
             margin: 5px 0;
-
             font-size: 32px;
-
             font-weight: normal;
-
             color: #b8667e;
         }
 
         .and {
             font-size: 28px;
-
             font-style: italic;
-
             color: #d08a9d;
-
             margin: 2px 0;
-
-            animation:
-                gentlePulse
-                4s ease-in-out
-                infinite;
         }
 
         .opening-text {
             font-size: 15px;
-
             line-height: 1.8;
-
             color: #654f4f;
-
             margin-top: 30px;
         }
 
         /* =====================================================
-           ORNAMEN
-        ===================================================== */
-
-        .ornamen {
-            margin:
-                45px auto;
-
-            color: #d08a9d;
-
-            font-size: 23px;
-
-            letter-spacing: 8px;
-
-            animation:
-                ornamentFloat
-                5s ease-in-out
-                infinite;
-        }
-
-        /* =====================================================
-           AYAT + COUNTDOWN
-        ===================================================== */
-
-        .countdown-section {
-            max-width: 600px;
-
-            width: 100%;
-
-            margin:
-                0 auto 30px;
-
-            position: relative;
-
-            z-index: 10;
-        }
-
-        /* =====================================================
-           AYAT AL-QURAN
+           AYAT
         ===================================================== */
 
         .quran-verse {
@@ -767,16 +755,14 @@
             position: relative;
 
             background:
-                rgba(255,255,255,.42);
-
-            border: none;
+                rgba(255,255,255,.48);
 
             border-radius:
                 28px 23px
                 30px 21px;
 
             box-shadow:
-                0 5px 18px
+                0 8px 25px
                 rgba(190,110,135,.08);
 
             text-align: center;
@@ -784,39 +770,28 @@
 
         .quran-verse::before {
             content: "";
-
             position: absolute;
-
             inset: 0;
 
             border-radius:
                 28px 23px
                 30px 21px;
 
-            padding: 1.5px;
+            padding: 1px;
 
-            background:
-
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 220' preserveAspectRatio='none'%3E%3Cpath d='M18 7 C25 1 32 13 39 7 C46 1 53 13 60 7 C67 1 74 13 81 7 C88 1 95 13 102 7 C109 1 116 13 123 7 C130 1 137 13 144 7 C151 1 158 13 165 7 C172 1 179 13 186 7 C193 1 200 13 207 7 C214 1 221 13 228 7 C235 1 242 13 249 7 C256 1 263 13 270 7 C277 1 284 13 291 7 C298 1 305 13 312 7 C319 1 326 13 333 7 C340 1 347 13 354 7 C361 1 368 13 375 7 C382 1 389 13 396 7 C403 1 410 13 417 7 C424 1 431 13 438 7 C445 1 452 13 459 7 C466 1 473 13 480 7 C487 1 494 13 501 7 C508 1 515 13 522 7 C529 1 536 13 543 7 C550 1 557 13 564 7 C571 1 578 13 582 7 M593 18 C599 25 587 32 593 39 C599 46 587 53 593 60 C599 67 587 74 593 81 C599 88 587 95 593 102 C599 109 587 116 593 123 C599 130 587 137 593 144 C599 151 587 158 593 165 C599 172 587 179 593 186 C599 193 587 200 593 207 C599 214 587 221 593 225 M582 233 C575 227 568 239 561 233 C554 227 547 239 540 233 C533 227 526 239 519 233 C512 227 505 239 498 233 C491 227 484 239 477 233 C470 227 463 239 456 233 C449 227 442 239 435 233 C428 227 421 239 414 233 C407 227 400 239 393 233 C386 227 379 239 372 233 C365 227 358 239 351 233 C344 227 337 239 330 233 C323 227 316 239 309 233 C302 227 295 239 288 233 C281 227 274 239 267 233 C260 227 253 239 246 233 C239 227 232 239 225 233 C218 227 211 239 204 233 C197 227 190 239 183 233 C176 227 169 239 162 233 C155 227 148 239 141 233 C134 227 127 239 120 233 C113 227 106 239 99 233 C92 227 85 239 78 233 C71 227 64 239 57 233 C50 227 43 239 36 233 C29 227 22 239 18 233 M7 222 C13 215 1 208 7 201 C13 194 1 187 7 180 C13 173 1 166 7 159 C13 152 1 145 7 138 C13 131 1 124 7 117 C13 110 1 103 7 96 C13 89 1 82 7 75 C13 68 1 61 7 54 C13 47 1 40 7 33 C13 26 1 19 7 18' fill='none' stroke='%23d99aab' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
-
-            background-size:
-                100% 100%;
-
-            background-repeat:
-                no-repeat;
+            border:
+                1px solid
+                rgba(217,154,171,.45);
 
             pointer-events: none;
         }
 
         .quran-arabic {
             position: relative;
-
             z-index: 2;
 
             font-size: 23px;
-
             line-height: 2;
-
             color: #b8667e;
 
             margin:
@@ -825,13 +800,10 @@
 
         .quran-translation {
             position: relative;
-
             z-index: 2;
 
             font-size: 13px;
-
             line-height: 1.7;
-
             color: #654f4f;
 
             margin: 0;
@@ -839,11 +811,9 @@
 
         .quran-reference {
             position: relative;
-
             z-index: 2;
 
             font-size: 12px;
-
             color: #b8667e;
 
             margin-top: 8px;
@@ -855,56 +825,43 @@
 
         .section-title {
             font-size: 28px;
-
             font-weight: normal;
-
             color: #b8667e;
 
             margin:
                 0 0 25px;
-
-            position: relative;
         }
 
-        .section-title::before,
-        .section-title::after {
-            content: "✦";
-
-            display: inline-block;
-
-            margin:
-                0 15px;
-
-            color: #d99aab;
-
-            font-size: 15px;
-
-            animation:
-                gentlePulse
-                3s ease-in-out infinite;
+        .section-subtitle {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #c27f93;
+            margin-bottom: 10px;
         }
 
         /* =====================================================
            COUNTDOWN
         ===================================================== */
 
+        .countdown-section {
+            max-width: 600px;
+            width: 100%;
+            margin:
+                0 auto 30px;
+        }
+
         .countdown {
             display: flex;
-
             justify-content: center;
-
             gap: 12px;
-
             flex-wrap: wrap;
         }
 
         .count-box {
             width: 75px;
-
             padding:
                 15px 5px;
-
-            border: none;
 
             border-radius: 15px;
 
@@ -918,10 +875,6 @@
             box-shadow:
                 0 8px 22px
                 rgba(190,110,135,.20);
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease;
 
             animation:
                 cardFloat
@@ -940,20 +893,9 @@
             animation-delay: 1.5s;
         }
 
-        .count-box:hover {
-            transform:
-                translateY(-6px);
-
-            box-shadow:
-                0 14px 30px
-                rgba(190,110,135,.28);
-        }
-
         .count-number {
             display: block;
-
             font-size: 25px;
-
             color: #ffffff;
         }
 
@@ -961,9 +903,7 @@
             display: block;
 
             font-family: Arial, sans-serif;
-
             font-size: 9px;
-
             letter-spacing: 1px;
 
             color: #ffffff;
@@ -977,15 +917,12 @@
 
         .event-section {
             max-width: 600px;
-
             width: 100%;
+            margin: 0 auto;
+        }
 
-            margin:
-                0 auto;
-
-            position: relative;
-
-            z-index: 10;
+        .event-heading {
+            margin-bottom: 20px;
         }
 
         .event-card {
@@ -993,8 +930,6 @@
                 25px 20px;
 
             margin-top: 18px;
-
-            border: none;
 
             border-radius: 20px;
 
@@ -1010,12 +945,10 @@
                 rgba(190,110,135,.20);
 
             position: relative;
-
             overflow: hidden;
 
             transition:
-                transform .45s ease,
-                box-shadow .45s ease;
+                transform .45s ease;
         }
 
         .event-card::before,
@@ -1046,40 +979,30 @@
                 shine 7s ease-in-out infinite;
         }
 
-        .event-card:hover {
+        .event-card:hover,
+        .gift-section:hover,
+        .rsvp-section:hover {
             transform:
-                translateY(-6px);
-
-            box-shadow:
-                0 15px 35px
-                rgba(190,110,135,.27);
+                translateY(-5px);
         }
 
         .event-title {
             font-size: 21px;
-
             color: #ffffff;
-
             margin-bottom: 15px;
         }
 
         .event-time {
             font-family: Arial, sans-serif;
-
             font-size: 15px;
-
             line-height: 1.8;
-
             color: #ffffff;
         }
 
         .event-place {
             margin-top: 18px;
-
             font-size: 15px;
-
             line-height: 1.7;
-
             color: #ffffff;
         }
 
@@ -1087,34 +1010,18 @@
             display: inline-block;
 
             margin-top: 20px;
-
             padding:
                 12px 25px;
 
             border-radius: 25px;
 
             background: #ffffff;
-
             color: #c16f86;
 
             text-decoration: none;
 
             font-family: Arial, sans-serif;
-
             font-size: 14px;
-
-            transition:
-                transform .3s ease,
-                box-shadow .3s ease;
-        }
-
-        .maps-button:hover {
-            transform:
-                translateY(-3px);
-
-            box-shadow:
-                0 7px 18px
-                rgba(100,50,60,.15);
         }
 
         /* =====================================================
@@ -1123,16 +1030,12 @@
 
         .gift-section {
             max-width: 600px;
-
             width: 100%;
 
-            margin:
-                0 auto;
+            margin: 0 auto;
 
             padding:
-                35px 25px;
-
-            border: none;
+                40px 25px;
 
             border-radius: 22px;
 
@@ -1148,26 +1051,11 @@
                 rgba(190,110,135,.20);
 
             position: relative;
-
             overflow: hidden;
-
-            transition:
-                transform .45s ease,
-                box-shadow .45s ease;
-        }
-
-        .gift-section:hover {
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 15px 35px
-                rgba(190,110,135,.27);
         }
 
         .gift-icon {
             font-size: 42px;
-
             margin-bottom: 15px;
 
             animation:
@@ -1177,23 +1065,17 @@
 
         .gift-section h2 {
             font-size: 27px;
-
             font-weight: normal;
-
             color: #ffffff;
 
             margin:
-                5px 0
-                20px;
+                5px 0 20px;
         }
 
         .gift-section p {
             font-size: 15px;
-
             line-height: 1.8;
-
             margin: 0 auto;
-
             color: #ffffff;
         }
 
@@ -1203,16 +1085,12 @@
 
         .rsvp-section {
             max-width: 600px;
-
             width: 100%;
 
-            margin:
-                0 auto;
+            margin: 0 auto;
 
             padding:
-                35px 25px;
-
-            border: none;
+                40px 25px;
 
             border-radius: 22px;
 
@@ -1228,38 +1106,19 @@
                 rgba(190,110,135,.20);
 
             position: relative;
-
             overflow: hidden;
-
-            transition:
-                transform .45s ease,
-                box-shadow .45s ease;
-        }
-
-        .rsvp-section:hover {
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 15px 35px
-                rgba(190,110,135,.27);
         }
 
         .rsvp-section h2 {
             font-size: 27px;
-
             font-weight: normal;
-
             color: #ffffff;
-
             margin-top: 0;
         }
 
         .rsvp-section p {
             font-size: 14px;
-
             line-height: 1.7;
-
             color: #ffffff;
         }
 
@@ -1278,50 +1137,36 @@
             margin-bottom: 15px;
 
             border: none;
-
             border-radius: 10px;
 
             background: #ffffff;
 
             font-family: Arial, sans-serif;
-
             font-size: 14px;
-
             color: #654f4f;
 
             outline: none;
-
-            transition:
-                box-shadow .3s ease,
-                transform .3s ease;
-        }
-
-        .rsvp-form input:focus,
-        .rsvp-form select:focus,
-        .rsvp-form textarea:focus {
-            box-shadow:
-                0 0 0 3px
-                rgba(255,255,255,.35);
-
-            transform:
-                translateY(-2px);
-        }
-
-        .rsvp-form input::placeholder,
-        .rsvp-form textarea::placeholder {
-            color: #b999a2;
         }
 
         .rsvp-form textarea {
             min-height: 100px;
-
             resize: vertical;
         }
 
         .rsvp-form button {
             margin-top: 5px;
-
             width: 100%;
+            padding: 14px;
+
+            border: none;
+            border-radius: 25px;
+
+            color: #ffffff;
+
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+
+            cursor: pointer;
 
             background:
                 linear-gradient(
@@ -1329,37 +1174,12 @@
                     #b8667e,
                     #c97891
                 );
-
-            border: none;
-            border-radius: 10px;
-
-            padding: 13px;
-
-            color: #ffffff;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 14px;
-
-            cursor: pointer;
-        }
-
-        .rsvp-form button:hover {
-            background:
-                linear-gradient(
-                    135deg,
-                    #a95770,
-                    #bd6d85
-                );
         }
 
         #rsvpMessage {
             margin-top: 15px;
-
             font-family: Arial, sans-serif;
-
             font-size: 14px;
-
             color: #ffffff;
         }
 
@@ -1369,26 +1189,94 @@
 
         .closing {
             max-width: 600px;
-
             width: 100%;
 
-            margin:
-                0 auto;
+            margin: 0 auto;
 
             padding:
-                20px 25px;
+                45px 25px 35px;
 
             position: relative;
+        }
 
-            z-index: 10;
+        .closing-card {
+            position: relative;
+
+            padding:
+                35px 25px;
+
+            background:
+                rgba(255,255,255,.48);
+
+            border-radius:
+                35px 25px
+                35px 25px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(190,110,135,.10);
+
+            overflow: hidden;
+        }
+
+        .closing-card::before {
+            content: "❀";
+
+            position: absolute;
+
+            top: -15px;
+            left: 20px;
+
+            font-size: 55px;
+            color:
+                rgba(217,154,171,.18);
+        }
+
+        .closing-card::after {
+            content: "❀";
+
+            position: absolute;
+
+            bottom: -20px;
+            right: 15px;
+
+            font-size: 70px;
+            color:
+                rgba(217,154,171,.18);
         }
 
         .closing p {
+            position: relative;
+            z-index: 2;
+
             font-size: 14px;
-
             line-height: 1.8;
-
             color: #654f4f;
+        }
+
+        .closing-names {
+            position: relative;
+            z-index: 2;
+
+            margin-top: 30px;
+
+            font-size: 32px;
+            font-weight: normal;
+
+            color: #b8667e;
+        }
+
+        .closing-date {
+            position: relative;
+            z-index: 2;
+
+            margin-top: 10px;
+
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 3px;
+
+            color: #c27f93;
         }
 
         /* =====================================================
@@ -1404,11 +1292,7 @@
             width: 42px;
             height: 42px;
 
-            margin: 0;
-            padding: 0;
-
             border: none;
-
             border-radius: 50%;
 
             background:
@@ -1419,7 +1303,6 @@
                 );
 
             color: white;
-
             font-size: 18px;
 
             z-index: 1000;
@@ -1437,10 +1320,6 @@
             cursor: pointer;
         }
 
-        .music-button:hover {
-            background: #b8667e;
-        }
-
         /* =====================================================
            ANIMATIONS
         ===================================================== */
@@ -1448,7 +1327,6 @@
         @keyframes coverAppear {
             from {
                 opacity: 0;
-
                 transform:
                     translateY(25px)
                     scale(.97);
@@ -1456,7 +1334,6 @@
 
             to {
                 opacity: 1;
-
                 transform:
                     translateY(0)
                     scale(1);
@@ -1466,14 +1343,12 @@
         @keyframes fadeDown {
             from {
                 opacity: 0;
-
                 transform:
                     translateY(-20px);
             }
 
             to {
                 opacity: 1;
-
                 transform:
                     translateY(0);
             }
@@ -1508,23 +1383,18 @@
             0%,
             100% {
                 opacity: .8;
-
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
             50% {
                 opacity: 1;
-
-                transform:
-                    scale(1.04);
+                transform: scale(1.04);
             }
         }
 
         @keyframes envelopeAppear {
             from {
                 opacity: 0;
-
                 transform:
                     translateY(30px)
                     scale(.85);
@@ -1532,7 +1402,6 @@
 
             to {
                 opacity: 1;
-
                 transform:
                     translateY(0)
                     scale(1);
@@ -1557,26 +1426,22 @@
         @keyframes poppyFloat {
             0%,
             100% {
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
 
             50% {
-                transform:
-                    translateY(-6px);
+                transform: translateY(-6px);
             }
         }
 
         @keyframes coupleFloating {
             0%,
             100% {
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
 
             50% {
-                transform:
-                    translateY(-9px);
+                transform: translateY(-9px);
             }
         }
 
@@ -1584,16 +1449,12 @@
             0%,
             100% {
                 opacity: .55;
-
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
             50% {
                 opacity: 1;
-
-                transform:
-                    scale(1.015);
+                transform: scale(1.015);
             }
         }
 
@@ -1609,19 +1470,6 @@
                 transform:
                     translateY(-8px)
                     rotate(5deg);
-            }
-        }
-
-        @keyframes ornamentFloat {
-            0%,
-            100% {
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateY(-5px);
             }
         }
 
@@ -1714,28 +1562,22 @@
             .cover {
                 padding:
                     20px 18px;
-
-                min-height: 100svh;
-                height: 100svh;
             }
 
             .content {
                 max-width: 100%;
-
                 z-index: 10;
-
                 transform:
-                    translateY(-25px);
+                    translateY(-20px);
             }
 
             .guest-name {
-                font-size: 17px;
-                margin-bottom: 6px;
+                font-size: 14px;
             }
 
-            .guest-invitation {
-                font-size: 13px;
-                margin-bottom: 18px;
+            .invited-text {
+                font-size: 9px;
+                letter-spacing: 2.5px;
             }
 
             .cover h1 {
@@ -1744,9 +1586,7 @@
 
             .small-text {
                 font-size: 10px;
-
                 letter-spacing: 3px;
-
                 margin-bottom: 18px;
             }
 
@@ -1756,28 +1596,12 @@
 
             .ampersand {
                 font-size: 27px;
-
                 margin: 5px 0;
             }
 
             .envelope-button {
                 transform: scale(.84);
-
                 margin-top: 25px;
-            }
-
-            .cover-poppy {
-                width: 100vw;
-
-                max-width: none;
-
-                height: auto;
-
-                max-height: none;
-
-                bottom: 0;
-
-                z-index: 2;
             }
 
             .main-content {
@@ -1785,64 +1609,43 @@
                     0 18px 60px;
             }
 
-            .opening-section {
-                min-height: auto;
+            .bg-flower {
+                width: 260px;
+            }
 
+            .opening-section {
                 padding:
                     60px 0 20px;
             }
 
-            .details-section {
-                padding:
-                    25px 0 45px;
-            }
-
-            .gift-page-section,
-            .rsvp-page-section,
-            .closing-section {
-                min-height: auto;
-
-                height: auto;
-
-                padding:
-                    35px 0;
-            }
-
             .couple-frame {
                 width: 310px;
-
                 max-width: 95%;
-
                 height: 405px;
             }
 
             .couple-frame::before {
                 width: 255px;
-
                 height: 360px;
             }
 
             .couple-frame::after {
                 width: 272px;
-
                 height: 377px;
             }
 
             .pengantin {
                 width: 265px;
-
                 max-width: 82%;
             }
 
             .frame-decoration.one {
                 left: 5px;
-
                 top: 45px;
             }
 
             .frame-decoration.two {
                 right: 5px;
-
                 bottom: 40px;
             }
 
@@ -1852,64 +1655,26 @@
 
             .opening-text {
                 font-size: 14px;
-
                 padding:
                     0 10px;
             }
 
-            .ornamen {
-                margin:
-                    35px auto;
-            }
-
             .quran-verse {
-                max-width: 100%;
-
-                margin:
-                    25px auto 18px;
-
                 padding:
-                    18px 18px;
-
-                border-radius:
-                    25px 19px
-                    25px 19px;
+                    18px;
             }
 
             .quran-arabic {
                 font-size: 19px;
-
                 line-height: 1.9;
-
-                margin-bottom: 8px;
             }
 
             .quran-translation {
                 font-size: 12px;
-
-                line-height: 1.65;
-            }
-
-            .quran-reference {
-                font-size: 11px;
-
-                margin-top: 7px;
             }
 
             .section-title {
                 font-size: 24px;
-
-                line-height: 1.4;
-
-                margin-bottom: 20px;
-            }
-
-            .section-title::before,
-            .section-title::after {
-                margin:
-                    0 5px;
-
-                font-size: 12px;
             }
 
             .countdown {
@@ -1918,7 +1683,6 @@
 
             .count-box {
                 width: 67px;
-
                 padding:
                     13px 4px;
             }
@@ -1938,9 +1702,8 @@
 
             .gift-section,
             .rsvp-section {
-                padding-left: 20px;
-
-                padding-right: 20px;
+                padding:
+                    35px 20px;
             }
 
             .gift-section h2,
@@ -1950,13 +1713,18 @@
 
             .closing {
                 padding:
-                    10px 20px;
+                    25px 10px;
+            }
+
+            .closing-card {
+                padding:
+                    30px 20px;
+            }
+
+            .closing-names {
+                font-size: 28px;
             }
         }
-
-        /* =====================================================
-           VERY SMALL PHONE
-        ===================================================== */
 
         @media (max-width: 380px) {
 
@@ -1966,31 +1734,12 @@
 
             .content {
                 transform:
-                    translateY(-18px);
-            }
-
-            .guest-name {
-                font-size: 16px;
-            }
-
-            .guest-invitation {
-                font-size: 12px;
+                    translateY(-15px);
             }
 
             .envelope-button {
                 transform: scale(.76);
-
                 margin-top: 18px;
-            }
-
-            .cover-poppy {
-                width: 100vw;
-
-                max-width: none;
-
-                height: auto;
-
-                max-height: none;
             }
 
             .couple-frame {
@@ -1998,15 +1747,8 @@
                     scale(.92);
             }
 
-            .quran-verse {
-                padding:
-                    16px 14px;
-            }
-
             .quran-arabic {
                 font-size: 17px;
-
-                line-height: 1.85;
             }
 
             .quran-translation {
@@ -2018,29 +1760,6 @@
             }
         }
 
-        /* =====================================================
-           REDUCE MOTION
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                scroll-behavior:
-                    auto !important;
-
-                transition-duration:
-                    .01ms !important;
-            }
-        }
-
     </style>
 
 </head>
@@ -2049,27 +1768,19 @@
 <body>
 
 
-    <!-- =====================================================
-         COVER
-    ===================================================== -->
+    <!-- COVER -->
 
     <section class="cover">
 
         <div class="content">
 
-            <!-- NAMA TAMU DINAMIS -->
-
-            <div
-                class="guest-name"
-                id="guestName"
-            >
-                Hi, Guest
+            <div class="guest-name">
+                Hi, <span id="guestName">Tamu Undangan</span>
             </div>
 
-            <div class="guest-invitation">
-                You're invited to
+            <div class="invited-text">
+                YOU'RE INVITED TO
             </div>
-
 
             <div class="small-text">
                 THE WEDDING OF
@@ -2077,24 +1788,16 @@
 
             <div class="line"></div>
 
-            <h1>
-                Hida
-            </h1>
+            <h1>Hida</h1>
 
-            <div class="ampersand">
-                &
-            </div>
+            <div class="ampersand">&</div>
 
-            <h1>
-                Fauzi
-            </h1>
-
+            <h1>Fauzi</h1>
 
             <div
                 class="envelope-button"
                 onclick="bukaUndangan()"
                 role="button"
-                aria-label="Buka Undangan"
             >
 
                 <div class="envelope-body">
@@ -2115,7 +1818,6 @@
 
         </div>
 
-
         <img
             src="poppy.png"
             class="cover-poppy"
@@ -2125,376 +1827,409 @@
     </section>
 
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ===================================================== -->
+    <!-- MAIN -->
 
     <section
         class="main-content"
         id="mainContent"
     >
 
+        <!-- BACKGROUND FLOWERS -->
 
-        <!-- =================================================
-             OPENING
-        ================================================= -->
-
-        <div class="opening-section">
-
-            <div class="opening reveal">
-
-                <div class="opening-small">
-                    THE WEDDING OF
-                </div>
-
-                <div class="couple-frame">
-
-                    <span
-                        class="frame-decoration one"
-                    ></span>
-
-                    <span
-                        class="frame-decoration two"
-                    ></span>
-
-                    <img
-                        src="pengantin.png"
-                        class="pengantin"
-                        alt="Ahmad Fauzi & Nur Hidayah"
-                    >
-
-                </div>
-
-                <h2 class="reveal delay-1">
-                    Ahmad Fauzi
-                </h2>
-
-                <div class="and reveal delay-2">
-                    &
-                </div>
-
-                <h2 class="reveal delay-3">
-                    Nur Hidayah
-                </h2>
+        <img src="poppy.png" class="bg-flower one" alt="">
+        <img src="poppy.png" class="bg-flower two" alt="">
+        <img src="poppy.png" class="bg-flower three" alt="">
+        <img src="poppy.png" class="bg-flower four" alt="">
 
 
-                <!-- =================================================
-                     AYAT AL-QURAN
-                ================================================= -->
+        <div class="main-inner">
 
-                <div class="quran-verse reveal delay-4">
 
-                    <p class="quran-arabic">
-                        وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+            <!-- OPENING -->
+
+            <div class="opening-section">
+
+                <div class="opening reveal">
+
+                    <div class="opening-small">
+                        THE WEDDING OF
+                    </div>
+
+                    <div class="couple-frame">
+
+                        <span class="frame-decoration one"></span>
+                        <span class="frame-decoration two"></span>
+
+                        <img
+                            src="pengantin.png"
+                            class="pengantin"
+                            alt="Ahmad Fauzi & Nur Hidayah"
+                        >
+
+                    </div>
+
+                    <h2 class="reveal delay-1">
+                        Ahmad Fauzi
+                    </h2>
+
+                    <div class="and reveal delay-2">
+                        &
+                    </div>
+
+                    <h2 class="reveal delay-3">
+                        Nur Hidayah
+                    </h2>
+
+
+                    <div class="quran-verse reveal delay-4">
+
+                        <p class="quran-arabic">
+                            وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+                        </p>
+
+                        <p class="quran-translation">
+
+                            “Dan segala sesuatu Kami jadikan
+                            berpasang-pasangan, supaya kamu
+                            mengingat kebesaran Allah.”
+
+                        </p>
+
+                        <div class="quran-reference">
+                            QS. Adz Dzariyaat (51): 49
+                        </div>
+
+                    </div>
+
+
+                    <p class="opening-text reveal">
+
+                        Dengan memohon rahmat dan ridho Allah SWT,
+                        kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                        untuk hadir dalam acara pernikahan kami.
+
                     </p>
 
-                    <p class="quran-translation">
+                </div>
 
-                        “Dan segala sesuatu kami jadikan
-                        berpasang-pasangan, supaya kamu
-                        mengingat kebesaran Allah.”
+            </div>
+
+
+            <div class="section-divider">
+                <span class="divider-flower">❀</span>
+            </div>
+
+
+            <!-- COUNTDOWN -->
+
+            <div class="details-section">
+
+                <div class="countdown-section">
+
+                    <div class="section-subtitle">
+                        COUNTING DOWN TO
+                    </div>
+
+                    <h2 class="section-title reveal">
+                        Menuju Hari Bahagia
+                    </h2>
+
+
+                    <div class="countdown">
+
+                        <div class="count-box reveal delay-1">
+
+                            <span
+                                class="count-number"
+                                id="days"
+                            >00</span>
+
+                            <span class="count-label">
+                                HARI
+                            </span>
+
+                        </div>
+
+
+                        <div class="count-box reveal delay-2">
+
+                            <span
+                                class="count-number"
+                                id="hours"
+                            >00</span>
+
+                            <span class="count-label">
+                                JAM
+                            </span>
+
+                        </div>
+
+
+                        <div class="count-box reveal delay-3">
+
+                            <span
+                                class="count-number"
+                                id="minutes"
+                            >00</span>
+
+                            <span class="count-label">
+                                MENIT
+                            </span>
+
+                        </div>
+
+
+                        <div class="count-box reveal delay-4">
+
+                            <span
+                                class="count-number"
+                                id="seconds"
+                            >00</span>
+
+                            <span class="count-label">
+                                DETIK
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-divider">
+                    <span class="divider-flower">❀</span>
+                </div>
+
+
+                <!-- EVENT -->
+
+                <div class="event-section">
+
+                    <div class="event-heading">
+
+                        <div class="section-subtitle">
+                            SAVE THE DATE
+                        </div>
+
+                        <h2 class="section-title reveal">
+                            Wedding Day
+                        </h2>
+
+                    </div>
+
+
+                    <div class="event-card reveal">
+
+                        <div class="event-title">
+                            Akad Nikah
+                        </div>
+
+                        <div class="event-time">
+                            07.00 WIB
+                        </div>
+
+                        <div class="event-place">
+
+                            Masjid Akbar Moedhar Arifin<br>
+                            Kec. Sidayu, Gresik
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="event-card reveal">
+
+                        <div class="event-title">
+                            Resepsi
+                        </div>
+
+                        <div class="event-time">
+                            08.30 – 10.30 WIB
+                        </div>
+
+                        <div class="event-place">
+
+                            Masjid Akbar Moedhar Arifin<br>
+                            Kec. Sidayu, Gresik
+
+                        </div>
+
+                        <a
+                            href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
+                            target="_blank"
+                            class="maps-button"
+                        >
+                            📍 Buka Google Maps
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="section-divider">
+                <span class="divider-flower">❀</span>
+            </div>
+
+
+            <!-- GIFT -->
+
+            <div class="gift-page-section">
+
+                <div class="gift-section reveal">
+
+                    <div class="gift-icon">
+                        🎁
+                    </div>
+
+                    <h2>
+                        Hadiah
+                    </h2>
+
+                    <p>
+
+                        Hadiah paling berharga bagi kami adalah
+                        kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
+                        untuk kebahagiaan pernikahan kami.
 
                     </p>
 
-                    <div class="quran-reference">
-                        QS. Adz Dzariyaat (51): 49
-                    </div>
-
                 </div>
-
-
-                <p class="opening-text reveal">
-
-                    Dengan memohon rahmat dan ridho Allah SWT,
-                    kami bermaksud mengundang Bapak/Ibu/Saudara/i
-                    untuk hadir dalam acara pernikahan kami.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             DETAILS
-        ================================================= -->
-
-        <div class="details-section">
-
-
-            <div class="countdown-section">
-
-
-                <h2 class="section-title reveal">
-                    Menuju Hari Bahagia
-                </h2>
-
-
-                <div class="countdown">
-
-
-                    <div class="count-box reveal delay-1">
-
-                        <span
-                            class="count-number"
-                            id="days"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            HARI
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-2">
-
-                        <span
-                            class="count-number"
-                            id="hours"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            JAM
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-3">
-
-                        <span
-                            class="count-number"
-                            id="minutes"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            MENIT
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-4">
-
-                        <span
-                            class="count-number"
-                            id="seconds"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            DETIK
-                        </span>
-
-                    </div>
-
-
-                </div>
-
 
             </div>
 
 
-            <div class="event-section">
-
-
-                <div class="event-card reveal">
-
-                    <div class="event-title">
-                        Akad Nikah
-                    </div>
-
-                    <div class="event-time">
-                        07.00 WIB
-                    </div>
-
-                    <div class="event-place">
-
-                        Masjid Akbar Moedhar Arifin<br>
-                        Kec. Sidayu, Gresik
-
-                    </div>
-
-                </div>
-
-
-                <div class="event-card reveal">
-
-                    <div class="event-title">
-                        Resepsi
-                    </div>
-
-                    <div class="event-time">
-                        08.30 – 10.30 WIB
-                    </div>
-
-                    <div class="event-place">
-
-                        Masjid Akbar Moedhar Arifin<br>
-                        Kec. Sidayu, Gresik
-
-                    </div>
-
-                    <a
-                        href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
-                        target="_blank"
-                        class="maps-button"
-                    >
-                        📍 Buka Google Maps
-                    </a>
-
-                </div>
-
-
+            <div class="section-divider">
+                <span class="divider-flower">❀</span>
             </div>
 
 
-        </div>
+            <!-- RSVP -->
+
+            <div class="rsvp-page-section">
+
+                <div class="rsvp-section reveal">
+
+                    <h2>
+                        Konfirmasi Kehadiran
+                    </h2>
+
+                    <p>
+
+                        Mohon konfirmasi kehadiran Anda
+                        melalui formulir berikut.
+
+                    </p>
 
 
-        <!-- =================================================
-             HADIAH
-        ================================================= -->
-
-        <div class="gift-page-section">
-
-            <div class="gift-section reveal">
-
-                <div class="gift-icon">
-                    🎁
-                </div>
-
-                <h2>
-                    Hadiah
-                </h2>
-
-                <p>
-
-                    Hadiah paling berharga bagi kami adalah
-                    kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
-                    untuk kebahagiaan pernikahan kami.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             RSVP
-        ================================================= -->
-
-        <div class="rsvp-page-section">
-
-            <div class="rsvp-section reveal">
-
-                <h2>
-                    Konfirmasi Kehadiran
-                </h2>
-
-                <p>
-
-                    Mohon konfirmasi kehadiran Anda
-                    melalui formulir berikut.
-
-                </p>
-
-                <form
-                    class="rsvp-form"
-                    id="rsvpForm"
-                >
-
-                    <input
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        placeholder="Nama"
-                        required
+                    <form
+                        class="rsvp-form"
+                        id="rsvpForm"
                     >
 
-                    <select
-                        id="kehadiran"
-                        name="kehadiran"
-                        required
-                    >
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Nama"
+                            required
+                        >
 
-                        <option value="">
-                            Konfirmasi Kehadiran
-                        </option>
+                        <select
+                            id="kehadiran"
+                            name="kehadiran"
+                            required
+                        >
 
-                        <option value="Hadir">
-                            Hadir
-                        </option>
+                            <option value="">
+                                Konfirmasi Kehadiran
+                            </option>
 
-                        <option value="Tidak Hadir">
-                            Tidak Hadir
-                        </option>
+                            <option value="Hadir">
+                                Hadir
+                            </option>
 
-                    </select>
+                            <option value="Tidak Hadir">
+                                Tidak Hadir
+                            </option>
 
-                    <textarea
-                        id="pesan"
-                        name="pesan"
-                        placeholder="Ucapan / doa untuk Hida & Fauzi"
-                    ></textarea>
-
-                    <button type="submit">
-                        Kirim RSVP
-                    </button>
-
-                </form>
-
-                <div id="rsvpMessage"></div>
-
-            </div>
-
-        </div>
+                        </select>
 
 
-        <!-- =================================================
-             CLOSING
-        ===================================================== -->
+                        <textarea
+                            id="pesan"
+                            name="pesan"
+                            placeholder="Ucapan / doa untuk Hida & Fauzi"
+                        ></textarea>
 
-        <div class="closing-section">
 
-            <div class="closing reveal">
+                        <button type="submit">
+                            Kirim RSVP
+                        </button>
 
-                <p>
+                    </form>
 
-                    Merupakan suatu kebahagiaan bagi kami
-                    apabila Bapak/Ibu/Saudara/i berkenan
-                    hadir dan memberikan doa restu.
 
-                </p>
+                    <div id="rsvpMessage"></div>
 
-                <p>
-
-                    Terima kasih atas doa, perhatian,
-                    dan kasih sayang yang diberikan kepada kami.
-
-                </p>
+                </div>
 
             </div>
 
-        </div>
 
+            <div class="section-divider">
+                <span class="divider-flower">❀</span>
+            </div>
+
+
+            <!-- CLOSING -->
+
+            <div class="closing-section">
+
+                <div class="closing reveal">
+
+                    <div class="closing-card">
+
+                        <p>
+
+                            Merupakan suatu kebahagiaan bagi kami
+                            apabila Bapak/Ibu/Saudara/i berkenan
+                            hadir dan memberikan doa restu.
+
+                        </p>
+
+                        <p>
+
+                            Terima kasih atas doa, perhatian,
+                            dan kasih sayang yang diberikan kepada kami.
+
+                        </p>
+
+                        <div class="closing-names">
+                            Hida & Fauzi
+                        </div>
+
+                        <div class="closing-date">
+                            18 SEPTEMBER 2026
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
 
     </section>
 
 
-    <!-- =====================================================
-         MUSIK
-    ===================================================== -->
+    <!-- MUSIC -->
 
     <audio
         id="backgroundMusic"
@@ -2514,7 +2249,6 @@
         class="music-button"
         id="musicButton"
         onclick="toggleMusic()"
-        aria-label="Kontrol Musik"
     >
         🔊
     </button>
@@ -2524,50 +2258,26 @@
 
         /* =====================================================
            NAMA TAMU DARI URL
-           
-           Contoh:
-           ?to=Andi
-           ?to=Bu Rina
-           ?to=Bapak Andi dan Keluarga
+           contoh:
+           ?to=Si%20A
         ===================================================== */
 
-        function setGuestName() {
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
 
-            const params =
-                new URLSearchParams(
-                    window.location.search
-                );
+        const guest =
+            params.get("to");
 
-            const guest =
-                params.get("to");
+        if (guest) {
 
-            const guestName =
-                document.getElementById(
-                    "guestName"
-                );
-
-
-            if (guest && guest.trim() !== "") {
-
-                guestName.innerHTML =
-                    "Hi, " +
-                    decodeURIComponent(
-                        guest
-                    ).trim();
-
-            }
-
-            else {
-
-                guestName.innerHTML =
-                    "Hi, Guest";
-
-            }
+            document.getElementById(
+                "guestName"
+            ).textContent =
+                guest;
 
         }
-
-
-        setGuestName();
 
 
         /* =====================================================
@@ -2585,14 +2295,13 @@
             const musicButton =
                 document.getElementById("musicButton");
 
-            cover.style.display =
-                "none";
 
-            main.style.display =
-                "block";
+            cover.style.display = "none";
 
-            musicButton.style.display =
-                "block";
+            main.style.display = "block";
+
+            musicButton.style.display = "block";
+
 
             window.scrollTo({
                 top: 0,
@@ -2603,14 +2312,10 @@
             setTimeout(function() {
 
                 document
-                    .querySelectorAll(
-                        ".opening .reveal"
-                    )
+                    .querySelectorAll(".opening .reveal")
                     .forEach(function(element) {
 
-                        element.classList.add(
-                            "active"
-                        );
+                        element.classList.add("active");
 
                     });
 
@@ -2626,8 +2331,7 @@
             music.play()
                 .then(function() {
 
-                    musicButton.innerHTML =
-                        "🔊";
+                    musicButton.innerHTML = "🔊";
 
                 })
                 .catch(function(error) {
@@ -2663,8 +2367,7 @@
 
                 music.play();
 
-                button.innerHTML =
-                    "🔊";
+                button.innerHTML = "🔊";
 
             }
 
@@ -2672,8 +2375,7 @@
 
                 music.pause();
 
-                button.innerHTML =
-                    "🔇";
+                button.innerHTML = "🔇";
 
             }
 
@@ -2701,19 +2403,16 @@
 
             if (distance <= 0) {
 
-                document.getElementById("days").innerHTML =
-                    "00";
+                document.getElementById("days").innerHTML = "00";
 
-                document.getElementById("hours").innerHTML =
-                    "00";
+                document.getElementById("hours").innerHTML = "00";
 
-                document.getElementById("minutes").innerHTML =
-                    "00";
+                document.getElementById("minutes").innerHTML = "00";
 
-                document.getElementById("seconds").innerHTML =
-                    "00";
+                document.getElementById("seconds").innerHTML = "00";
 
                 return;
+
             }
 
 
@@ -2781,25 +2480,12 @@
 
 
         /* =====================================================
-           REVEAL DUA ARAH SCROLL
+           SCROLL REVEAL
         ===================================================== */
-
-        let lastScrollY =
-            window.scrollY;
-
 
         window.addEventListener(
             "scroll",
             function() {
-
-                const currentScrollY =
-                    window.scrollY;
-
-
-                const scrollingDown =
-                    currentScrollY >
-                    lastScrollY;
-
 
                 document
                     .querySelectorAll(".reveal")
@@ -2809,55 +2495,21 @@
                             element.getBoundingClientRect();
 
 
-                        const windowHeight =
-                            window.innerHeight;
-
-
                         const isVisible =
                             rect.top <
-                                windowHeight * .88
+                                window.innerHeight * .88
                             &&
                             rect.bottom >
-                                windowHeight * .12;
+                                window.innerHeight * .12;
 
 
                         if (isVisible) {
 
-                            element.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                        else {
-
-                            element.classList.remove(
-                                "active"
-                            );
-
-                            if (scrollingDown) {
-
-                                element.classList.remove(
-                                    "from-top"
-                                );
-
-                            }
-
-                            else {
-
-                                element.classList.add(
-                                    "from-top"
-                                );
-
-                            }
+                            element.classList.add("active");
 
                         }
 
                     });
-
-
-                lastScrollY =
-                    currentScrollY;
 
             },
             {
@@ -2878,9 +2530,7 @@
                     entries.forEach(
                         function(entry) {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                            if (entry.isIntersecting) {
 
                                 entry.target.classList.add(
                                     "active"
@@ -2904,9 +2554,7 @@
             .querySelectorAll(".reveal")
             .forEach(function(element) {
 
-                initialReveal.observe(
-                    element
-                );
+                initialReveal.observe(element);
 
             });
 
@@ -2941,14 +2589,10 @@
 
 
                     const button =
-                        form.querySelector(
-                            "button"
-                        );
+                        form.querySelector("button");
 
 
-                    button.disabled =
-                        true;
-
+                    button.disabled = true;
 
                     button.innerHTML =
                         "Mengirim...";
@@ -2960,25 +2604,19 @@
 
                     data.append(
                         "nama",
-                        document.getElementById(
-                            "nama"
-                        ).value
+                        document.getElementById("nama").value
                     );
 
 
                     data.append(
                         "kehadiran",
-                        document.getElementById(
-                            "kehadiran"
-                        ).value
+                        document.getElementById("kehadiran").value
                     );
 
 
                     data.append(
                         "pesan",
-                        document.getElementById(
-                            "pesan"
-                        ).value
+                        document.getElementById("pesan").value
                     );
 
 
@@ -2990,39 +2628,33 @@
                         }
                     )
 
-                    .then(
-                        function() {
+                    .then(function() {
 
-                            message.innerHTML =
-                                "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
+                        message.innerHTML =
+                            "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
 
-                            form.reset();
+                        form.reset();
 
-                            button.disabled =
-                                false;
+                        button.disabled = false;
 
-                            button.innerHTML =
-                                "Kirim RSVP";
+                        button.innerHTML =
+                            "Kirim RSVP";
 
-                        }
-                    )
+                    })
 
-                    .catch(
-                        function(error) {
+                    .catch(function(error) {
 
-                            console.error(error);
+                        console.error(error);
 
-                            message.innerHTML =
-                                "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
+                        message.innerHTML =
+                            "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
 
-                            button.disabled =
-                                false;
+                        button.disabled = false;
 
-                            button.innerHTML =
-                                "Kirim RSVP";
+                        button.innerHTML =
+                            "Kirim RSVP";
 
-                        }
-                    );
+                    });
 
                 }
             );
