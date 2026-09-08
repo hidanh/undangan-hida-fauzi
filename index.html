@@ -1,2970 +1,2590 @@
 <!DOCTYPE html>
+
 <html lang="id">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<title>Ahmad Fauzi & Nur Hidayah</title>
 
-    <title>Ahmad Fauzi & Nur Hidayah</title>
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Georgia, serif;
+        color: #654f4f;
+        background: #fffafb;
+        overflow-x: hidden;
+    }
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition:
+            opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal.from-top {
+        transform: translateY(-35px);
+    }
+
+    .reveal.from-top.active {
+        transform: translateY(0);
+    }
+
+    .delay-1 {
+        transition-delay: .10s;
+    }
+
+    .delay-2 {
+        transition-delay: .20s;
+    }
+
+    .delay-3 {
+        transition-delay: .30s;
+    }
+
+    .delay-4 {
+        transition-delay: .40s;
+    }
 
 
-    <style>
+    /* =====================================================
+       COVER / CURTAIN
+    ===================================================== */
 
-        * {
-            box-sizing: border-box;
-        }
+    .cover {
+        position: fixed;
+        inset: 0;
 
+        width: 100%;
+        height: 100svh;
 
-        /* =====================================================
-           GLOBAL
-        ===================================================== */
+        overflow: hidden;
 
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+        z-index: 9999;
 
-
-        body {
-            margin: 0;
-            padding: 0;
-
-            font-family: Georgia, serif;
-
-            color: #654f4f;
-
-            background: #fff8fa;
-
-            overflow-x: hidden;
-        }
+        background: #fff8fa;
+    }
 
 
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
+    /* PANEL TIRAI */
 
-        .reveal {
+    .curtain {
+        position: absolute;
+
+        top: 0;
+        bottom: 0;
+
+        width: 50.5%;
+
+        z-index: 5;
+
+        background:
+
+            radial-gradient(
+                circle at 50% 25%,
+                rgba(255,255,255,.55),
+                transparent 45%
+            ),
+
+            linear-gradient(
+                135deg,
+                #f9dce4,
+                #edb9c8 55%,
+                #e3a0b4
+            );
+
+        transition:
+            transform 1.8s cubic-bezier(.77,0,.18,1);
+
+        box-shadow:
+            inset 0 0 60px rgba(255,255,255,.25);
+    }
+
+
+    .curtain-left {
+        left: 0;
+    }
+
+
+    .curtain-right {
+        right: 0;
+    }
+
+
+    /* GARIS LIPATAN TIRAI */
+
+    .curtain-left::after,
+    .curtain-right::after {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        bottom: 0;
+
+        width: 35px;
+
+        opacity: .22;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.6),
+                transparent
+            );
+    }
+
+    .curtain-left::after {
+        right: 20%;
+    }
+
+    .curtain-right::after {
+        left: 20%;
+    }
+
+
+    /* SAAT TERBUKA */
+
+    .cover.open .curtain-left {
+        transform: translateX(-105%);
+    }
+
+    .cover.open .curtain-right {
+        transform: translateX(105%);
+    }
+
+
+    /* =====================================================
+       COVER CONTENT
+    ===================================================== */
+
+    .cover-content {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 20;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 30px;
+
+        transition:
+            opacity .6s ease,
+            transform .8s ease;
+
+        pointer-events: auto;
+    }
+
+
+    .cover.open .cover-content {
+
+        opacity: 0;
+
+        transform: scale(.96);
+
+        pointer-events: none;
+    }
+
+
+    .guest-name {
+
+        font-family: Arial, sans-serif;
+
+        font-size: 15px;
+
+        letter-spacing: 1px;
+
+        color: #a85e75;
+
+        margin-bottom: 10px;
+
+        animation:
+            fadeDown 1.2s ease both;
+    }
+
+
+    .invited-text {
+
+        font-family: Arial, sans-serif;
+
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+
+        color: #c27f93;
+
+        margin-bottom: 32px;
+
+        animation:
+            fadeDown 1.2s ease .15s both;
+    }
+
+
+    .small-text {
+
+        font-family: Arial, sans-serif;
+
+        font-size: 12px;
+
+        letter-spacing: 4px;
+
+        color: #c27f93;
+
+        margin-bottom: 22px;
+
+        animation:
+            fadeDown 1.2s ease .25s both;
+    }
+
+
+    .line {
+
+        width: 70px;
+
+        height: 1px;
+
+        background: #d99aab;
+
+        margin: 0 auto 22px;
+
+        animation:
+            lineGrow 1s ease .35s both;
+    }
+
+
+    .cover h1 {
+
+        font-size: 58px;
+
+        font-weight: normal;
+
+        line-height: 1.12;
+
+        margin: 0;
+
+        color: #b8667e;
+
+        animation:
+            titleFloat 5s ease-in-out infinite;
+    }
+
+
+    .ampersand {
+
+        font-size: 30px;
+
+        font-style: italic;
+
+        color: #d08a9d;
+
+        margin: 8px 0;
+
+        animation:
+            gentlePulse 4s ease-in-out infinite;
+    }
+
+
+    /* =====================================================
+       AMPLOP
+    ===================================================== */
+
+    .envelope-button {
+
+        width: 145px;
+        height: 105px;
+
+        margin: 38px auto 0;
+
+        position: relative;
+
+        cursor: pointer;
+
+        animation:
+            envelopeAppear 1s ease .8s both,
+            envelopeFloat 4s ease-in-out 1.8s infinite;
+    }
+
+
+    .envelope-body {
+
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 145px;
+        height: 88px;
+
+        border-radius: 8px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #e4a7b6,
+                #cc7f95
+            );
+
+        box-shadow:
+            0 12px 25px
+            rgba(190,110,135,.25);
+
+        overflow: hidden;
+
+        transition:
+            transform .4s ease,
+            box-shadow .4s ease;
+    }
+
+
+    .envelope-body::before {
+
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 0;
+        height: 0;
+
+        border-left:
+            72px solid transparent;
+
+        border-right:
+            72px solid transparent;
+
+        border-bottom:
+            55px solid rgba(255,255,255,.16);
+    }
+
+
+    .envelope-flap {
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 0;
+        height: 0;
+
+        border-left:
+            72px solid transparent;
+
+        border-right:
+            72px solid transparent;
+
+        border-top:
+            53px solid #f0bdc9;
+
+        z-index: 3;
+    }
+
+
+    .envelope-label {
+
+        position: absolute;
+
+        left: 50%;
+        top: 48px;
+
+        transform:
+            translate(-50%,-50%);
+
+        z-index: 5;
+
+        color: #ffffff;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+
+        white-space: nowrap;
+    }
+
+
+    .envelope-heart {
+
+        position: absolute;
+
+        left: 50%;
+        top: 27px;
+
+        transform:
+            translateX(-50%);
+
+        z-index: 6;
+
+        color: #ffffff;
+
+        font-size: 19px;
+    }
+
+
+    .envelope-button:hover .envelope-body {
+
+        transform:
+            translateY(-5px)
+            scale(1.04);
+
+        box-shadow:
+            0 18px 32px
+            rgba(190,110,135,.32);
+    }
+
+
+    /* =====================================================
+       POPPY COVER
+    ===================================================== */
+
+    .cover-poppy {
+
+        position: absolute;
+
+        left: 50%;
+        bottom: 0;
+
+        width: min(100%, 1100px);
+
+        transform: translateX(-50%);
+
+        height: auto;
+
+        z-index: 10;
+
+        pointer-events: none;
+
+        animation:
+            poppyFloat 6s ease-in-out infinite;
+    }
+
+
+    /* =====================================================
+       MAIN CONTENT
+    ===================================================== */
+
+    .main-content {
+
+        min-height: 100vh;
+
+        position: relative;
+
+        padding:
+            0 25px 80px;
+
+        text-align: center;
+
+        background:
+
+            radial-gradient(
+                circle at 15% 10%,
+                rgba(255,220,229,.55),
+                transparent 28%
+            ),
+
+            radial-gradient(
+                circle at 85% 25%,
+                rgba(255,226,234,.50),
+                transparent 28%
+            ),
+
+            radial-gradient(
+                circle at 50% 70%,
+                rgba(255,235,240,.70),
+                transparent 40%
+            ),
+
+            linear-gradient(
+                180deg,
+                #fffafb 0%,
+                #fff4f7 45%,
+                #fffafb 100%
+            );
+    }
+
+
+    /* =====================================================
+       SECTIONS
+    ===================================================== */
+
+    .opening-section {
+
+        padding:
+            60px 0 20px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .details-section {
+
+        padding:
+            25px 0 55px;
+
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .gift-page-section,
+    .rsvp-page-section,
+    .closing-section {
+
+        padding:
+            45px 0;
+    }
+
+
+    /* =====================================================
+       OPENING
+    ===================================================== */
+
+    .opening {
+
+        max-width: 600px;
+        width: 100%;
+
+        margin: 0 auto;
+
+        text-align: center;
+
+        position: relative;
+
+        z-index: 10;
+    }
+
+
+    .opening-small {
+
+        font-family: Arial, sans-serif;
+
+        font-size: 12px;
+
+        letter-spacing: 4px;
+
+        color: #c27f93;
+
+        margin-bottom: 15px;
+    }
+
+
+    /* =====================================================
+       FOTO
+    ===================================================== */
+
+    .couple-frame {
+
+        position: relative;
+
+        width: 330px;
+        max-width: 82%;
+
+        height: 430px;
+
+        margin:
+            10px auto
+            15px;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        animation:
+            coupleFloating
+            5s
+            ease-in-out
+            infinite;
+    }
+
+
+    .couple-frame::before {
+
+        content: "";
+
+        position: absolute;
+
+        width: 275px;
+        height: 385px;
+
+        border-radius:
+            50%
+            50%
+            45%
+            45%;
+
+        border:
+            3px solid #d99aab;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,.95),
+                rgba(255,226,234,.70)
+            );
+
+        box-shadow:
+
+            0 10px 35px
+            rgba(190,110,135,.18),
+
+            inset 0 0 0 8px
+            rgba(255,255,255,.65);
+
+        z-index: 0;
+    }
+
+
+    .couple-frame::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 292px;
+        height: 402px;
+
+        border-radius:
+            50%
+            50%
+            45%
+            45%;
+
+        border:
+            1px solid
+            rgba(194,127,147,.55);
+
+        z-index: 0;
+
+        animation:
+            framePulse
+            4s
+            ease-in-out
+            infinite;
+    }
+
+
+    .pengantin {
+
+        display: block;
+
+        width: 285px;
+        max-width: 85%;
+
+        height: auto;
+
+        position: relative;
+
+        z-index: 3;
+
+        filter:
+            drop-shadow(
+                0 12px 12px
+                rgba(125,76,88,.14)
+            );
+    }
+
+
+    .frame-decoration {
+
+        position: absolute;
+
+        z-index: 5;
+
+        width: 42px;
+        height: 42px;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                #e4a7b6,
+                #cc7f95
+            );
+
+        border:
+            4px solid #ffffff;
+
+        box-shadow:
+            0 5px 15px
+            rgba(190,110,135,.20);
+
+        animation:
+            decorationFloat
+            4s ease-in-out infinite;
+    }
+
+
+    .frame-decoration.one {
+
+        top: 50px;
+        left: 15px;
+    }
+
+
+    .frame-decoration.two {
+
+        right: 15px;
+        bottom: 45px;
+
+        animation-delay: 1s;
+    }
+
+
+    /* =====================================================
+       NAMA
+    ===================================================== */
+
+    .opening h2 {
+
+        margin: 5px 0;
+
+        font-size: 32px;
+
+        font-weight: normal;
+
+        color: #b8667e;
+    }
+
+
+    .and {
+
+        font-size: 28px;
+
+        font-style: italic;
+
+        color: #d08a9d;
+
+        margin: 2px 0;
+    }
+
+
+    .opening-text {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        color: #654f4f;
+
+        margin-top: 30px;
+    }
+
+
+    /* =====================================================
+       AYAT
+    ===================================================== */
+
+    .quran-verse {
+
+        max-width: 560px;
+
+        margin:
+            30px auto 25px;
+
+        padding:
+            22px 28px;
+
+        position: relative;
+
+        background:
+            rgba(255,255,255,.42);
+
+        border-radius:
+            28px 23px
+            30px 21px;
+
+        box-shadow:
+            0 5px 18px
+            rgba(190,110,135,.08);
+
+        text-align: center;
+    }
+
+
+    .quran-verse::before {
+
+        content: "";
+
+        position: absolute;
+
+        inset: 0;
+
+        border-radius:
+            28px 23px
+            30px 21px;
+
+        padding: 1.5px;
+
+        background:
+
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 220' preserveAspectRatio='none'%3E%3Cpath d='M18 7 C25 1 32 13 39 7 C46 1 53 13 60 7 C67 1 74 13 81 7 C88 1 95 13 102 7 C109 1 116 13 123 7 C130 1 137 13 144 7 C151 1 158 13 165 7 C172 1 179 13 186 7 C193 1 200 13 207 7 C214 1 221 13 228 7 C235 1 242 13 249 7 C256 1 263 13 270 7 C277 1 284 13 291 7 C298 1 305 13 312 7 C319 1 326 13 333 7 C340 1 347 13 354 7 C361 1 368 13 375 7 C382 1 389 13 396 7 C403 1 410 13 417 7 C424 1 431 13 438 7 C445 1 452 13 459 7 C466 1 473 13 480 7 C487 1 494 13 501 7 C508 1 515 13 522 7 C529 1 536 13 543 7 C550 1 557 13 564 7 C571 1 578 13 582 7 M593 18 C599 25 587 32 593 39 C599 46 587 53 593 60 C599 67 587 74 593 81 C599 88 587 95 593 102 C599 109 587 116 593 123 C599 130 587 137 593 144 C599 151 587 158 593 165 C599 172 587 179 593 186 C599 193 587 200 593 207 C599 214 587 221 593 225 M582 233 C575 227 568 239 561 233 C554 227 547 239 540 233 C533 227 526 239 519 233 C512 227 505 239 498 233 C491 227 484 239 477 233 C470 227 463 239 456 233 C449 227 442 239 435 233 C428 227 421 239 414 233 C407 227 400 239 393 233 C386 227 379 239 372 233 C365 227 358 239 351 233 C344 227 337 239 330 233 C323 227 316 239 309 233 C302 227 295 239 288 233 C281 227 274 239 267 233 C260 227 253 239 246 233 C239 227 232 239 225 233 C218 227 211 239 204 233 C197 227 190 239 183 233 C176 227 169 239 162 233 C155 227 148 239 141 233 C134 227 127 239 120 233 C113 227 106 239 99 233 C92 227 85 239 78 233 C71 227 64 239 57 233 C50 227 43 239 36 233 C29 227 22 239 18 233 M7 222 C13 215 1 208 7 201 C13 194 1 187 7 180 C13 173 1 166 7 159 C13 152 1 145 7 138 C13 131 1 124 7 117 C13 110 1 103 7 96 C13 89 1 82 7 75 C13 68 1 61 7 54 C13 47 1 40 7 33 C13 26 1 19 7 18' fill='none' stroke='%23d99aab' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        pointer-events: none;
+    }
+
+
+    .quran-arabic {
+
+        position: relative;
+        z-index: 2;
+
+        font-size: 23px;
+        line-height: 2;
+
+        color: #b8667e;
+
+        margin: 0 0 10px;
+    }
+
+
+    .quran-translation {
+
+        position: relative;
+        z-index: 2;
+
+        font-size: 13px;
+        line-height: 1.7;
+
+        color: #654f4f;
+
+        margin: 0;
+    }
+
+
+    .quran-reference {
+
+        position: relative;
+        z-index: 2;
+
+        font-size: 12px;
+
+        color: #b8667e;
+
+        margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       SECTION TITLE
+    ===================================================== */
+
+    .section-title {
+
+        font-size: 28px;
+
+        font-weight: normal;
+
+        color: #b8667e;
+
+        margin:
+            0 0 25px;
+    }
+
+
+    .section-title::before,
+    .section-title::after {
+
+        content: "✦";
+
+        display: inline-block;
+
+        margin: 0 15px;
+
+        color: #d99aab;
+
+        font-size: 15px;
+    }
+
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    .countdown-section {
+
+        max-width: 600px;
+        width: 100%;
+
+        margin:
+            0 auto 30px;
+    }
+
+
+    .countdown {
+
+        display: flex;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .count-box {
+
+        width: 75px;
+
+        padding:
+            15px 5px;
+
+        border-radius: 15px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #dfa1b1,
+                #d18399
+            );
+
+        box-shadow:
+            0 8px 22px
+            rgba(190,110,135,.20);
+
+        animation:
+            cardFloat 5s ease-in-out infinite;
+    }
+
+
+    .count-box:nth-child(2) {
+        animation-delay: .5s;
+    }
+
+    .count-box:nth-child(3) {
+        animation-delay: 1s;
+    }
+
+    .count-box:nth-child(4) {
+        animation-delay: 1.5s;
+    }
+
+
+    .count-number {
+
+        display: block;
+
+        font-size: 25px;
+
+        color: #ffffff;
+    }
+
+
+    .count-label {
+
+        display: block;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+        color: #ffffff;
+
+        margin-top: 5px;
+    }
+
+
+    /* =====================================================
+       EVENT
+    ===================================================== */
+
+    .event-section {
+
+        max-width: 600px;
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+
+    .event-card {
+
+        padding:
+            25px 20px;
+
+        margin-top: 18px;
+
+        border-radius: 20px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #dfa1b1,
+                #d18399
+            );
+
+        box-shadow:
+            0 8px 25px
+            rgba(190,110,135,.20);
+
+        position: relative;
+
+        overflow: hidden;
+
+        transition:
+            transform .45s ease,
+            box-shadow .45s ease;
+    }
+
+
+    .event-card:hover {
+
+        transform: translateY(-6px);
+
+        box-shadow:
+            0 15px 35px
+            rgba(190,110,135,.27);
+    }
+
+
+    .event-title {
+
+        font-size: 21px;
+
+        color: #ffffff;
+
+        margin-bottom: 15px;
+    }
+
+
+    .event-time {
+
+        font-family: Arial, sans-serif;
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        color: #ffffff;
+    }
+
+
+    .event-place {
+
+        margin-top: 18px;
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        color: #ffffff;
+    }
+
+
+    .maps-button {
+
+        display: inline-block;
+
+        margin-top: 20px;
+
+        padding:
+            12px 25px;
+
+        border-radius: 25px;
+
+        background: #ffffff;
+
+        color: #c16f86;
+
+        text-decoration: none;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       GIFT
+    ===================================================== */
+
+    .gift-section,
+    .rsvp-section {
+
+        max-width: 600px;
+        width: 100%;
+
+        margin: 0 auto;
+
+        padding:
+            35px 25px;
+
+        border-radius: 22px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #dfa1b1,
+                #d18399
+            );
+
+        box-shadow:
+            0 8px 25px
+            rgba(190,110,135,.20);
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+
+    .gift-icon {
+
+        font-size: 42px;
+
+        margin-bottom: 15px;
+
+        animation:
+            giftFloat 3s ease-in-out infinite;
+    }
+
+
+    .gift-section h2,
+    .rsvp-section h2 {
+
+        font-size: 27px;
+
+        font-weight: normal;
+
+        color: #ffffff;
+
+        margin:
+            5px 0
+            20px;
+    }
+
+
+    .gift-section p,
+    .rsvp-section p {
+
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        margin: 0 auto;
+
+        color: #ffffff;
+    }
+
+
+    /* =====================================================
+       RSVP
+    ===================================================== */
+
+    .rsvp-form {
+
+        margin-top: 25px;
+    }
+
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea {
+
+        width: 100%;
+
+        padding:
+            13px 15px;
+
+        margin-bottom: 15px;
+
+        border: none;
+
+        border-radius: 10px;
+
+        background: #ffffff;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+
+        color: #654f4f;
+
+        outline: none;
+    }
+
+
+    .rsvp-form textarea {
+
+        min-height: 100px;
+
+        resize: vertical;
+    }
+
+
+    .rsvp-form button {
+
+        margin-top: 5px;
+
+        width: 100%;
+
+        padding: 14px;
+
+        border: none;
+
+        border-radius: 10px;
+
+        cursor: pointer;
+
+        color: #ffffff;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #b8667e,
+                #c97891
+            );
+    }
+
+
+    #rsvpMessage {
+
+        margin-top: 15px;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+
+        color: #ffffff;
+    }
+
+
+    /* =====================================================
+       CLOSING
+    ===================================================== */
+
+    .closing {
+
+        max-width: 600px;
+        width: 100%;
+
+        margin: 0 auto;
+
+        padding:
+            20px 25px;
+    }
+
+
+    .closing p {
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        color: #654f4f;
+    }
+
+
+    /* =====================================================
+       MUSIC
+    ===================================================== */
+
+    .music-button {
+
+        position: fixed;
+
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                #d99aab,
+                #c97891
+            );
+
+        color: white;
+
+        font-size: 18px;
+
+        z-index: 1000;
+
+        display: none;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 5px 15px
+            rgba(190,110,135,.25);
+    }
+
+
+    /* =====================================================
+       ANIMATIONS
+    ===================================================== */
+
+    @keyframes fadeDown {
+
+        from {
             opacity: 0;
-
-            transform: translateY(35px);
-
-            transition:
-                opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-                transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-
-            will-change: opacity, transform;
+            transform: translateY(-20px);
         }
 
-
-        .reveal.active {
+        to {
             opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
+
+    @keyframes lineGrow {
+
+        from {
+            width: 0;
+            opacity: 0;
+        }
+
+        to {
+            width: 70px;
+            opacity: 1;
+        }
+    }
+
+
+    @keyframes titleFloat {
+
+        0%,
+        100% {
             transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-4px);
+        }
+    }
 
-        .reveal.from-top {
-            transform: translateY(-35px);
+
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            transform: scale(1);
         }
 
+        50% {
+            transform: scale(1.04);
+        }
+    }
 
-        .reveal.from-top.active {
+
+    @keyframes envelopeAppear {
+
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(.85);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+
+    @keyframes envelopeFloat {
+
+        0%,
+        100% {
             transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-7px);
+        }
+    }
 
-        .delay-1 {
-            transition-delay: .10s;
+
+    @keyframes poppyFloat {
+
+        0%,
+        100% {
+            transform: translateX(-50%) translateY(0);
         }
 
+        50% {
+            transform: translateX(-50%) translateY(-6px);
+        }
+    }
 
-        .delay-2 {
-            transition-delay: .20s;
+
+    @keyframes coupleFloating {
+
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-9px);
+        }
+    }
 
-        .delay-3 {
-            transition-delay: .30s;
+
+    @keyframes framePulse {
+
+        0%,
+        100% {
+            opacity: .55;
+            transform: scale(1);
         }
 
+        50% {
+            opacity: 1;
+            transform: scale(1.015);
+        }
+    }
 
-        .delay-4 {
-            transition-delay: .40s;
+
+    @keyframes decorationFloat {
+
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-8px);
+        }
+    }
 
 
-        /* =====================================================
-           MAIN CONTENT
-        ===================================================== */
+    @keyframes cardFloat {
 
-        .main-content {
-
-            display: block;
-
-            min-height: 100vh;
-
-            position: relative;
-
-            padding: 0 25px 80px;
-
-            text-align: center;
-
-            background:
-
-                radial-gradient(
-                    circle at 15% 10%,
-                    rgba(255,220,229,.65),
-                    transparent 25%
-                ),
-
-                radial-gradient(
-                    circle at 85% 25%,
-                    rgba(255,210,225,.55),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 10% 65%,
-                    rgba(255,230,238,.65),
-                    transparent 25%
-                ),
-
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(255,220,232,.60),
-                    transparent 28%
-                ),
-
-                linear-gradient(
-                    180deg,
-                    #fffafb 0%,
-                    #fff4f7 45%,
-                    #fffafb 100%
-                );
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
+        50% {
+            transform: translateY(-3px);
+        }
+    }
 
 
-        /* =====================================================
-           COVER CURTAIN
-        ===================================================== */
+    @keyframes giftFloat {
 
-        .cover {
-
-            position: fixed;
-
-            inset: 0;
-
-            width: 100%;
-
-            height: 100svh;
-
-            z-index: 9999;
-
-            display: flex;
-
-            overflow: hidden;
-
-            background: #fff8fa;
+        0%,
+        100% {
+            transform: translateY(0);
         }
 
-
-        .curtain {
-
-            position: absolute;
-
-            top: 0;
-
-            width: 50%;
-
-            height: 100%;
-
-            z-index: 3;
-
-            overflow: hidden;
-
-            transition:
-                transform 1.5s cubic-bezier(.77, 0, .18, 1);
+        50% {
+            transform: translateY(-7px);
         }
+    }
 
 
-        .curtain-left {
+    /* =====================================================
+       MOBILE
+    ===================================================== */
 
-            left: 0;
-
-            background:
-
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(255,255,255,.75),
-                    transparent 25%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #fff9fb,
-                    #f9dce5
-                );
-        }
-
-
-        .curtain-right {
-
-            right: 0;
-
-            background:
-
-                radial-gradient(
-                    circle at 80% 20%,
-                    rgba(255,255,255,.75),
-                    transparent 25%
-                ),
-
-                linear-gradient(
-                    225deg,
-                    #fff9fb,
-                    #f9dce5
-                );
-        }
-
-
-        .cover.opening .curtain-left {
-
-            transform:
-                translateX(-100%);
-        }
-
-
-        .cover.opening .curtain-right {
-
-            transform:
-                translateX(100%);
-        }
-
-
-
-        /* =====================================================
-           COVER BACKGROUND DECORATION
-        ===================================================== */
-
-        .curtain-left::before,
-        .curtain-right::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 320px;
-
-            height: 320px;
-
-            border-radius: 50%;
-
-            background:
-
-                radial-gradient(
-                    circle,
-                    rgba(217,154,171,.18),
-                    transparent 70%
-                );
-
-            animation:
-                softFloat 8s ease-in-out infinite;
-        }
-
-
-        .curtain-left::before {
-
-            top: -120px;
-
-            left: -120px;
-        }
-
-
-        .curtain-right::before {
-
-            bottom: -120px;
-
-            right: -120px;
-        }
-
-
-
-        /* =====================================================
-           COVER CONTENT
-        ===================================================== */
+    @media (max-width: 600px) {
 
         .cover-content {
-
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 5;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            padding: 30px;
-
-            transition:
-                opacity .5s ease,
-                transform .5s ease;
+            padding:
+                20px 18px 100px;
         }
-
-
-        .cover.opening .cover-content {
-
-            opacity: 0;
-
-            transform: scale(.96);
-
-            pointer-events: none;
-        }
-
-
-        .content {
-
-            width: 100%;
-
-            max-width: 500px;
-
-            position: relative;
-
-            z-index: 10;
-
-            animation:
-                coverAppear 1.5s cubic-bezier(.22,1,.36,1);
-        }
-
-
-        /* =====================================================
-           NAMA TAMU
-        ===================================================== */
-
-        .guest-greeting {
-
-            font-family: Arial, sans-serif;
-
-            font-size: 14px;
-
-            letter-spacing: 1px;
-
-            color: #b8667e;
-
-            margin-bottom: 12px;
-
-            animation:
-                fadeDown 1s ease both;
-        }
-
 
         .guest-name {
-
-            font-size: 25px;
-
-            font-weight: normal;
-
-            color: #a95770;
-
-            margin-bottom: 20px;
-
-            animation:
-                fadeDown 1.2s ease .1s both;
-        }
-
-
-        .invited-text {
-
-            font-family: Arial, sans-serif;
-
-            font-size: 11px;
-
-            letter-spacing: 3px;
-
-            color: #c27f93;
-
-            margin-bottom: 28px;
-
-            animation:
-                fadeDown 1.2s ease .2s both;
-        }
-
-
-        .small-text {
-
-            font-family: Arial, sans-serif;
-
-            font-size: 13px;
-
-            letter-spacing: 4px;
-
-            color: #c27f93;
-
-            margin-bottom: 22px;
-
-            animation:
-                fadeDown 1.2s ease .3s both;
-        }
-
-
-        .line {
-
-            width: 70px;
-
-            height: 1px;
-
-            background: #d99aab;
-
-            margin: 0 auto 25px;
-
-            animation:
-                lineGrow 1s ease .5s both;
-        }
-
-
-        .cover h1 {
-
-            font-size: 58px;
-
-            font-weight: normal;
-
-            line-height: 1.15;
-
-            margin: 0;
-
-            color: #b8667e;
-
-            animation:
-                titleFloat 5s ease-in-out infinite;
-        }
-
-
-        .ampersand {
-
-            font-size: 30px;
-
-            font-style: italic;
-
-            color: #d08a9d;
-
-            margin: 8px 0;
-
-            animation:
-                gentlePulse 4s ease-in-out infinite;
-        }
-
-
-
-        /* =====================================================
-           AMPLOP
-        ===================================================== */
-
-        .envelope-button {
-
-            width: 145px;
-
-            height: 105px;
-
-            margin: 40px auto 0;
-
-            position: relative;
-
-            cursor: pointer;
-
-            animation:
-                envelopeAppear 1s ease .8s both,
-                envelopeFloat 4s ease-in-out 1.8s infinite;
-        }
-
-
-        .envelope-body {
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: 0;
-
-            width: 145px;
-
-            height: 88px;
-
-            border-radius: 8px;
-
-            background:
-
-                linear-gradient(
-                    145deg,
-                    #e4a7b6,
-                    #cc7f95
-                );
-
-            box-shadow:
-                0 12px 25px
-                rgba(190,110,135,.25);
-
-            overflow: hidden;
-
-            transition:
-                transform .4s ease,
-                box-shadow .4s ease;
-        }
-
-
-        .envelope-body::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: 0;
-
-            width: 0;
-
-            height: 0;
-
-            border-left:
-                72px solid transparent;
-
-            border-right:
-                72px solid transparent;
-
-            border-bottom:
-                55px solid rgba(255,255,255,.16);
-        }
-
-
-        .envelope-flap {
-
-            position: absolute;
-
-            top: 0;
-
-            left: 0;
-
-            width: 0;
-
-            height: 0;
-
-            border-left:
-                72px solid transparent;
-
-            border-right:
-                72px solid transparent;
-
-            border-top:
-                53px solid #f0bdc9;
-
-            z-index: 3;
-        }
-
-
-        .envelope-label {
-
-            position: absolute;
-
-            left: 50%;
-
-            top: 48px;
-
-            transform:
-                translate(-50%,-50%);
-
-            z-index: 5;
-
-            color: #ffffff;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 11px;
-
-            letter-spacing: 1.5px;
-
-            white-space: nowrap;
-        }
-
-
-        .envelope-heart {
-
-            position: absolute;
-
-            left: 50%;
-
-            top: 27px;
-
-            transform:
-                translateX(-50%);
-
-            z-index: 6;
-
-            color: #ffffff;
-
-            font-size: 19px;
-        }
-
-
-        .envelope-button:hover
-        .envelope-body {
-
-            transform:
-                translateY(-5px)
-                scale(1.04);
-
-            box-shadow:
-                0 18px 32px
-                rgba(190,110,135,.32);
-        }
-
-
-
-        /* =====================================================
-           POPPY COVER
-        ===================================================== */
-
-        .cover-poppy {
-
-            position: absolute;
-
-            left: 0;
-
-            bottom: 0;
-
-            width: 100vw;
-
-            height: auto;
-
-            object-fit: contain;
-
-            object-position: bottom;
-
-            z-index: 6;
-
-            pointer-events: none;
-
-            animation:
-                poppyFloat 6s ease-in-out infinite;
-        }
-
-
-
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-
-        .opening-section {
-
-            padding:
-                60px 0 20px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            position: relative;
-        }
-
-
-        .details-section {
-
-            padding:
-                25px 0 55px;
-        }
-
-
-        .gift-page-section,
-        .rsvp-page-section,
-        .closing-section {
-
-            padding:
-                45px 0;
-        }
-
-
-
-        /* =====================================================
-           OPENING
-        ===================================================== */
-
-        .opening {
-
-            max-width: 600px;
-
-            width: 100%;
-
-            margin: 0 auto;
-
-            text-align: center;
-
-            position: relative;
-
-            z-index: 10;
-        }
-
-
-        .opening-small {
-
-            font-family: Arial, sans-serif;
-
-            font-size: 12px;
-
-            letter-spacing: 4px;
-
-            color: #c27f93;
-
-            margin-bottom: 15px;
-        }
-
-
-
-        /* =====================================================
-           FOTO
-        ===================================================== */
-
-        .couple-frame {
-
-            position: relative;
-
-            width: 330px;
-
-            max-width: 82%;
-
-            height: 430px;
-
-            margin:
-                10px auto
-                15px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            animation:
-                coupleFloating
-                5s
-                ease-in-out
-                infinite;
-        }
-
-
-        .couple-frame::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 275px;
-
-            height: 385px;
-
-            border-radius:
-                50%
-                50%
-                45%
-                45%;
-
-            border:
-                3px solid #d99aab;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.95),
-                    rgba(255,226,234,.70)
-                );
-
-            box-shadow:
-
-                0 10px 35px
-                rgba(190,110,135,.18),
-
-                inset 0 0 0 8px
-                rgba(255,255,255,.65);
-
-            z-index: 0;
-        }
-
-
-        .couple-frame::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 292px;
-
-            height: 402px;
-
-            border-radius:
-                50%
-                50%
-                45%
-                45%;
-
-            border:
-                1px solid
-                rgba(194,127,147,.55);
-
-            z-index: 0;
-
-            animation:
-                framePulse
-                4s
-                ease-in-out
-                infinite;
-        }
-
-
-        .pengantin {
-
-            display: block;
-
-            width: 285px;
-
-            max-width: 85%;
-
-            height: auto;
-
-            position: relative;
-
-            z-index: 3;
-
-            filter:
-                drop-shadow(
-                    0 12px 12px
-                    rgba(125,76,88,.14)
-                );
-        }
-
-
-        .frame-decoration {
-
-            position: absolute;
-
-            z-index: 5;
-
-            width: 42px;
-
-            height: 42px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4a7b6,
-                    #cc7f95
-                );
-
-            border:
-                4px solid #ffffff;
-
-            box-shadow:
-                0 5px 15px
-                rgba(190,110,135,.20);
-
-            animation:
-                decorationFloat
-                4s ease-in-out infinite;
-        }
-
-
-        .frame-decoration.one {
-
-            top: 50px;
-
-            left: 15px;
-        }
-
-
-        .frame-decoration.two {
-
-            right: 15px;
-
-            bottom: 45px;
-
-            animation-delay: 1s;
-        }
-
-
-
-        /* =====================================================
-           NAMA
-        ===================================================== */
-
-        .opening h2 {
-
-            margin: 5px 0;
-
-            font-size: 32px;
-
-            font-weight: normal;
-
-            color: #b8667e;
-        }
-
-
-        .and {
-
-            font-size: 28px;
-
-            font-style: italic;
-
-            color: #d08a9d;
-
-            margin: 2px 0;
-
-            animation:
-                gentlePulse
-                4s ease-in-out infinite;
-        }
-
-
-        .opening-text {
-
-            font-size: 15px;
-
-            line-height: 1.8;
-
-            color: #654f4f;
-
-            margin-top: 30px;
-        }
-
-
-
-        /* =====================================================
-           AYAT
-        ===================================================== */
-
-        .quran-verse {
-
-            max-width: 560px;
-
-            margin:
-                30px auto 25px;
-
-            padding:
-                22px 28px;
-
-            position: relative;
-
-            background:
-                rgba(255,255,255,.50);
-
-            border-radius:
-                28px 23px
-                30px 21px;
-
-            box-shadow:
-                0 8px 25px
-                rgba(190,110,135,.10);
-
-            text-align: center;
-        }
-
-
-        .quran-verse::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 7px;
-
-            border:
-                1px solid rgba(217,154,171,.45);
-
-            border-radius:
-                24px 19px
-                26px 17px;
-
-            pointer-events: none;
-        }
-
-
-        .quran-arabic {
-
-            position: relative;
-
-            z-index: 2;
-
-            font-size: 23px;
-
-            line-height: 2;
-
-            color: #b8667e;
-
-            margin:
-                0 0 10px;
-        }
-
-
-        .quran-translation {
-
-            position: relative;
-
-            z-index: 2;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            color: #654f4f;
-
-            margin: 0;
-        }
-
-
-        .quran-reference {
-
-            position: relative;
-
-            z-index: 2;
-
-            font-size: 12px;
-
-            color: #b8667e;
-
-            margin-top: 8px;
-        }
-
-
-
-        /* =====================================================
-           SECTION TITLE
-        ===================================================== */
-
-        .section-title {
-
-            font-size: 28px;
-
-            font-weight: normal;
-
-            color: #b8667e;
-
-            margin:
-                0 0 25px;
-
-            position: relative;
-        }
-
-
-        .section-title::before,
-        .section-title::after {
-
-            content: "✦";
-
-            display: inline-block;
-
-            margin:
-                0 15px;
-
-            color: #d99aab;
-
-            font-size: 15px;
-
-            animation:
-                gentlePulse
-                3s ease-in-out infinite;
-        }
-
-
-
-        /* =====================================================
-           COUNTDOWN
-        ===================================================== */
-
-        .countdown {
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .count-box {
-
-            width: 75px;
-
-            padding:
-                15px 5px;
-
-            border-radius: 15px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dfa1b1,
-                    #d18399
-                );
-
-            box-shadow:
-                0 8px 22px
-                rgba(190,110,135,.20);
-
-            animation:
-                cardFloat
-                5s ease-in-out infinite;
-        }
-
-
-        .count-box:nth-child(2) {
-            animation-delay: .5s;
-        }
-
-
-        .count-box:nth-child(3) {
-            animation-delay: 1s;
-        }
-
-
-        .count-box:nth-child(4) {
-            animation-delay: 1.5s;
-        }
-
-
-        .count-number {
-
-            display: block;
-
-            font-size: 25px;
-
-            color: #ffffff;
-        }
-
-
-        .count-label {
-
-            display: block;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 9px;
-
-            letter-spacing: 1px;
-
-            color: #ffffff;
-
-            margin-top: 5px;
-        }
-
-
-
-        /* =====================================================
-           EVENT
-        ===================================================== */
-
-        .event-section {
-
-            max-width: 600px;
-
-            width: 100%;
-
-            margin:
-                45px auto 0;
-        }
-
-
-        .event-card {
-
-            padding:
-                25px 20px;
-
-            margin-top: 18px;
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dfa1b1,
-                    #d18399
-                );
-
-            box-shadow:
-                0 8px 25px
-                rgba(190,110,135,.20);
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-
-        .event-title {
-
-            font-size: 21px;
-
-            color: #ffffff;
-
-            margin-bottom: 15px;
-        }
-
-
-        .event-time {
-
-            font-family: Arial, sans-serif;
-
-            font-size: 15px;
-
-            line-height: 1.8;
-
-            color: #ffffff;
-        }
-
-
-        .event-place {
-
-            margin-top: 18px;
-
-            font-size: 15px;
-
-            line-height: 1.7;
-
-            color: #ffffff;
-        }
-
-
-        .maps-button {
-
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding:
-                12px 25px;
-
-            border-radius: 25px;
-
-            background: #ffffff;
-
-            color: #c16f86;
-
-            text-decoration: none;
-
-            font-family: Arial, sans-serif;
-
             font-size: 14px;
         }
 
-
-
-        /* =====================================================
-           GIFT
-        ===================================================== */
-
-        .gift-section,
-        .rsvp-section {
-
-            max-width: 600px;
-
-            width: 100%;
-
-            margin:
-                0 auto;
-
-            padding:
-                35px 25px;
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #dfa1b1,
-                    #d18399
-                );
-
-            box-shadow:
-                0 8px 25px
-                rgba(190,110,135,.20);
-
-            position: relative;
-
-            overflow: hidden;
+        .invited-text {
+            font-size: 9px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
         }
 
-
-        .gift-icon {
-
-            font-size: 42px;
-
-            margin-bottom: 15px;
-
-            animation:
-                giftFloat
-                3s ease-in-out infinite;
+        .cover h1 {
+            font-size: 48px;
         }
 
-
-        .gift-section h2,
-        .rsvp-section h2 {
-
-            font-size: 27px;
-
-            font-weight: normal;
-
-            color: #ffffff;
-
-            margin:
-                5px 0
-                20px;
+        .small-text {
+            font-size: 10px;
+            letter-spacing: 3px;
         }
 
-
-        .gift-section p,
-        .rsvp-section p {
-
-            font-size: 15px;
-
-            line-height: 1.8;
-
-            margin: 0 auto;
-
-            color: #ffffff;
-        }
-
-
-
-        /* =====================================================
-           RSVP
-        ===================================================== */
-
-        .rsvp-form {
-
+        .envelope-button {
+            transform: scale(.84);
             margin-top: 25px;
         }
 
+        .cover-poppy {
+            width: 130%;
+            max-width: none;
+        }
 
-        .rsvp-form input,
-        .rsvp-form select,
-        .rsvp-form textarea {
-
-            width: 100%;
-
+        .main-content {
             padding:
-                13px 15px;
-
-            margin-bottom: 15px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #ffffff;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 14px;
-
-            color: #654f4f;
-
-            outline: none;
+                0 18px 60px;
         }
 
-
-        .rsvp-form textarea {
-
-            min-height: 100px;
-
-            resize: vertical;
-        }
-
-
-        .rsvp-form button {
-
-            width: 100%;
-
-            padding: 14px;
-
-            border: none;
-
-            border-radius: 25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #b8667e,
-                    #c97891
-                );
-
-            color: white;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 14px;
-
-            cursor: pointer;
-        }
-
-
-        #rsvpMessage {
-
-            margin-top: 15px;
-
-            font-family: Arial, sans-serif;
-
-            font-size: 14px;
-
-            color: #ffffff;
-        }
-
-
-
-        /* =====================================================
-           CLOSING
-        ===================================================== */
-
-        .closing {
-
-            max-width: 600px;
-
-            width: 100%;
-
-            margin:
-                0 auto;
-
+        .opening-section {
             padding:
-                20px 25px;
+                60px 0 20px;
         }
 
-
-        .closing p {
-
-            font-size: 14px;
-
-            line-height: 1.8;
-
-            color: #654f4f;
+        .couple-frame {
+            width: 310px;
+            max-width: 95%;
+            height: 405px;
         }
 
-
-
-        /* =====================================================
-           MUSIC
-        ===================================================== */
-
-        .music-button {
-
-            position: fixed;
-
-            right: 18px;
-
-            bottom: 18px;
-
-            width: 45px;
-
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #d99aab,
-                    #c97891
-                );
-
-            color: white;
-
-            font-size: 18px;
-
-            z-index: 1000;
-
-            display: none;
-
-            box-shadow:
-                0 5px 15px
-                rgba(190,110,135,.25);
-
-            cursor: pointer;
+        .couple-frame::before {
+            width: 255px;
+            height: 360px;
         }
 
-
-
-        /* =====================================================
-           ANIMATIONS
-        ===================================================== */
-
-        @keyframes coverAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(25px)
-                    scale(.97);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
+        .couple-frame::after {
+            width: 272px;
+            height: 377px;
         }
 
-
-        @keyframes fadeDown {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
+        .pengantin {
+            width: 265px;
+            max-width: 82%;
         }
 
-
-        @keyframes lineGrow {
-
-            from {
-                width: 0;
-                opacity: 0;
-            }
-
-            to {
-                width: 70px;
-                opacity: 1;
-            }
+        .frame-decoration.one {
+            left: 5px;
+            top: 45px;
         }
 
-
-        @keyframes titleFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-4px);
-            }
+        .frame-decoration.two {
+            right: 5px;
+            bottom: 40px;
         }
 
-
-        @keyframes gentlePulse {
-
-            0%,
-            100% {
-                opacity: .8;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.04);
-            }
+        .opening h2 {
+            font-size: 28px;
         }
 
-
-        @keyframes envelopeAppear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(30px)
-                    scale(.85);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
+        .quran-verse {
+            padding:
+                18px;
         }
 
-
-        @keyframes envelopeFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-7px)
-                    rotate(.8deg);
-            }
+        .quran-arabic {
+            font-size: 19px;
         }
 
-
-        @keyframes poppyFloat {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-6px);
-            }
+        .section-title {
+            font-size: 24px;
         }
 
-
-        @keyframes coupleFloating {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-9px);
-            }
+        .countdown {
+            gap: 8px;
         }
 
-
-        @keyframes framePulse {
-
-            0%,
-            100% {
-                opacity: .55;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.015);
-            }
+        .count-box {
+            width: 67px;
         }
 
-
-        @keyframes decorationFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-8px)
-                    rotate(5deg);
-            }
+        .count-number {
+            font-size: 21px;
         }
 
+        .gift-section,
+        .rsvp-section {
+            padding:
+                30px 20px;
+        }
+    }
 
-        @keyframes cardFloat {
 
-            0%,
-            100% {
-                transform: translateY(0);
-            }
+    @media (max-width: 380px) {
 
-            50% {
-                transform: translateY(-3px);
-            }
+        .cover h1 {
+            font-size: 43px;
         }
 
-
-        @keyframes giftFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-            }
-
-            50% {
-                transform:
-                    translateY(-7px)
-                    rotate(3deg);
-            }
+        .cover-poppy {
+            width: 150%;
         }
 
-
-        @keyframes softFloat {
-
-            0%,
-            100% {
-                transform:
-                    translate(0,0);
-            }
-
-            50% {
-                transform:
-                    translate(20px,15px);
-            }
+        .count-box {
+            width: 62px;
         }
 
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            .cover-content {
-                padding: 20px 18px;
-            }
-
-
-            .guest-greeting {
-                font-size: 13px;
-            }
-
-
-            .guest-name {
-                font-size: 22px;
-                margin-bottom: 16px;
-            }
-
-
-            .invited-text {
-                font-size: 10px;
-                margin-bottom: 22px;
-            }
-
-
-            .cover h1 {
-                font-size: 48px;
-            }
-
-
-            .small-text {
-                font-size: 10px;
-                letter-spacing: 3px;
-                margin-bottom: 18px;
-            }
-
-
-            .envelope-button {
-                transform: scale(.84);
-                margin-top: 25px;
-            }
-
-
-            .main-content {
-                padding:
-                    0 18px 60px;
-            }
-
-
-            .couple-frame {
-
-                width: 310px;
-
-                max-width: 95%;
-
-                height: 405px;
-            }
-
-
-            .couple-frame::before {
-
-                width: 255px;
-
-                height: 360px;
-            }
-
-
-            .couple-frame::after {
-
-                width: 272px;
-
-                height: 377px;
-            }
-
-
-            .pengantin {
-
-                width: 265px;
-
-                max-width: 82%;
-            }
-
-
-            .frame-decoration.one {
-
-                left: 5px;
-
-                top: 45px;
-            }
-
-
-            .frame-decoration.two {
-
-                right: 5px;
-
-                bottom: 40px;
-            }
-
-
-            .opening h2 {
-                font-size: 28px;
-            }
-
-
-            .opening-text {
-
-                font-size: 14px;
-
-                padding: 0 10px;
-            }
-
-
-            .quran-verse {
-
-                padding:
-                    18px;
-
-                margin:
-                    25px auto 18px;
-            }
-
-
-            .quran-arabic {
-
-                font-size: 19px;
-
-                line-height: 1.9;
-            }
-
-
-            .quran-translation {
-                font-size: 12px;
-            }
-
-
-            .section-title {
-
-                font-size: 24px;
-
-                line-height: 1.4;
-
-                margin-bottom: 20px;
-            }
-
-
-            .section-title::before,
-            .section-title::after {
-
-                margin: 0 5px;
-
-                font-size: 12px;
-            }
-
-
-            .countdown {
-                gap: 8px;
-            }
-
-
-            .count-box {
-
-                width: 67px;
-
-                padding:
-                    13px 4px;
-            }
-
-
-            .count-number {
-                font-size: 21px;
-            }
-
-
-            .gift-section,
-            .rsvp-section {
-
-                padding-left: 20px;
-
-                padding-right: 20px;
-            }
+        .quran-arabic {
+            font-size: 17px;
         }
+    }
 
 
-        @media (max-width: 380px) {
-
-            .cover h1 {
-                font-size: 43px;
-            }
-
-
-            .guest-name {
-                font-size: 20px;
-            }
-
-
-            .envelope-button {
-
-                transform: scale(.76);
-
-                margin-top: 18px;
-            }
-
-
-            .couple-frame {
-                transform: scale(.92);
-            }
-
-
-            .count-box {
-                width: 62px;
-            }
-        }
-
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration:
-                    .01ms !important;
-
-                animation-iteration-count:
-                    1 !important;
-
-                transition-duration:
-                    .01ms !important;
-            }
-        }
-
-    </style>
+</style>
+```
 
 </head>
 
-
-
 <body>
 
+```
+<!-- =====================================================
+     COVER / CURTAIN
+===================================================== -->
 
-    <!-- =====================================================
-         MAIN CONTENT
-    ===================================================== -->
+<section class="cover" id="cover">
 
-    <section
-        class="main-content"
-        id="mainContent"
+    <!-- PANEL TIRAI -->
+
+    <div class="curtain curtain-left"></div>
+
+    <div class="curtain curtain-right"></div>
+
+
+    <!-- POPPY -->
+
+    <img
+        src="poppy.png"
+        class="cover-poppy"
+        alt=""
     >
 
 
-        <!-- OPENING -->
+    <!-- CONTENT -->
 
-        <div class="opening-section">
+    <div class="cover-content">
 
-            <div class="opening reveal">
-
-
-                <div class="opening-small">
-                    THE WEDDING OF
-                </div>
-
-
-                <div class="couple-frame">
-
-                    <span class="frame-decoration one"></span>
-
-                    <span class="frame-decoration two"></span>
-
-
-                    <img
-                        src="pengantin.png"
-                        class="pengantin"
-                        alt="Ahmad Fauzi & Nur Hidayah"
-                    >
-
-                </div>
-
-
-                <h2 class="reveal delay-1">
-                    Ahmad Fauzi
-                </h2>
-
-
-                <div class="and reveal delay-2">
-                    &
-                </div>
-
-
-                <h2 class="reveal delay-3">
-                    Nur Hidayah
-                </h2>
-
-
-                <div class="quran-verse reveal delay-4">
-
-                    <p class="quran-arabic">
-                        وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
-                    </p>
-
-                    <p class="quran-translation">
-
-                        “Dan segala sesuatu kami jadikan
-                        berpasang-pasangan, supaya kamu
-                        mengingat kebesaran Allah.”
-
-                    </p>
-
-                    <div class="quran-reference">
-                        QS. Adz Dzariyaat (51): 49
-                    </div>
-
-                </div>
-
-
-                <p class="opening-text reveal">
-
-                    Dengan memohon rahmat dan ridho Allah SWT,
-                    kami bermaksud mengundang Bapak/Ibu/Saudara/i
-                    untuk hadir dalam acara pernikahan kami.
-
-                </p>
-
-            </div>
-
+        <div class="guest-name">
+            Hi <span id="guestName">Tamu Undangan</span>
         </div>
 
-
-
-        <!-- DETAILS -->
-
-        <div class="details-section">
-
-
-            <div class="countdown-section">
-
-                <h2 class="section-title reveal">
-                    Menuju Hari Bahagia
-                </h2>
-
-
-                <div class="countdown">
-
-                    <div class="count-box reveal delay-1">
-
-                        <span
-                            class="count-number"
-                            id="days"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            HARI
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-2">
-
-                        <span
-                            class="count-number"
-                            id="hours"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            JAM
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-3">
-
-                        <span
-                            class="count-number"
-                            id="minutes"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            MENIT
-                        </span>
-
-                    </div>
-
-
-                    <div class="count-box reveal delay-4">
-
-                        <span
-                            class="count-number"
-                            id="seconds"
-                        >
-                            00
-                        </span>
-
-                        <span class="count-label">
-                            DETIK
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- EVENT -->
-
-            <div class="event-section">
-
-
-                <div class="event-card reveal">
-
-                    <div class="event-title">
-                        Akad Nikah
-                    </div>
-
-                    <div class="event-time">
-                        07.00 WIB
-                    </div>
-
-                    <div class="event-place">
-
-                        Masjid Akbar Moedhar Arifin<br>
-                        Kec. Sidayu, Gresik
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="event-card reveal">
-
-                    <div class="event-title">
-                        Resepsi
-                    </div>
-
-                    <div class="event-time">
-                        08.30 – 10.30 WIB
-                    </div>
-
-                    <div class="event-place">
-
-                        Masjid Akbar Moedhar Arifin<br>
-                        Kec. Sidayu, Gresik
-
-                    </div>
-
-
-                    <a
-                        href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
-                        target="_blank"
-                        class="maps-button"
-                    >
-                        📍 Buka Google Maps
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="invited-text">
+            You're invited to
         </div>
 
-
-
-        <!-- HADIAH -->
-
-        <div class="gift-page-section">
-
-            <div class="gift-section reveal">
-
-                <div class="gift-icon">
-                    🎁
-                </div>
-
-
-                <h2>
-                    Hadiah
-                </h2>
-
-
-                <p>
-
-                    Hadiah paling berharga bagi kami adalah
-                    kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
-                    untuk kebahagiaan pernikahan kami.
-
-                </p>
-
-            </div>
-
+        <div class="small-text">
+            THE WEDDING OF
         </div>
 
+        <div class="line"></div>
 
+        <h1>Hida</h1>
 
-        <!-- RSVP -->
-
-        <div class="rsvp-page-section">
-
-            <div class="rsvp-section reveal">
-
-                <h2>
-                    Konfirmasi Kehadiran
-                </h2>
-
-
-                <p>
-
-                    Mohon konfirmasi kehadiran Anda
-                    melalui formulir berikut.
-
-                </p>
-
-
-                <form
-                    class="rsvp-form"
-                    id="rsvpForm"
-                >
-
-
-                    <input
-                        type="text"
-                        id="nama"
-                        name="nama"
-                        placeholder="Nama"
-                        required
-                    >
-
-
-                    <select
-                        id="kehadiran"
-                        name="kehadiran"
-                        required
-                    >
-
-                        <option value="">
-                            Konfirmasi Kehadiran
-                        </option>
-
-                        <option value="Hadir">
-                            Hadir
-                        </option>
-
-                        <option value="Tidak Hadir">
-                            Tidak Hadir
-                        </option>
-
-                    </select>
-
-
-                    <textarea
-                        id="pesan"
-                        name="pesan"
-                        placeholder="Ucapan / doa untuk Hida & Fauzi"
-                    ></textarea>
-
-
-                    <button type="submit">
-                        Kirim RSVP
-                    </button>
-
-                </form>
-
-
-                <div id="rsvpMessage"></div>
-
-            </div>
-
+        <div class="ampersand">
+            &
         </div>
 
+        <h1>Fauzi</h1>
 
 
-        <!-- CLOSING -->
-
-        <div class="closing-section">
-
-            <div class="closing reveal">
-
-                <p>
-
-                    Merupakan suatu kebahagiaan bagi kami
-                    apabila Bapak/Ibu/Saudara/i berkenan
-                    hadir dan memberikan doa restu.
-
-                </p>
-
-
-                <p>
-
-                    Terima kasih atas doa, perhatian,
-                    dan kasih sayang yang diberikan kepada kami.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- =====================================================
-         COVER / CURTAIN
-    ===================================================== -->
-
-    <section
-        class="cover"
-        id="cover"
-    >
-
-        <div class="curtain curtain-left"></div>
-
-        <div class="curtain curtain-right"></div>
-
-
-        <div class="cover-content">
-
-
-            <div class="content">
-
-
-                <!-- NAMA TAMU -->
-
-                <div class="guest-greeting">
-                    Hi,
-                </div>
-
-
-                <div
-                    class="guest-name"
-                    id="guestName"
-                >
-                    Tamu Undangan
-                </div>
-
-
-                <div class="invited-text">
-                    YOU'RE INVITED TO
-                </div>
-
-
-
-                <div class="small-text">
-                    THE WEDDING OF
-                </div>
-
-
-                <div class="line"></div>
-
-
-                <h1>
-                    Hida
-                </h1>
-
-
-                <div class="ampersand">
-                    &
-                </div>
-
-
-                <h1>
-                    Fauzi
-                </h1>
-
-
-
-                <div
-                    class="envelope-button"
-                    onclick="bukaUndangan()"
-                    role="button"
-                    aria-label="Buka Undangan"
-                >
-
-                    <div class="envelope-body">
-
-                        <div class="envelope-label">
-                            BUKA UNDANGAN
-                        </div>
-
-                    </div>
-
-
-                    <div class="envelope-flap"></div>
-
-
-                    <div class="envelope-heart">
-                        ♥
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <img
-            src="poppy.png"
-            class="cover-poppy"
-            alt=""
+        <div
+            class="envelope-button"
+            onclick="bukaUndangan()"
+            role="button"
         >
 
-    </section>
+            <div class="envelope-body">
+
+                <div class="envelope-label">
+                    BUKA UNDANGAN
+                </div>
+
+            </div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-heart">
+                ♥
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
 
-    <!-- =====================================================
-         MUSIC
-    ===================================================== -->
+<section
+    class="main-content"
+    id="mainContent"
+>
 
-    <audio
-        id="backgroundMusic"
-        loop
-        preload="auto"
+
+    <!-- OPENING -->
+
+    <div class="opening-section">
+
+        <div class="opening reveal">
+
+            <div class="opening-small">
+                THE WEDDING OF
+            </div>
+
+            <div class="couple-frame">
+
+                <span class="frame-decoration one"></span>
+
+                <span class="frame-decoration two"></span>
+
+                <img
+                    src="pengantin.png"
+                    class="pengantin"
+                    alt="Ahmad Fauzi & Nur Hidayah"
+                >
+
+            </div>
+
+            <h2 class="reveal delay-1">
+                Ahmad Fauzi
+            </h2>
+
+            <div class="and reveal delay-2">
+                &
+            </div>
+
+            <h2 class="reveal delay-3">
+                Nur Hidayah
+            </h2>
+
+
+            <div class="quran-verse reveal delay-4">
+
+                <p class="quran-arabic">
+                    وَمِن كُلِّ شَىْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+                </p>
+
+                <p class="quran-translation">
+                    “Dan segala sesuatu kami jadikan
+                    berpasang-pasangan, supaya kamu
+                    mengingat kebesaran Allah.”
+                </p>
+
+                <div class="quran-reference">
+                    QS. Adz Dzariyaat (51): 49
+                </div>
+
+            </div>
+
+
+            <p class="opening-text reveal">
+
+                Dengan memohon rahmat dan ridho Allah SWT,
+                kami bermaksud mengundang Bapak/Ibu/Saudara/i
+                untuk hadir dalam acara pernikahan kami.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="details-section">
+
+
+        <div class="countdown-section">
+
+            <h2 class="section-title reveal">
+                Menuju Hari Bahagia
+            </h2>
+
+
+            <div class="countdown">
+
+                <div class="count-box reveal delay-1">
+
+                    <span class="count-number" id="days">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        HARI
+                    </span>
+
+                </div>
+
+
+                <div class="count-box reveal delay-2">
+
+                    <span class="count-number" id="hours">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        JAM
+                    </span>
+
+                </div>
+
+
+                <div class="count-box reveal delay-3">
+
+                    <span class="count-number" id="minutes">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        MENIT
+                    </span>
+
+                </div>
+
+
+                <div class="count-box reveal delay-4">
+
+                    <span class="count-number" id="seconds">
+                        00
+                    </span>
+
+                    <span class="count-label">
+                        DETIK
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="event-section">
+
+
+            <div class="event-card reveal">
+
+                <div class="event-title">
+                    Akad Nikah
+                </div>
+
+                <div class="event-time">
+                    07.00 WIB
+                </div>
+
+                <div class="event-place">
+
+                    Masjid Akbar Moedhar Arifin<br>
+                    Kec. Sidayu, Gresik
+
+                </div>
+
+            </div>
+
+
+            <div class="event-card reveal">
+
+                <div class="event-title">
+                    Resepsi
+                </div>
+
+                <div class="event-time">
+                    08.30 – 10.30 WIB
+                </div>
+
+                <div class="event-place">
+
+                    Masjid Akbar Moedhar Arifin<br>
+                    Kec. Sidayu, Gresik
+
+                </div>
+
+                <a
+                    href="https://maps.app.goo.gl/HD7u83NQ1EnwfF3RA"
+                    target="_blank"
+                    class="maps-button"
+                >
+                    📍 Buka Google Maps
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HADIAH -->
+
+    <div class="gift-page-section">
+
+        <div class="gift-section reveal">
+
+            <div class="gift-icon">
+                🎁
+            </div>
+
+            <h2>
+                Hadiah
+            </h2>
+
+            <p>
+
+                Hadiah paling berharga bagi kami adalah
+                kehadiran dan/atau doa dari Bapak/Ibu/Saudara/i
+                untuk kebahagiaan pernikahan kami.
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RSVP -->
+
+    <div class="rsvp-page-section">
+
+        <div class="rsvp-section reveal">
+
+            <h2>
+                Konfirmasi Kehadiran
+            </h2>
+
+            <p>
+                Mohon konfirmasi kehadiran Anda
+                melalui formulir berikut.
+            </p>
+
+
+            <form
+                class="rsvp-form"
+                id="rsvpForm"
+            >
+
+                <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    placeholder="Nama"
+                    required
+                >
+
+
+                <select
+                    id="kehadiran"
+                    name="kehadiran"
+                    required
+                >
+
+                    <option value="">
+                        Konfirmasi Kehadiran
+                    </option>
+
+                    <option value="Hadir">
+                        Hadir
+                    </option>
+
+                    <option value="Tidak Hadir">
+                        Tidak Hadir
+                    </option>
+
+                </select>
+
+
+                <textarea
+                    id="pesan"
+                    name="pesan"
+                    placeholder="Ucapan / doa untuk Hida & Fauzi"
+                ></textarea>
+
+
+                <button type="submit">
+                    Kirim RSVP
+                </button>
+
+            </form>
+
+            <div id="rsvpMessage"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CLOSING -->
+
+    <div class="closing-section">
+
+        <div class="closing reveal">
+
+            <p>
+
+                Merupakan suatu kebahagiaan bagi kami
+                apabila Bapak/Ibu/Saudara/i berkenan
+                hadir dan memberikan doa restu.
+
+            </p>
+
+            <p>
+
+                Terima kasih atas doa, perhatian,
+                dan kasih sayang yang diberikan kepada kami.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MUSIK
+===================================================== -->
+
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+
+    <source
+        src="asepirawan20-wedding-background-music-5529.mp3"
+        type="audio/mpeg"
     >
 
-        <source
-            src="asepirawan20-wedding-background-music-5529.mp3"
-            type="audio/mpeg"
-        >
-
-    </audio>
+</audio>
 
 
-
-    <button
-        class="music-button"
-        id="musicButton"
-        onclick="toggleMusic()"
-    >
-        🔊
-    </button>
-
+<button
+    class="music-button"
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    🔊
+</button>
 
 
-    <script>
+<script>
 
 
-        /* =====================================================
-           NAMA TAMU DARI URL
-        ===================================================== */
+    /* =====================================================
+       NAMA TAMU DARI URL
+    ===================================================== */
 
-        const params =
-            new URLSearchParams(
-                window.location.search
-            );
-
-
-        const guest =
-            params.get("to");
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
 
 
-        if (
-            guest &&
-            guest.trim() !== ""
-        ) {
+    const guest =
+        urlParams.get("to");
 
+
+    if (guest) {
+
+        document.getElementById(
+            "guestName"
+        ).textContent =
+            decodeURIComponent(guest);
+
+    }
+
+
+    /* =====================================================
+       BUKA UNDANGAN - CURTAIN
+    ===================================================== */
+
+    function bukaUndangan() {
+
+        const cover =
+            document.getElementById("cover");
+
+        const musicButton =
+            document.getElementById("musicButton");
+
+        const music =
             document.getElementById(
-                "guestName"
-            ).textContent =
-                guest;
-
-        }
-
-
-
-        /* =====================================================
-           BUKA UNDANGAN + TIRAI
-        ===================================================== */
-
-        function bukaUndangan() {
-
-
-            const cover =
-                document.getElementById(
-                    "cover"
-                );
-
-
-            const music =
-                document.getElementById(
-                    "backgroundMusic"
-                );
-
-
-            const musicButton =
-                document.getElementById(
-                    "musicButton"
-                );
-
-
-            /* MULAI MUSIK */
-
-            music.play()
-                .then(function() {
-
-                    musicButton.innerHTML =
-                        "🔊";
-
-                })
-                .catch(function(error) {
-
-                    console.log(
-                        "Musik belum dapat diputar:",
-                        error
-                    );
-
-                });
-
-
-            /* TAMPILKAN TOMBOL MUSIK */
-
-            musicButton.style.display =
-                "block";
-
-
-            /* BUKA TIRAI */
-
-            cover.classList.add(
-                "opening"
+                "backgroundMusic"
             );
 
 
-            /* REVEAL HALAMAN */
-
-            setTimeout(function() {
-
-                document
-                    .querySelectorAll(".reveal")
-                    .forEach(function(element) {
-
-                        const rect =
-                            element.getBoundingClientRect();
+        cover.classList.add("open");
 
 
-                        if (
-                            rect.top <
-                            window.innerHeight * .9
-                        ) {
-
-                            element.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-            }, 400);
+        musicButton.style.display =
+            "block";
 
 
-            /* HAPUS COVER SETELAH ANIMASI */
+        music.play()
+            .then(function() {
 
-            setTimeout(function() {
-
-                cover.style.display =
-                    "none";
-
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "auto"
-                });
-
-            }, 1550);
-
-        }
-
-
-
-        /* =====================================================
-           MUSIK
-        ===================================================== */
-
-        function toggleMusic() {
-
-            const music =
-                document.getElementById(
-                    "backgroundMusic"
-                );
-
-
-            const button =
-                document.getElementById(
-                    "musicButton"
-                );
-
-
-            if (music.paused) {
-
-                music.play();
-
-                button.innerHTML =
+                musicButton.innerHTML =
                     "🔊";
 
-            }
-
-            else {
-
-                music.pause();
-
-                button.innerHTML =
-                    "🔇";
-
-            }
-
-        }
-
-
-
-        /* =====================================================
-           COUNTDOWN
-        ===================================================== */
-
-        const weddingDate =
-            new Date(
-                "September 18, 2026 07:00:00"
-            ).getTime();
-
-
-
-        function updateCountdown() {
-
-            const now =
-                new Date().getTime();
-
-
-            const distance =
-                weddingDate - now;
-
-
-            if (distance <= 0) {
-
-                document.getElementById("days").innerHTML =
-                    "00";
-
-                document.getElementById("hours").innerHTML =
-                    "00";
-
-                document.getElementById("minutes").innerHTML =
-                    "00";
-
-                document.getElementById("seconds").innerHTML =
-                    "00";
-
-                return;
-            }
-
-
-            const days =
-                Math.floor(
-                    distance /
-                    (1000 * 60 * 60 * 24)
-                );
-
-
-            const hours =
-                Math.floor(
-                    (
-                        distance %
-                        (1000 * 60 * 60 * 24)
-                    )
-                    /
-                    (1000 * 60 * 60)
-                );
-
-
-            const minutes =
-                Math.floor(
-                    (
-                        distance %
-                        (1000 * 60 * 60)
-                    )
-                    /
-                    (1000 * 60)
-                );
-
-
-            const seconds =
-                Math.floor(
-                    (
-                        distance %
-                        (1000 * 60)
-                    )
-                    /
-                    1000
-                );
-
-
-            document.getElementById("days").innerHTML =
-                String(days).padStart(2, "0");
-
-
-            document.getElementById("hours").innerHTML =
-                String(hours).padStart(2, "0");
-
-
-            document.getElementById("minutes").innerHTML =
-                String(minutes).padStart(2, "0");
-
-
-            document.getElementById("seconds").innerHTML =
-                String(seconds).padStart(2, "0");
-
-        }
-
-
-        updateCountdown();
-
-
-        setInterval(
-            updateCountdown,
-            1000
-        );
-
-
-
-        /* =====================================================
-           SCROLL REVEAL
-        ===================================================== */
-
-        window.addEventListener(
-            "scroll",
-            function() {
-
-                document
-                    .querySelectorAll(".reveal")
-                    .forEach(function(element) {
-
-                        const rect =
-                            element.getBoundingClientRect();
-
-
-                        const isVisible =
-                            rect.top <
-                            window.innerHeight * .88
-                            &&
-                            rect.bottom >
-                            window.innerHeight * .12;
-
-
-                        if (isVisible) {
-
-                            element.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-            },
-            {
-                passive: true
-            }
-        );
-
-
-
-        /* =====================================================
-           INITIAL OBSERVER
-        ===================================================== */
-
-        const initialReveal =
-            new IntersectionObserver(
-
-                function(entries) {
-
-                    entries.forEach(
-                        function(entry) {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "active"
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-
-                {
-                    threshold: .12
-                }
-
-            );
-
-
-        document
-            .querySelectorAll(".reveal")
-            .forEach(function(element) {
-
-                initialReveal.observe(
-                    element
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Musik belum dapat diputar:",
+                    error
                 );
 
             });
 
 
+        setTimeout(function() {
 
-        /* =====================================================
-           RSVP GOOGLE SHEETS
-        ===================================================== */
+            cover.style.display =
+                "none";
 
-        const scriptURL =
-            "https://script.google.com/macros/s/AKfycbwGvpO9AnrKhbBDos8Tpc1X-_NDGhwcBvVFWTQm1ACnoruGrAzugrmUtJTidoa2u-Ra/exec";
-
-
-        document
-            .getElementById("rsvpForm")
-            .addEventListener(
-                "submit",
-                function(e) {
-
-                    e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "auto"
+            });
 
 
-                    const form =
-                        document.getElementById(
-                            "rsvpForm"
-                        );
+            document
+                .querySelectorAll(
+                    ".opening .reveal"
+                )
+                .forEach(function(element) {
 
-
-                    const message =
-                        document.getElementById(
-                            "rsvpMessage"
-                        );
-
-
-                    const button =
-                        form.querySelector(
-                            "button"
-                        );
-
-
-                    button.disabled = true;
-
-                    button.innerHTML =
-                        "Mengirim...";
-
-
-                    const data =
-                        new URLSearchParams();
-
-
-                    data.append(
-                        "nama",
-                        document.getElementById(
-                            "nama"
-                        ).value
+                    element.classList.add(
+                        "active"
                     );
 
+                });
 
-                    data.append(
-                        "kehadiran",
-                        document.getElementById(
-                            "kehadiran"
-                        ).value
-                    );
+        }, 1850);
+
+    }
 
 
-                    data.append(
-                        "pesan",
-                        document.getElementById(
-                            "pesan"
-                        ).value
-                    );
+    /* =====================================================
+       MUSIK
+    ===================================================== */
 
+    function toggleMusic() {
 
-                    fetch(
-                        scriptURL,
-                        {
-                            method: "POST",
-                            body: data
-                        }
-                    )
+        const music =
+            document.getElementById(
+                "backgroundMusic"
+            );
 
-                    .then(function() {
-
-                        message.innerHTML =
-                            "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
-
-
-                        form.reset();
-
-
-                        button.disabled = false;
-
-
-                        button.innerHTML =
-                            "Kirim RSVP";
-
-                    })
-
-                    .catch(function(error) {
-
-                        console.error(error);
-
-
-                        message.innerHTML =
-                            "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
-
-
-                        button.disabled = false;
-
-
-                        button.innerHTML =
-                            "Kirim RSVP";
-
-                    });
-
-                }
+        const button =
+            document.getElementById(
+                "musicButton"
             );
 
 
-    </script>
+        if (music.paused) {
 
+            music.play();
+
+            button.innerHTML =
+                "🔊";
+
+        }
+
+        else {
+
+            music.pause();
+
+            button.innerHTML =
+                "🔇";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       COUNTDOWN
+    ===================================================== */
+
+    const weddingDate =
+        new Date(
+            "September 18, 2026 07:00:00"
+        ).getTime();
+
+
+    function updateCountdown() {
+
+        const now =
+            new Date().getTime();
+
+        const distance =
+            weddingDate - now;
+
+
+        if (distance <= 0) {
+
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+
+            return;
+        }
+
+
+        const days =
+            Math.floor(
+                distance /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const hours =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60 * 60 * 24)
+                )
+                /
+                (1000 * 60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60 * 60)
+                )
+                /
+                (1000 * 60)
+            );
+
+
+        const seconds =
+            Math.floor(
+                (
+                    distance %
+                    (1000 * 60)
+                )
+                /
+                1000
+            );
+
+
+        document.getElementById("days").innerHTML =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").innerHTML =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").innerHTML =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").innerHTML =
+            String(seconds).padStart(2, "0");
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    let lastScrollY =
+        window.scrollY;
+
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            const currentScrollY =
+                window.scrollY;
+
+            const scrollingDown =
+                currentScrollY >
+                lastScrollY;
+
+
+            document
+                .querySelectorAll(".reveal")
+                .forEach(function(element) {
+
+                    const rect =
+                        element.getBoundingClientRect();
+
+                    const windowHeight =
+                        window.innerHeight;
+
+
+                    const isVisible =
+                        rect.top <
+                            windowHeight * .88
+                        &&
+                        rect.bottom >
+                            windowHeight * .12;
+
+
+                    if (isVisible) {
+
+                        element.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                    else {
+
+                        element.classList.remove(
+                            "active"
+                        );
+
+
+                        if (scrollingDown) {
+
+                            element.classList.remove(
+                                "from-top"
+                            );
+
+                        }
+
+                        else {
+
+                            element.classList.add(
+                                "from-top"
+                            );
+
+                        }
+
+                    }
+
+                });
+
+
+            lastScrollY =
+                currentScrollY;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL REVEAL
+    ===================================================== */
+
+    const initialReveal =
+        new IntersectionObserver(
+
+            function(entries) {
+
+                entries.forEach(
+                    function(entry) {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+
+            {
+                threshold: .12
+            }
+
+        );
+
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(function(element) {
+
+            initialReveal.observe(element);
+
+        });
+
+
+    /* =====================================================
+       RSVP GOOGLE SHEETS
+    ===================================================== */
+
+    const scriptURL =
+        "https://script.google.com/macros/s/AKfycbwGvpO9AnrKhbBDos8Tpc1X-_NDGhwcBvVFWTQm1ACnoruGrAzugrmUtJTidoa2u-Ra/exec";
+
+
+    document
+        .getElementById("rsvpForm")
+        .addEventListener(
+            "submit",
+            function(e) {
+
+                e.preventDefault();
+
+
+                const form =
+                    document.getElementById(
+                        "rsvpForm"
+                    );
+
+
+                const message =
+                    document.getElementById(
+                        "rsvpMessage"
+                    );
+
+
+                const button =
+                    form.querySelector(
+                        "button"
+                    );
+
+
+                button.disabled = true;
+
+                button.innerHTML =
+                    "Mengirim...";
+
+
+                const data =
+                    new URLSearchParams();
+
+
+                data.append(
+                    "nama",
+                    document.getElementById(
+                        "nama"
+                    ).value
+                );
+
+
+                data.append(
+                    "kehadiran",
+                    document.getElementById(
+                        "kehadiran"
+                    ).value
+                );
+
+
+                data.append(
+                    "pesan",
+                    document.getElementById(
+                        "pesan"
+                    ).value
+                );
+
+
+                fetch(
+                    scriptURL,
+                    {
+                        method: "POST",
+                        body: data
+                    }
+                )
+
+                .then(function() {
+
+                    message.innerHTML =
+                        "✅ Terima kasih, konfirmasi Anda sudah terkirim.";
+
+                    form.reset();
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        "Kirim RSVP";
+
+                })
+
+                .catch(function(error) {
+
+                    console.error(error);
+
+                    message.innerHTML =
+                        "❌ Maaf, data belum berhasil dikirim. Silakan coba lagi.";
+
+                    button.disabled = false;
+
+                    button.innerHTML =
+                        "Kirim RSVP";
+
+                });
+
+            }
+        );
+
+
+</script>
+```
 
 </body>
 
